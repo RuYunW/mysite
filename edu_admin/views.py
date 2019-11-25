@@ -15,3 +15,8 @@ def stu_info(request, stu_no):
     sclass = stu.stu_class
     return render(request, "edu_admin/info.html", {"stu": stu, "school": school, "major": major, "sclass": sclass})
 
+
+def wel_stu(request):
+    # stu = get_object_or_404(Student, stu_no=stu_no)
+    # name = stu.stu_name
+    return render(request, "edu_admin/welcome_Stu.html", )

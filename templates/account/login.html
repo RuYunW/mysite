@@ -29,6 +29,7 @@
 	</head>
 
 <body>
+
 	<!-- Loader -->
 	<div class="fh5co-loader"></div>
 	
@@ -47,18 +48,23 @@
 		<!-- #fh5co-header -->
 
 		<section id="fh5co-hero" class="no-js-fullheight" style="background-image: url(../../static/images/index.jpg);" data-next="yes">
-	
 
-			
+{% if form.errors %}
+    <p>用户名或密码错误</p>
+{% endif %}
+
+        <p>请输入用户名和密码</p>
 <div class="fh5co-overlay"></div>
 			<canvas id="demo-canvas" style="position:absolute"></canvas>
 			<div class="container">
 				<div class="fh5co-intro no-js-fullheight">
 					<div class="fh5co-intro-text">
 						<div class="fh5co-center-position">
-							<form action="" method="get" id="login">
-							  <h3 class="animate-box" style="color:black">用户名：<input type="text" name=name1 style="color:black;opacity: 0.3" sutofocus/></h3>
-								<h3 class="animate-box" style="color:black">密&emsp;码：<input type="password" name=pw1 style="color:black;opacity: 0.3" sutofocus/></h3>
+							<form action="{% url 'account:user_login' %}" method="post" id="login">{% csrf_token %}
+{#							  <h3 class="animate-box" style="color:black">用户名：<input type="text" name=name1 style="color:black;opacity: 0.3" sutofocus/></h3>#}
+                              <div style="color:black;opacity: 0.3" sutofocus><h3 class="animate-box" style="color:black">用户名：{{ form.username }}</h3></div>
+{#								<h3 class="animate-box" style="color:black">密&emsp;码：<input type="password" name=pw1 style="color:black;opacity: 0.3" sutofocus/></h3>#}
+                                <div style="color:black;opacity: 0.3" sutofocus><h3 class="animate-box" style="color:black">密&emsp;码：{{ form.password }}</h3></div>
 								<h4 class="animate-box">
 									<input type="submit" style="color:rgba(255,255,255,0.8);width: 150px;height: 50px;border-radius: 30px;border: none; background: rgba(66,57,40,0.5);" value="登陆" />&nbsp;
 									&emsp;<a href="../edu_admin/index.html">
