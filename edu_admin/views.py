@@ -20,3 +20,25 @@ def wel_stu(request):
     # stu = get_object_or_404(Student, stu_no=stu_no)
     # name = stu.stu_name
     return render(request, "edu_admin/welcome_Stu.html", )
+
+
+def stu_my_sch(request):
+    return render(request, "edu_admin/Stu_my_schedule.html", )
+
+
+def stu_select_src(request):
+    return render(request, "edu_admin/Stu_select_sourses.html", )
+
+
+def stu_my_grade(request):
+    return render(request, "edu_admin/Stu_my_grade.html", )
+
+
+def stu_req_selected(request):
+    return render(request, "edu_admin/Stu_required_selected.html", )
+
+
+def stu_ele_select(request):
+    return render(request, "edu_admin/Stu_elective_selected.html", )
+
+

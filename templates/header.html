@@ -1,18 +1,43 @@
 {% load staticfiles %}
 <div class="container">
-    <nav class="navbar navbar-default" role="navigation">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="http://www.sdnu.edu.cn/">
-                <img src="{% static '/images/QQ图片20191124212524.jpg' %}" width="100px">
-            </a>
+    <div class="logo">
+        <a name="return_button_top"></a>
+        <div class="logo_img">
+            <img src="{% static '/images/logo.png' %}">
         </div>
-        <div>
-            <ul class="nav navbar-nav" role="navigation">
-                <li><a href="{% url 'edu_admin:stu_name' %}">NAME</a></li></ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">LOGIN</a></li>
-            </ul>
-        </div>
+        <div class="sousuo">
+            <form>
+                <span class="icon-search"></span> <!-- 搜索框的查找图标 -->
+                <input type="text" class="search" placeholder="搜索">
 
+            </form>
+        </div>
+    </div>
+
+
+    <nav class="navbar-default" role="navigation" style="background: #9d6b2e;opacity: 0.7">
+        <div class="container-fluid">
+            <div class="navbar-header" style="background: #152620;opacity: 0.6">
+                <a class="navbar-brand" href="{% url 'edu_admin:stu_my_sch' %}" style="color:white">&nbsp;&nbsp;&nbsp;课表&nbsp;&nbsp;&nbsp;</a>
+            </div>
+            <div>
+                <ul class="nav navbar-nav" style="background: #152620;opacity: 0.6">
+                    <li class="dropdown"><a href="{% url 'edu_admin:stu_select_src' %}" style="color:white">&nbsp;&nbsp;&nbsp;选课&nbsp;&nbsp;&nbsp;</a>
+                    </li>
+                    <li><a href="{% url 'edu_admin:stu_my_grade' %}" style="background: #152620;color:white">&nbsp;&nbsp;&nbsp;成绩&nbsp;&nbsp;&nbsp;</a>
+                    </li>
+                    <li class="dropdown" style="background: #152620;">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:white">
+                            &nbsp;&nbsp;&nbsp;查看已选&nbsp;&nbsp;&nbsp;<b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{% url 'edu_admin:stu_req_select' %}">必修</a></li>
+                            <li class="divider"></li>
+                            <li><a href="{% url 'edu_admin:stu_ele_select' %}">选修</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </nav>
 </div>

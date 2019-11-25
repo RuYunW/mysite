@@ -1,19 +1,33 @@
+{% load staticfiles %}
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="en">
 <head>
-    <meta http-equiv="X-UA-Compatible" content="IE-Edge">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
-    <link rel="stylesheet" href="https://github.com/necolas/normalize.css/blob/master/normalize.css">
-    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../static/css/style1.css">
+    <!-- Animate.css 滑动-->
+    <link rel="stylesheet" href="../../static/css/animate.css">
+    <!-- Icomoon Icon Fonts 图标-->
+    <link rel="stylesheet" href="../../static/css/icomoon.css">
+    <!-- Bootstrap 框架 -->
+    <link rel="stylesheet" href="../../static/css/bootstrap.css">
+
+    <link rel="stylesheet" href="../../static/css/style.css">
+    <!-- 搜索框的查找图标 -->
+    <link rel="stylesheet" href="../../static/css/style_search.css">
+    <!--    水纹按钮动画-->
+    <script src="../../static/js/prefixfree.min_animated_button.js"></script>
+    <!--[if IE]鼠标动画-->
+    <script src="../../static/js/html5.js"></script>
+    <!--[endif]-->
+
+<!--    <link rel="stylesheet" href="css/style_animated_button.css">-->
 </head>
 <body>
+    {% include 'header.html' %}
     <div class="container">
-        {% block content %}
-        {% endblock %}
+        {% block content %}{% endblock %}
     </div>
-    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
-    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    {% include "footer.html" %}
+{#    {% block javascript %}{% endblock %}#}
 </body>
-</html>
