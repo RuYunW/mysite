@@ -1,4 +1,4 @@
-
+{% load staticfiles %}
 <footer id="fh5co-footer">
     <div class="container">
         <div class="row row-bottom-padded-md">
@@ -44,7 +44,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <p class="fh5co-left">
-                        <small>&copy; 2019 <a href="{% url 'account/index'%}">SDNU</a> Jiahui Zhan</small>
+                        <small>&copy; 2019 <a href="{% url 'edu_admin:index'%}">SDNU</a> Jiahui Zhan</small>
                     </p>
                 </div>
             </div>
@@ -55,21 +55,21 @@
 
 <script src="{% static '/js/TweenLite.min.js' %}"></script>
 <script src="{% static '/js/EasePack.min.js' %}"></script>
-<script src="{% static '/js/rAF.js' %}></script>
-<script src="../../static/js/demo-1.js"></script>
+<script src="{% static '/js/rAF.js' %}"></script>
+<script src="{% static '/js/demo-1.js' %}"></script>
 <!-- 代码部分end -->
 <!-- jQuery -->
-<script src="../../static/js/jquery.min.js"></script>
+<script src="{% static '/js/jquery.min.js' %}"></script>
 <!-- jQuery Easing -->
-<script src="../../static/js/jquery.easing.1.3.js"></script>
+<script src="{% static '/js/jquery.easing.1.3.js' %}"></script>
 <!-- Bootstrap -->
-<script src="../../static/js/bootstrap.min.js"></script>
+<script src="{% static '/js/bootstrap.min.js' %}"></script>
 <!-- Waypoints -->
-<script src="../../static/js/jquery.waypoints.min.js"></script>
+<script src="{% static '/js/jquery.waypoints.min.js' %}"></script>
 <!-- Flexslider -->
-<script src="../../static/js/jquery.flexslider-min.js"></script>
+<script src="{% static '/js/jquery.flexslider-min.js' %}"></script>
 <!-- Magnific Popup -->
-<script src="../../static/js/jquery.magnific-popup.min.js"></script>
-<script src="../../static/js/magnific-popup-options.js"></script>
+<script src="{% static '/js/jquery.magnific-popup.min.js' %}"></script>
+<script src="{% static '/js/magnific-popup-options.js' %}"></script>
 
-<script src="../../static/js/main.js"></script>
+<script src="{% static '/js/main.js' %}"></script>

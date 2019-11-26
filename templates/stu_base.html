@@ -1,0 +1,35 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static '/css/style1.css' %}">
+    <!-- Animate.css 滑动-->
+    <link rel="stylesheet" href="{% static '/css/animate.css' %}">
+    <!-- Icomoon Icon Fonts 图标-->
+    <link rel="stylesheet" href="{% static '/css/icomoon.css' %}">
+    <!-- Bootstrap 框架 -->
+    <link rel="stylesheet" href="{% static '/css/bootstrap.css' %}">
+
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+    <!-- 搜索框的查找图标 -->
+    <link rel="stylesheet" href="{% static '/css/style_search.css' %}">
+    <!--    水纹按钮动画-->
+    <script src="{% static '/js/prefixfree.min_animated_button.js' %}"></script>
+    <!--[if IE]鼠标动画-->
+    <script src="{% static '/js/html5.js' %}"></script>
+    <!--[endif]-->
+    <link rel="stylesheet" href="{% static '/css/style2.css' %}">
+    <!--    <link rel="stylesheet" href="css/style_animated_button.css">-->
+</head>
+<body>
+
+{% include 'stu_header.html' %}
+
+{% block content %}{% endblock %}
+
+{% include "footer.html" %}
+{#    {% block javascript %}{% endblock %}#}
+
+</body>

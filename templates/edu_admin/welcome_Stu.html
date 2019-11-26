@@ -1,14 +1,13 @@
-{% extends 'base.html' %}
+{% extends 'stu_base.html' %}
+{% load staticfiles %}
 {% block title %}SDNU-Welcome student{% endblock %}
 {% block content %}
     <div class="body_container">
         <canvas id="demo-canvas" style="position:absolute"></canvas>
         <div class="return_top">
             <a href="#return_button_top">
-                <img src="../../static/images/codingmonkey.png" class="codingmonkey"> </a>
+                <img src="{% static '/images/codingmonkey.png' %}" class="codingmonkey"> </a>
         </div>
-
-
         <div class="infrom">
             <div class="infrom_text">
                 通知
@@ -17,7 +16,7 @@
         <div class="message">
             <div class="touxiang">
                 <a href="http://www.sdnu.edu.cn/">
-                    <img src="../../static/images/index.jpg">
+                    <img src="{% static 'images/index.jpg' %}">
                 </a>
                 <div class="message_">
                     <p>展家慧</p>
@@ -29,9 +28,8 @@
             <div class="meassage_xm">展家慧</div>
             <!--  js文件和button必须放在一起-->
             <button class="return  material-design" data-color="#ffffff">返回</button>
-            <script src="../../static/js/index_animated_button.js"></script>
+            <script src="{% static 'js/index_animated_button.js' %}"></script>
             <!--        <button class="btn btn-round color-2 material-design" data-color="#ffffff">返回</button>-->
-
         </div>
     </div>
 {% endblock %}

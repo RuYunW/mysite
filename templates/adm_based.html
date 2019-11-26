@@ -1,0 +1,30 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SDNU-Adm-manage-student</title>
+    <link rel="stylesheet" type="text/css" href="{% static '/css/style1.css' %}">
+    <!-- Animate.css 滑动-->
+    <link rel="stylesheet" href="{% static '/css/animate.css' %}">
+    <!-- Icomoon Icon Fonts 图标-->
+    <link rel="stylesheet" href="{% static '/css/icomoon.css' %}">
+    <!-- Bootstrap 框架 -->
+    <link rel="stylesheet" href="{% static '/css/bootstrap.css' %}">
+
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+    <!-- 搜索框的查找图标 -->
+    <link rel="stylesheet" href="{% static '/css/style_search.css' %}">
+    <link rel="stylesheet" href="{% static '/css/style_Adm_manage.css' %}">
+    <link rel="stylesheet" href="{% static '/css/style2.css' %}">
+    <!--[if IE]鼠标动画-->
+<!--    <script src="js/html5.js"></script>-->
+    <!--[endif]-->
+</head>
+<body>
+
+{% include 'adm_header.html' %}
+
+{% block content %}{% endblock %}
+
+</body>
