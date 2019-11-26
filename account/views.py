@@ -16,11 +16,14 @@ def user_login(request):
             user = authenticate(username=cd['username'], password=cd['password'])
             if user:
                 login(request, user)
-                return HttpResponse("Welcome")
+                if user.is_superuser:
+                    return render(request, "edu_admin/welcome_Adm.html", {"form": login_form})  # 管理员
+                else:
+                    return render(request, "edu_admin/welcome_Stu.html", {"form": login_form})  # 普通用户
             else:
-                return HttpResponse("No")
+                return render(request, "account/login.html", {"form": login_form, 'script': "alert", 'wrong': '用户名或密码错误'})
         else:
-            return HttpResponse("Invalid")
+            return HttpResponse("Invalid Login")
 
     if request.method == "GET":
         login_form = LoginForm()
