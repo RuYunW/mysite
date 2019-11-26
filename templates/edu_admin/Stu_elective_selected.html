@@ -1,104 +1,72 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>SDNU Student_elective_selected</title><!-- 已选———限选-->
-    <link rel="stylesheet" type="text/css" href="css/style1.css">
-    <link rel="stylesheet" type="text/css" href="css/style2.css">
-    <!-- Animate.css 滑动-->
-    <link rel="stylesheet" href="css/animate.css">
-    <!-- Icomoon Icon Fonts 图标-->
-    <link rel="stylesheet" href="css/icomoon.css">
-    <!-- Bootstrap 框架 -->
-    <link rel="stylesheet" href="css/bootstrap.css">
+{% extends 'stu_base.html' %}
+{% load staticfiles %}
+{% block title %}SDNU Student_elective_selected{% endblock %}
+{% block content %}
 
-    <link rel="stylesheet" href="css/style.css">
-    <!-- 搜索框的查找图标 -->
-    <link rel="stylesheet" href="css/style_search.css">
-    <!--[if IE]鼠标动画-->
-    <script src="js/html5.js"></script>
-    <!--[endif]-->
-</head>
-<body>
-<div class="logo" >
-    <a name="return_button_top"></a>
-    <div class="logo_img">
-        <img src="images/logo.png">
-    </div>
-    <div class="sousuo">
-        <form>
-            <span class="icon-search"></span>
-            <input type="text" class="search" placeholder="搜索">
-        </form>
-    </div>
-</div>
+    <div class="body_container1">
 
-
-<nav class="navbar-default" role="navigation" style="background: #9d6b2e;opacity: 0.7">
-    <div class="container-fluid">
-        <div class="navbar-header" style="background: #152620;opacity: 0.6">
-            <a class="navbar-brand" href="Stu_my_schedule.html" style="color:white">&nbsp;&nbsp;&nbsp;课表&nbsp;&nbsp;&nbsp;</a>
+        <div class="return_top">
+            <a href="#return_button_top">
+                <img src="{% static '/images/codingmonkey.png' %}" class="codingmonkey"> </a>
         </div>
-        <div>
-            <ul class="nav navbar-nav" style="background: #152620;opacity: 0.6">
-                <li class="dropdown"><a href="Stu_select_sourses.html" style="color:white">&nbsp;&nbsp;&nbsp;选课&nbsp;&nbsp;&nbsp;</a></li>
-                <li><a href="Stu_my_grade.html" style="background: #152620;color:white">&nbsp;&nbsp;&nbsp;成绩&nbsp;&nbsp;&nbsp;</a></li>
-                <li class="dropdown" style="background: #152620;">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:white">
-                        &nbsp;&nbsp;&nbsp;查看已选&nbsp;&nbsp;&nbsp;<b class="caret"></b>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="Stu_required_selected.html" style="color:white">必修</a></li>
-                        <li class="divider"></li>
-                        <li><a href="Stu_elective_selected.html" style="color:white">选修</a></li>
-                    </ul>
-                </li>
-            </ul>
+        <div class="schedule">
+
+            <div><span class="remind">每学期选课不应超过35学分！</span></div>
+            <div><span class="remind2"><center>已选(限选)</center><br></span></div>
+            <table border="1">
+
+                <!--            <caption>已选 选修</caption>-->
+                <tr class="datelisthead">
+                    <td>选课课号</td>
+                    <td>课程代码</td>
+                    <td>课程名称</td>
+                    <td>是否选课</td>
+                    <td>教师姓名</td>
+                    <td>学分</td>
+                    <td>周学时</td>
+                    <td>上课时间</td>
+                    <td>上课地点</td>
+                </tr>
+                <tr class="alt">
+                    <td>(2019-2020-1)-1</td>
+                    <td>161130205</td>
+                    <td><a class="click_class" href="#">计算机网络</a></td>
+                    <td>是</td>
+                    <td>
+                        <a href="#" class="click_class">孙跃鲁</a></td>
+                    <td>4.0</td>
+                    <td>4.0-0.0</td>
+                    <td>
+                        <span id="DBGrid__ctl2_Label4">周一第1,2节{第1-18周};周三第1,2节{第1-18周}</span>
+                    </td>
+                    <td>文宗楼1-109;文宗楼1-109</td>
+                </tr>
+                <tr class="alt">
+                    <td>(2019-2020-1)1</td>
+                    <td>161130206</td>
+                    <td><a href="#" class="click_class"
+                           onclick="window.open('kcxx.aspx?kcdm=161130206&amp;xh=201711010111','kcxx','toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=1,resizable=0,width=490,height=500,left=200,top=50')">计算机组成原理</a>
+                    </td>
+                    <td>是</td>
+                    <td><a href="#" class="click_class"
+                           onclick="window.open('jsxx.aspx?jszgh=617080&amp;xkkh=(2019-2020-1)-161130206-617080-1&amp;xh=201711010111','jsxx','toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=1,resizable=0,width=800,height=600,left=120,top=60')">王琳</a>
+                    </td>
+                    <td>4.0</td>
+                    <td>4.0-0.0</td>
+                    <td>
+                        <span id="DBGrid__ctl3_Label4">周一第3,4节{第1-18周};周三第3,4节{第1-18周}</span>
+                    </td>
+                    <td>文渊楼C座127;文渊楼C座127</td>
+                </tr>
+                <!--            <canvas id="demo-canvas" style="position:absolute"></canvas>-->
+            </table>
+
         </div>
-    </div>
-</nav>
-
-
-<div class="body_container1">
-
-    <div class="return_top">
-        <a href="#return_button_top">
-            <img src="images/codingmonkey.png" class="codingmonkey"> </a>
-    </div>
-    <div class="schedule">
-
-        <div><span class="remind">每学期选课不应超过35学分！</span></div>
-        <div><span class="remind2"><center>已选(限选)</center><br></span></div>
-        <table border="1">
-
-<!--            <caption>已选 选修</caption>-->
-            <tr class="datelisthead">
-                <td>选课课号</td><td>课程代码</td><td>课程名称</td><td>是否选课</td><td>教师姓名</td><td>学分</td><td>周学时</td><td>上课时间</td><td>上课地点</td>
-            </tr>
-            <tr class="alt">
-                <td>(2019-2020-1)-1</td><td>161130205</td>
-                <td><a class="click_class" href="#">计算机网络</a></td>
-                <td>是</td><td>
-                <a href="#"  class="click_class" >孙跃鲁</a></td><td>4.0</td><td>4.0-0.0</td><td>
-                <span id="DBGrid__ctl2_Label4">周一第1,2节{第1-18周};周三第1,2节{第1-18周}</span>
-            </td>
-                <td>文宗楼1-109;文宗楼1-109</td>
-            </tr><tr class="alt">
-            <td>(2019-2020-1)1</td><td>161130206</td>
-            <td><a href="#" class="click_class"  onclick="window.open('kcxx.aspx?kcdm=161130206&amp;xh=201711010111','kcxx','toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=1,resizable=0,width=490,height=500,left=200,top=50')">计算机组成原理</a></td><td>是</td><td><a href="#"  class="click_class" onclick="window.open('jsxx.aspx?jszgh=617080&amp;xkkh=(2019-2020-1)-161130206-617080-1&amp;xh=201711010111','jsxx','toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=1,resizable=0,width=800,height=600,left=120,top=60')">王琳</a></td><td>4.0</td><td>4.0-0.0</td><td>
-            <span id="DBGrid__ctl3_Label4">周一第3,4节{第1-18周};周三第3,4节{第1-18周}</span>
-        </td><td>文渊楼C座127;文渊楼C座127</td>
-        </tr>
-<!--            <canvas id="demo-canvas" style="position:absolute"></canvas>-->
-        </table>
 
     </div>
-
-</div>
-<script src="js/TweenLite.min.js"></script>
-<script src="js/EasePack.min.js"></script>
-<script src="js/rAF.js"></script>
-<script src="js/demo-1.js"></script>
-<!-- 代码部分end -->
-</body>
-</html>
+    <script src="{% static '/js/TweenLite.min.js' %}"></script>
+    <script src="{% static '/js/EasePack.min.js' %}"></script>
+    <script src="{% static '/js/rAF.js' %}"></script>
+    <script src="{% static '/js/demo-1.js' %}"></script>
+    <!-- 代码部分end -->
+{% endblock %}
