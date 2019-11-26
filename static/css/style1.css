@@ -14,7 +14,7 @@
 {
 
     width:100%;
-    height:1100px;
+    height:1200px;
     background: url("../images/index.jpg");
     /*opacity: 0.6;*/
 }
@@ -22,7 +22,7 @@
 {
 
     width:100%;
-    /*height:1100px;*/
+    height:1200px;
     background: url("../images/index.jpg");
     /*opacity: 0.6;*/
 }
@@ -149,9 +149,34 @@
 }
 .infrom_text
 {
+    color: #5a1216;
+    font-size: 30px;
     text-align: center;
+    line-height: 50px;
 }
+.inform_content
+{
+    margin-left: 5%;
+    margin-right: 5%;
+    font-size: 20px;
+    line-height: 40px;
+    /*color: #5a1216;*/
+    opacity:100%;
+    background: rgba(255,255,255,1);
 
+}
+a:link{
+    color: #1b6d85;
+}
+a:visited{
+    color: #5a1216;
+}
+a:active{
+    color: #0b0b0b;
+}
+a:hover{
+    color: #3c763d;
+}
 .schedule
 {
 
