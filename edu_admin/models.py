@@ -39,4 +39,5 @@ class Select(models.Model):
     student_id = models.ForeignKey(User, on_delete=models.DO_NOTHING)
     grade = models.IntegerField(default=None)
     is_reread = models.BooleanField(default=False)
+    # test = models.CharField(max_length=6)
 

@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+import datetime
 
 
 # class Account(models.Model):
@@ -30,8 +31,11 @@ class User(AbstractUser):
     school = models.CharField(max_length=20)
     major = models.CharField(max_length=20)
     sclass = models.CharField(max_length=20)
-    admin_data = models.DateField(blank=True)
+    admin_data = models.DateField(blank=True, default=datetime.datetime.now())
+
+    # test = models.CharField(max_length=6)
     #
+
     # avatar = models.FileField(upload_to='avatar/', default="/avatar/default_avatar.jpg")
     # create_time = models.DateTimeField(verbose_name='创建时间', auto_now_add=True)
 

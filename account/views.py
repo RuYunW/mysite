@@ -36,7 +36,7 @@ def register(request):
             new_user = user_form.save(commit=False)
             new_user.set_password(user_form.cleaned_data['password'])
             new_user.save()
-            return HttpResponse("successfully")
+            return render(request, "edu_admin/Adm_manage_students.html")
         else:
             return HttpResponse("sorry.")
     else:
