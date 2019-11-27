@@ -2,18 +2,12 @@
 {% load staticfiles %}
 {% block title %}SDNU-Adm-manage-student{% endblock %}
 {% block content %}
-    {% if add %}
-        <script type="text/javascript">
-            alert("学生信息添加成功！");
-            window.location.href = "/edu_admin/Adm_manage_students.html";
-        </script>
-    {% endif %}
-{#    <div class="body_container1">#}
-{#        <canvas id="demo-canvas" style="position:absolute"></canvas>#}
-{#        <div class="return_top">#}
-{#            <a href="#return_button_top">#}
-{#                <img src="{% static '/images/codingmonkey.png' %}" class="codingmonkey"> </a>#}
-{#        </div>#}
+    <div class="body_container1">
+        <canvas id="demo-canvas" style="position:absolute"></canvas>
+        <div class="return_top">
+            <a href="#return_button_top">
+                <img src="{% static '/images/codingmonkey.png' %}" class="codingmonkey"> </a>
+        </div>
         <div class="body_background3">
             <div style="font-size: 40px;margin: auto;padding-top: 40px;padding-left: 20px;color: #5a1216">管理学生</div>
             <div class="manage—stu">
@@ -23,43 +17,39 @@
                         <span><span class="icon-plus"></span>&nbsp;添加学生信息</span><br>
                     </div>
                     <div class="formd">
-                        <form action="." class="form-inline" role="form" method="POST">{% csrf_token %}
-                            <div class="form-group">
-                                <label class="sr-only" for="{{ form.name.id_for_label }}">名称</label>
-                                <div>{{ form.name }}</div>
-                                {#                                <input type="text" class="form-control" id="name"#}
-                                {#                                       placeholder="请输入学生姓名" style="width: 200px">#}
-                            </div>
+                        <form class="form-inline" role="form" method="POST">
                             <div class="form-group">
                                 <label class="sr-only" for="{{ form.username.id_for_label }}">名称</label>
                                 <div>{{ form.username }}</div>
-                                {#                                <input type="text" class="form-control" id="id"#}
-                                {#                                       placeholder="请输入学生学号" style="width: 200px">#}
+{#                                <input type="text" class="form-control" id="name"#}
+{#                                       placeholder="请输入学生姓名" style="width: 200px">#}
                             </div>
                             <div class="form-group">
-                                <label class="sr-only" for="{{ form.password.id_for_label }}">名称</label>
-                                <div>{{ form.password }}</div>
-                                {#                                <input type="text" class="form-control" id="pw"#}
-                                {#                                       placeholder="请输入学生密码" style="width: 200px">#}
+                                <label class="sr-only" for="name">名称</label>
+                                <input type="text" class="form-control" id="id"
+                                       placeholder="请输入学生学号" style="width: 200px">
                             </div>
                             <div class="form-group">
-                                <label class="sr-only" for="{{ form.major.id_for_label }}">名称</label>
-                                <div>{{ form.major }}</div>
-                                {#                                <input type="text" class="form-control" id="major"#}
-                                {#                                       placeholder="请输入专业" style="width: 200px">#}
+                                <label class="sr-only" for="name">名称</label>
+                                <input type="text" class="form-control" id="pw"
+                                       placeholder="请输入学生密码" style="width: 200px">
                             </div>
                             <div class="form-group">
-                                <label class="sr-only" for="{{ form.sclass.id_for_label }}">名称</label>
-                                <div>{{ form.sclass }}</div>
-                                {#                                <input type="text" class="form-control" id="class"#}
-                                {#                                       placeholder="请输入班级" style="width: 200px">#}
+                                <label class="sr-only" for="name">名称</label>
+                                <input type="text" class="form-control" id="major"
+                                       placeholder="请输入专业" style="width: 200px">
                             </div>
-                            {#                            <div class="checkbox">#}
-                            {#                                <label>#}
-                            {#                                    <input type="checkbox"> 确认#}
-                            {#                                </label>#}
-                            {#                            </div>#}
-                            <button type="submit" class="btn btn-default" name="add">添加</button>
+                            <div class="form-group">
+                                <label class="sr-only" for="name">名称</label>
+                                <input type="text" class="form-control" id="class"
+                                       placeholder="请输入班级" style="width: 200px">
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox"> 确认
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-default">添加</button>
                         </form>
                     </div>
 
