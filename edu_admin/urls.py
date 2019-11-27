@@ -1,9 +1,10 @@
 from django.urls import path
 from . import views
+from account.views import register
 
 urlpatterns = [
     path('Adm_manage_courses.html/', views.Adm_mng_cou, name='Adm_mng_cou'),
-    path('Adm_manage_students.html/', views.Adm_mng_stu, name='Adm_mng_stu'),
+    path('Adm_manage_students.html/', register, name='Adm_mng_stu'),
     path('Adm_manage_teachers.html/', views.Adm_mng_tea, name='Adm_mng_tea'),
     path('index.html/', views.index, name='index'),
     path('Stu_elective_selected.html/', views.stu_ele_select, name='stu_ele_select'),

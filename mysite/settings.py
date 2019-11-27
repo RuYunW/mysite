@@ -125,3 +125,13 @@ STATICFILES_DIRS = (
 )
 
 LOGIN_REDIRECT_URL = '/edu_admin/welcome_Stu.html'
+
+AUTH_USER_MODEL = "account.User"
+
+
+# 设置文件保存路径
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+
