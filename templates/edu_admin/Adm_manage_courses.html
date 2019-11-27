@@ -4,179 +4,175 @@
 {% block content %}
     <!--<canvas id="demo-canvas" style="position:absolute"></canvas>-->
     <!--<div class="body_container">   big head formd-->
-    <div class="return_top">
-        <a href="#return_button_top">
-            <img src="{% static '/images/codingmonkey.png' %}" class="codingmonkey"> </a>
-    </div>
-    <div class="body_container1">
-        <div class="body_background3">
-            <div style="font-size: 40px;margin: auto;padding-top: 40px;padding-left: 20px;color: #5a1216">管理课程</div>
-            <div class="manage—stu">
-                <!-- --------------------------------   添加课程信息------------------------------>
-                <div class="big">
-                    <div class="head">
-                        <span><span class="icon-plus"></span>&nbsp;添加课程信息</span><br>
-                    </div>
-                    <div class="formd">
-                        <form class="form-inline" role="form">
-                            <div class="form-group">
-                                <label class="sr-only" for="name">名称</label>
-                                <input type="text" class="form-control" id="name"
-                                       placeholder="请输入课程名称" style="width: 200px">
-                            </div>
-                            <div class="form-group">
-                                <label class="sr-only" for="name">名称</label>
-                                <input type="text" class="form-control" id="id"
-                                       placeholder="请输入课程号" style="width: 200px">
-                            </div>
-                            <div class="form-group">
-                                <label class="sr-only" for="name">名称</label>
-                                <input type="text" class="form-control" id="pw"
-                                       placeholder="请输入上课时间" style="width: 200px">
-                            </div>
-                            <div class="form-group">
-                                <label class="sr-only" for="name">名称</label>
-                                <input type="text" class="form-control" id="major"
-                                       placeholder="请输入上课地点" style="width: 200px">
-                            </div>
-                            <div class="form-group">
-                                <label class="sr-only" for="name">名称</label>
-                                <input type="text" class="form-control" id="class"
-                                       placeholder="请输入授课教师" style="width: 200px">
-                            </div>
-                            <div class="form-group">
-                                <label class="sr-only" for="name">名称</label>
-                                <input type="text" class="form-control" id="class"
-                                       placeholder="请输入课程容量" style="width: 200px">
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox"> 确认
-                                </label>
-                            </div>
-                            <button type="submit" class="btn btn-default">添加</button>
-                        </form>
-                    </div>
+<div class="body_container1">
+    <div class="body_background3">
+        <div style="font-size: 40px;margin: auto;padding-top: 40px;padding-left: 20px;color: #5a1216">管理课程</div>
+        <div class="manage—stu">
+            <!-- --------------------------------   添加课程信息------------------------------>
+            <div class="big">
+                <div class="head">
+                    <span><span class="icon-plus"></span>&nbsp;添加课程信息</span><br>
                 </div>
-                <!-- --------------------------------   删除课程信息------------------------------>
-                <div class="big">
-                    <div class="head">
-                        <span><span class="icon-minus"></span>&nbsp;删除课程信息</span><br>
-                    </div>
-                    <div class="formd">
-                        <form class="form-inline" role="form">
-                            <div class="form-group">
-                                <label class="sr-only" for="name">名称</label>
-                                <input type="text" class="form-control" id="id"
-                                       placeholder="请输入课程号" style="width: 200px">
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox"> 确认
-                                </label>
-                            </div>
-                            <button type="submit" class="btn btn-default">删除</button>
-                        </form>
-                    </div>
+                <div class="formd">
+                    <form class="form-inline" role="form">
+                        <div class="form-group">
+                            <label class="sr-only" for="name">名称</label>
+                            <input type="text" class="form-control" id="name"
+                                   placeholder="请输入课程名称" style="width: 200px">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="name">名称</label>
+                            <input type="text" class="form-control" id="id"
+                                   placeholder="请输入课程号" style="width: 200px">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="name">名称</label>
+                            <input type="text" class="form-control" id="pw"
+                                   placeholder="请输入上课时间" style="width: 200px">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="name">名称</label>
+                            <input type="text" class="form-control" id="major"
+                                   placeholder="请输入上课地点" style="width: 200px">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="name">名称</label>
+                            <input type="text" class="form-control" id="class"
+                                   placeholder="请输入授课教师" style="width: 200px">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="name">名称</label>
+                            <input type="text" class="form-control" id="class"
+                                   placeholder="请输入课程容量" style="width: 200px">
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"> 确认
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-default">添加</button>
+                    </form>
                 </div>
-                <!-- --------------------------------   修改课程信息------------------------------>
-                <div class="big">
-                    <div class="head">
-                        <span><span class="icon-wrench"></span>&nbsp;修改课程信息</span><br>
-                    </div>
-                    <div class="formd">
-                        <form class="form-inline" role="form">
-                            <div class="form-group">
-                                <label class="sr-only" for="name">名称</label>
-                                <input type="text" class="form-control" id="name"
-                                       placeholder="请输入课程名称" style="width: 200px">
-                            </div>
-                            <div class="form-group">
-                                <label class="sr-only" for="name">名称</label>
-                                <input type="text" class="form-control" id="id"
-                                       placeholder="请输入课程号" style="width: 200px">
-                            </div>
-                            <div class="form-group">
-                                <label class="sr-only" for="name">名称</label>
-                                <input type="text" class="form-control" id="pw"
-                                       placeholder="请输入上课时间" style="width: 200px">
-                            </div>
-                            <div class="form-group">
-                                <label class="sr-only" for="name">名称</label>
-                                <input type="text" class="form-control" id="major"
-                                       placeholder="请输入上课地点" style="width: 200px">
-                            </div>
-                            <div class="form-group">
-                                <label class="sr-only" for="name">名称</label>
-                                <input type="text" class="form-control" id="class"
-                                       placeholder="请输入授课教师" style="width: 200px">
-                            </div>
-                            <div class="form-group">
-                                <label class="sr-only" for="name">名称</label>
-                                <input type="text" class="form-control" id="class"
-                                       placeholder="请输入课程容量" style="width: 200px">
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox"> 确认
-                                </label>
-                            </div>
-                            <button type="submit" class="btn btn-default">修改</button>
-                        </form>
-                    </div>
+            </div>
+            <!-- --------------------------------   删除课程信息------------------------------>
+            <div class="big">
+                <div class="head">
+                    <span><span class="icon-minus"></span>&nbsp;删除课程信息</span><br>
                 </div>
-                <!-- --------------------------------   查询课程信息------------------------------>
-                <div class="big">
-                    <div class="head">
-                        <span><span class="icon-binoculars"></span>&nbsp;查询课程信息</span><br>
-                    </div>
-                    <div class="formd">
-                        <form class="form-inline" role="form">
-                            <div class="form-group">
-                                <label class="sr-only" for="name">名称</label>
-                                <input type="text" class="form-control" id="id"
-                                       placeholder="请输入课程号" style="width: 200px">
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox"> 确认
-                                </label>
-                            </div>
-                            <button type="submit" class="btn btn-default">查询</button>
-                        </form>
-                    </div>
+                <div class="formd">
+                    <form class="form-inline" role="form">
+                        <div class="form-group">
+                            <label class="sr-only" for="name">名称</label>
+                            <input type="text" class="form-control" id="id"
+                                   placeholder="请输入课程号" style="width: 200px">
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"> 确认
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-default">删除</button>
+                    </form>
                 </div>
-                <!-- --------------------------------   批量导入课程信息------------------------------>
-                <div class="big">
-                    <div class="head">
-                        <span><span class="icon-folder-upload"></span>&nbsp;批量导入课程信息</span><br>
-                    </div>
-                    <div class="formd">
-                        <form class="form-inline" role="form">
-                            <div class="form-group">
-                                <label class="sr-only" for="name">名称</label>
-                                <input type="text" class="form-control" id="name"
-                                       placeholder="请输入名称" style="width: 200px">
-                            </div>
-                            <div class="form-group">
-                                <label class="sr-only" for="inputfile">文件输入</label>
-                                <a href="javascript:;" class="select_file"
-                                   style="margin-right:200px;padding: 4px 8px ;height: 20px;line-height: 20px;position: relative;border: 1px solid #999;text-decoration: none;color:#666">选择文件
-                                    <input type="file" id="inputfile" multiple="multiple"
-                                           style="position:absolute;overflow: hidden;top:0;opacity: 0">
-                                </a>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox"> 确认
-                                </label>
-                            </div>
-                            <button type="submit" class="btn btn-default">导入</button>
-                        </form>
-                    </div>
+            </div>
+            <!-- --------------------------------   修改课程信息------------------------------>
+            <div class="big">
+                <div class="head">
+                    <span><span class="icon-wrench"></span>&nbsp;修改课程信息</span><br>
+                </div>
+                <div class="formd">
+                    <form class="form-inline" role="form">
+                        <div class="form-group">
+                            <label class="sr-only" for="name">名称</label>
+                            <input type="text" class="form-control" id="name"
+                                   placeholder="请输入课程名称" style="width: 200px">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="name">名称</label>
+                            <input type="text" class="form-control" id="id"
+                                   placeholder="请输入课程号" style="width: 200px">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="name">名称</label>
+                            <input type="text" class="form-control" id="pw"
+                                   placeholder="请输入上课时间" style="width: 200px">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="name">名称</label>
+                            <input type="text" class="form-control" id="major"
+                                   placeholder="请输入上课地点" style="width: 200px">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="name">名称</label>
+                            <input type="text" class="form-control" id="class"
+                                   placeholder="请输入授课教师" style="width: 200px">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="name">名称</label>
+                            <input type="text" class="form-control" id="class"
+                                   placeholder="请输入课程容量" style="width: 200px">
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"> 确认
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-default">修改</button>
+                    </form>
+                </div>
+            </div>
+            <!-- --------------------------------   查询课程信息------------------------------>
+            <div class="big">
+                <div class="head">
+                    <span><span class="icon-binoculars"></span>&nbsp;查询课程信息</span><br>
+                </div>
+                <div class="formd">
+                    <form class="form-inline" role="form">
+                        <div class="form-group">
+                            <label class="sr-only" for="name">名称</label>
+                            <input type="text" class="form-control" id="id"
+                                   placeholder="请输入课程号" style="width: 200px">
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"> 确认
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-default">查询</button>
+                    </form>
+                </div>
+            </div>
+            <!-- --------------------------------   批量导入课程信息------------------------------>
+            <div class="big">
+                <div class="head">
+                    <span><span class="icon-folder-upload"></span>&nbsp;批量导入课程信息</span><br>
+                </div>
+                <div class="formd">
+                    <form class="form-inline" role="form">
+                        <div class="form-group">
+                            <label class="sr-only" for="name">名称</label>
+                            <input type="text" class="form-control" id="name"
+                                   placeholder="请输入名称" style="width: 200px">
+                        </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="inputfile">文件输入</label>
+                            <a href="javascript:;" class="select_file"
+                               style="margin-right:200px;padding: 4px 8px ;height: 20px;line-height: 20px;position: relative;border: 1px solid #999;text-decoration: none;color:#666">选择文件
+                                <input type="file" id="inputfile" multiple="multiple"
+                                       style="position:absolute;overflow: hidden;top:0;opacity: 0">
+                            </a>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"> 确认
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-default">导入</button>
+                    </form>
                 </div>
             </div>
         </div>
+    </div>
     </div>
     <!--</div>-->
 {% endblock %}

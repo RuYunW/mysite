@@ -29,6 +29,7 @@ def user_login(request):
         login_form = LoginForm()
         return render(request, "account/login.html", {"form": login_form})
 
+
 def register(request):
     if request.method=="POST":
         user_form = RegistrationForm(request.POST)
@@ -36,7 +37,8 @@ def register(request):
             new_user = user_form.save(commit=False)
             new_user.set_password(user_form.cleaned_data['password'])
             new_user.save()
-            return HttpResponse("successfully")
+            # 注册成功
+            return render(request, "edu_admin/Adm_manage_students.html", {'add': "True"})
         else:
             return HttpResponse("sorry.")
     else:
