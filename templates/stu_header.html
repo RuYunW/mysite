@@ -13,6 +13,12 @@
         </form>
     </div>
 </div>
+{% if user.is_authenticated == False %}
+    <script type="text/javascript">
+        alert("请登录！");
+        window.location.href = "/account/login.html";
+    </script>
+{% endif %}
 
 
 <nav class="navbar-default" role="navigation" style="background: #9d6b2e;opacity: 0.7">

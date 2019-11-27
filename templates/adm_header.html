@@ -1,6 +1,6 @@
 {% load staticfiles %}
 <!--<script>alert(document.documentElement.clientHeight)</script>-->
-<div class="logo" >
+<div class="logo">
     <a name="return_button_top"></a>
     <div class="logo_img">
         <img src="{% static '/images/logo.png' %}">
@@ -13,7 +13,12 @@
         </form>
     </div>
 </div>
-
+{% if user.is_authenticated == False %}
+    <script type="text/javascript">
+        alert("请登录！");
+        window.location.href = "/account/login.html";
+    </script>
+{% endif %}
 
 <nav class="navbar-default" role="navigation" style="background: #9d6b2e;opacity: 0.7">
     <div class="container-fluid">
@@ -22,18 +27,21 @@
         <!--        </div>-->
         <div>
             <ul class="nav navbar-nav" style="background: #152620;opacity: 0.6">
-                <li class="dropdown"><a href="{% url 'edu_admin:Adm_mng_stu' %}"  style="color:white">&nbsp;&nbsp;&nbsp;管理学生&nbsp;&nbsp;&nbsp;</a></li>
-                <li class="dropdown"><a href="{% url 'edu_admin:Adm_mng_tea' %}"  style="color:white">&nbsp;&nbsp;&nbsp;管理教师&nbsp;&nbsp;&nbsp;</a></li>
-                <li class="dropdown"><a href="{% url 'edu_admin:Adm_mng_cou' %}"  style="color:white">&nbsp;&nbsp;&nbsp;管理课程&nbsp;&nbsp;&nbsp;</a></li>
+                <li class="dropdown"><a href="{% url 'edu_admin:Adm_mng_stu' %}" style="color:white">&nbsp;&nbsp;&nbsp;管理学生&nbsp;&nbsp;&nbsp;</a>
+                </li>
+                <li class="dropdown"><a href="{% url 'edu_admin:Adm_mng_tea' %}" style="color:white">&nbsp;&nbsp;&nbsp;管理教师&nbsp;&nbsp;&nbsp;</a>
+                </li>
+                <li class="dropdown"><a href="{% url 'edu_admin:Adm_mng_cou' %}" style="color:white">&nbsp;&nbsp;&nbsp;管理课程&nbsp;&nbsp;&nbsp;</a>
+                </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"  style="color:white">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:white">
                         &nbsp;&nbsp;&nbsp;管理其他&nbsp;&nbsp;&nbsp;
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="#"  style="color:black">修改选课时间</a></li>
-                        <li class="divider" ></li>
-                        <li ><a href="#"  style="color:black;">修改录入成绩时间</a></li>
+                        <li><a href="#" style="color:black">修改选课时间</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#" style="color:black;">修改录入成绩时间</a></li>
                     </ul>
                 </li>
             </ul>
