@@ -17,10 +17,10 @@
                         <span><span class="icon-plus"></span>&nbsp;添加学生信息</span><br>
                     </div>
                     <div class="formd">
-                        <form class="form-inline" role="form">
+                        <form class="form-inline" role="form" method="POST">
                             <div class="form-group">
                                 <label class="sr-only" for="{{ form.username.id_for_label }}">名称</label>
-                                <div class="form-control">{{ form.username }}</div>
+                                <div>{{ form.username }}</div>
 {#                                <input type="text" class="form-control" id="name"#}
 {#                                       placeholder="请输入学生姓名" style="width: 200px">#}
                             </div>
