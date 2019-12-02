@@ -417,16 +417,43 @@
 }
 .big
 {
-    padding-top: 30px;
+    padding-top: 10px;
     /*padding-bottom: 60px;*/
-    line-height: 80px;
+    line-height: 30px;
 }
 .head
 {
-    font-size: 30px;
+    font-size: 20px;
     color:#5a1216;
 }
 .formd
 {
 
+}
+.Adu_table
+{
+    margin-top: 60px;
+    width: 95%;
+    /*background: rgba(249,246,24,0.5);*/
+
+}
+.delete
+{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    width: 100px;
+    text-align: center;
+    border:1px ;
+    background: #f2dede;
+}
+.alter
+{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    width: 100px;
+    text-align: center;
+    border:1px ;
+    background: #f2dede;
 }

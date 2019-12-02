@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 import datetime
+import django
 
 
 # class Account(models.Model):
@@ -23,7 +24,7 @@ import datetime
 
 
 class User(AbstractUser):
-    username = models.CharField(max_length=20, primary_key=True)
+    username = models.CharField(max_length=20, primary_key=True, db_index=True)
     password = models.CharField(max_length=100, null=False)
     name = models.CharField(max_length=50)
     id_card = models.CharField(max_length=20)
@@ -31,13 +32,12 @@ class User(AbstractUser):
     school = models.CharField(max_length=20)
     major = models.CharField(max_length=20)
     sclass = models.CharField(max_length=20)
-    admin_data = models.DateField(blank=True, default=datetime.datetime.now())
+    admin_data = models.DateField(blank=True, default=django.utils.timezone.now)
+    is_teacher = models.BooleanField(default=False)
 
-    # test = models.CharField(max_length=6)
-    #
+    def __str__(self):
+        return self.name
 
-    # avatar = models.FileField(upload_to='avatar/', default="/avatar/default_avatar.jpg")
-    # create_time = models.DateTimeField(verbose_name='创建时间', auto_now_add=True)
 
 
 class Card(models.Model):
@@ -57,3 +57,15 @@ class Abnormal(models.Model):
     sclass = models.CharField(max_length=20)
     admin_data = models.DateField(blank=True)
     remark = models.CharField(max_length=500)
+
+
+class AbnormalView(models.Model):
+    class Meta:
+        managed = False
+        db_table = 'account_abnormal_view'
+
+
+class UserView(models.Model):
+    class Meta:
+        managed = True
+        db_table = 'account_user_view'

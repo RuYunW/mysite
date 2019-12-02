@@ -18,15 +18,15 @@
             <div class="body_note">
                 <div class="body_note_message">
                     <img src="{% static '/images/index.jpg' %}" class="body_note_message_icon">
-                    <div class="body_note_message_name">展家慧</div>
+                    <div class="body_note_message_name">{{ request.session.name }}</div>
                     <div class="body_note_message_body">
-                        学院：信息科学与工程学院
+                        学院：{{ request.session.school }}
                     </div>
                     <div class="body_note_message_body">
-                        专业：计算机科学与技术专业
+                        专业：{{ request.session.major }}
                     </div>
                     <div class="body_note_message_body1">
-                        班级：计工本1701
+                        班级：{{ request.session.sclass }}
                     </div>
                 </div>
 

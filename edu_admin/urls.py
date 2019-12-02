@@ -1,6 +1,7 @@
 from django.urls import path
 from . import views
-from account.views import register
+from account.views import register, student_download
+
 
 urlpatterns = [
     path('Adm_manage_courses.html/', views.Adm_mng_cou, name='Adm_mng_cou'),
@@ -15,10 +16,7 @@ urlpatterns = [
     path('Stu_select_sourses.html/', views.stu_select_src, name='stu_select_src'),
     path('welcome_Adm.html/', views.wel_adm, name='wel_adm'),
     path('welcome_Stu.html/', views.wel_stu, name='wel_stu'),
-
-
-    # path('<int:stu_no>/', views.stu_info, name="stu_info"),
-
-    # path('login.html/', views.user_login, name="login")
+    path(r'down_load/student_import/', student_download, name='student_import'),
+    path(r'down_load/course_import/', views.course_download, name='course_import'),
 
 ]

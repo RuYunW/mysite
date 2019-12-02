@@ -9,6 +9,6 @@ from django.contrib import admin
 #     # raw_id_fields = ("stu_name", )
 
 
-# admin.site.register(Student, StudentAdmin)
+# admin.site.register(Classroom, StudentAdmin)
 
 

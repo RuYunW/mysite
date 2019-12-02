@@ -33,13 +33,15 @@
                     <img src="{% static 'images/index.jpg' %}">
                 </a>
                 <div class="message_">
-                    <p>展家慧</p>
+                    <p>{{ request.session.name }}</p>
                 </div>
             </div>
-            <div class="meassage_xm">展家慧</div>
-            <div class="meassage_xm">展家慧</div>
-            <div class="meassage_xm">展家慧</div>
-            <div class="meassage_xm">展家慧</div>
+
+            <div class="meassage_xm">{{ request.session.username }}</div>
+            <div class="meassage_xm">{{ request.session.school }}</div>
+            <div class="meassage_xm">{{ request.session.major }}</div>
+            <div class="meassage_xm">{{ request.session.sclass }}</div>
+
             <!--  js文件和button必须放在一起-->
             <button class="return  material-design" data-color="#ffffff">返回</button>
             <script src="{% static 'js/index_animated_button.js' %}"></script>

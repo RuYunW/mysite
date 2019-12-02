@@ -21,20 +21,28 @@ class Classroom(models.Model):
     number = models.IntegerField()
     owner = models.CharField(max_length=20)
 
+    def __str__(self):
+        return self.place
+
 
 class Course(models.Model):
     course_id = models.CharField(max_length=20, primary_key=True)
     course_name = models.CharField(max_length=20)
     course_char = models.CharField(max_length=20)
-    course_belong = models.CharField(max_length=20)
-    time = models.DateField(blank=True)
-    place_id = models.ForeignKey(Classroom, default=None, on_delete=models.DO_NOTHING)
-    teacher_id = models.ForeignKey(User, default=None, on_delete=models.DO_NOTHING)
-    credit = models.IntegerField(default=0)
+    course_num = models.IntegerField()  # 课容量
+    course_belong = models.CharField(max_length=50, null=True)
+    time = models.CharField(max_length=50)
+    place_id = models.ForeignKey(Classroom, on_delete=models.DO_NOTHING)
+    teacher_id = models.ForeignKey(User, on_delete=models.DO_NOTHING)
+    credit = models.IntegerField(default=0)  # 学分
+
+    def __str__(self):
+        return self.course_name
+
 
 
 class Select(models.Model):
-    select_id = models.IntegerField(auto_created=True)
+    select_id = models.CharField(max_length=20, auto_created=True)
     course_id = models.ForeignKey(Course, on_delete=models.DO_NOTHING)
     student_id = models.ForeignKey(User, on_delete=models.DO_NOTHING)
     grade = models.IntegerField(default=None)
