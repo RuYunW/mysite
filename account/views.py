@@ -6,6 +6,7 @@ from django.http import FileResponse
 import xlrd
 from django.db import models
 from django.shortcuts import redirect
+from django.contrib.auth.hashers import make_password
 
 
 def index(request):
@@ -30,6 +31,8 @@ def user_login(request):
                 if user.is_superuser:
                     # return render(request, "edu_admin/welcome_Adm.html", {"form": login_form, "username": request.user.username, "name": User.objects.get(username=request.user.username).name})  # 管理员
                     return render(request, "edu_admin/welcome_Adm.html", {"form": login_form})
+                elif user.is_teacher:
+                    return render(request, "edu_admin/welcome_Adm.html", {"form": login_form})
                 else:
                     return render(request, "edu_admin/welcome_Stu.html", {"form": login_form})  # 普通用户
             else:
@@ -47,18 +50,25 @@ def register(request):
     # 添加
     if request.method == "POST" and request.POST.getlist('add_button'):
         user_form = RegistrationForm(request.POST)
-        if user_form.is_valid():
-            if User.objects.filter(username=request.POST.get('username')):
-                error_message = "新增失败，用户已存在！"
-                return render(request, "edu_admin/Adm_manage_students.html", {"form": user_form, "return_add": "True", "error_message": error_message})
-            else:
-                User.objects.create(username=request.POST.get("username"), name=request.POST.get('name'), major=request.POST.get('major'), sclass=request.POST.get('sclass'), password=request.POST.get('username')[-6:])
-            # new_user = user_form.save(commit=False)
-            # new_user.set_password(user_form.cleaned_data['password'])
-            # new_user.save()
-                return render(request, "edu_admin/Adm_manage_students.html", {"form": user_form, "return_add": "True"})
+        # if user_form.is_valid():
+        if User.objects.filter(username=request.POST.get('username')):
+            error_message = "新增失败，用户已存在！"
+            return render(request, "edu_admin/Adm_manage_students.html", {"form": user_form, "return_add": True, "error_message": error_message})
         else:
-            return render(request, "edu_admin/Adm_manage_students.html", {"form": user_form, "return_add": "False"})
+            User.objects.create(
+                username=request.POST.get("username"),
+                name=request.POST.get('name'),
+                major=request.POST.get('major'),
+                sclass=request.POST.get('sclass'),
+                password=make_password(request.POST.get('username')[-6:]))
+        # new_user = user_form.save(commit=False)
+        # new_user.set_password(user_form.cleaned_data['password'])
+        # new_user.save()
+
+            return render(request, "edu_admin/Adm_manage_students.html", {"form": user_form, "return_add": True})
+        # else:
+        #     print(777)
+        #     return render(request, "edu_admin/Adm_manage_students.html", {"form": user_form, "return_add": False})
     # else:
     #     user_form = RegistrationForm()
     #     return render(request, "edu_admin/Adm_manage_students.html", {"form": user_form})
@@ -89,13 +99,14 @@ def register(request):
 
     # 批量上传
     elif request.method == "POST" and request.POST.getlist('file_button'):
+        user_form = RegistrationForm(request.POST)
         lines = []
         error_list = []
         myFile = request.FILES.get("myfile", None)
         error_message = ""
         if not myFile:
             error_message = "no files for upload!"
-            return render(request, "edu_admin/Adm_manage_students.html", {"error_message": error_message})
+            return render(request, "edu_admin/Adm_manage_students.html", {"form": user_form, "return_upload": False, "error_message": error_message})
 
         if myFile.name == 'student_import.xlsx':  # 如果是模板文件
             destination = open('media/'+myFile.name, 'wb+')
@@ -109,7 +120,7 @@ def register(request):
 
             if nrows <= 1:
                error_message = "文件为空，批量导入失败！"
-               return render(request, "edu_admin/Adm_manage_students.html", {"error_message": error_message})
+               return render(request, "edu_admin/Adm_manage_students.html", {"form": user_form, "return_upload": False, "error_message": error_message})
 
             else:  # 不为空
                 for row in range(1, nrows):
@@ -121,23 +132,29 @@ def register(request):
                 # 写入数据库
                 if len(lines) > 0:  # 如果工作队列lines有数据，存入数据库
                     for item in lines:
-                        User.objects.create_user(username=item["username"], name=item["name"], sex=item["sex"], school=item["school"], major=item["major"], sclass=item["sclass"], admin_data=item["admin_data"], password=item["username"][-6:])
-                        print(item["username"][-6:])
-                        print(type(item["admin_data"]))
-                        print(item["admin_data"])
+                        User.objects.create_user(
+                            username=item["username"],
+                            name=item["name"],
+                            sex=item["sex"],
+                            school=item["school"],
+                            major=item["major"],
+                            sclass=item["sclass"],
+                            admin_data=item["admin_data"],
+                            password=make_password(item["username"][-6:])
+                        )
 
                 error_message = "共上传"+str(nrows-1)+"人，成功"+str(len(lines))+"人，失败"+str(len(error_list))+"人，失败人员名单如下："
 
                 for i in error_list:
                     error_message += i
                 print(error_message)
-                return render(request, "edu_admin/Adm_manage_students.html", {"error_message":error_message})
+                return render(request, "edu_admin/Adm_manage_students.html", {"form": user_form, "return_upload": True, "error_message": error_message})
                 # return render(request, "edu_admin/Adm_manage_students.html", {"status_upload": "True", "error_message": error_message})
 
         else:  # 不是模板文件
             error_message = "请勿修改文件名及表格格式，可尝试重新上传。"
-            return render(request, "edu_admin/Adm_manage_students.html", {"error_message": error_message})
-    else:
+            return render(request, "edu_admin/Adm_manage_students.html", {"form": user_form, "return_upload": False, "error_message": error_message})
+    else:  # 页面默认显示
         user_form = RegistrationForm()
         student_objs = User.objects.filter(is_teacher=False, is_superuser=False)
 

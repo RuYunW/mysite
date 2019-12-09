@@ -6,7 +6,7 @@
     {% if add_teacher == True %}
         <script type="text/javascript">
             alert("教师信息录入成功！");
-            window.location.href = "/edu_admin/Adm_manage_courses.html";
+            window.location.href = "/edu_admin/Adm_manage_teachers.html";
         </script>
     {% elif add_teacher == False %}
         <script type="text/javascript">
@@ -14,8 +14,7 @@
         </script>
     {% endif %}
     <div class="return_top">
-        <a href="#return_button_top">
-            <img src="{% static '/images/codingmonkey.png' %}" class="codingmonkey"> </a>
+
     </div>
     <div class="body_container1">
 
@@ -31,102 +30,30 @@
                         <form class="form-inline" role="form" method="POST"> {% csrf_token %}
                             <div class="form-group">
                                 <label class="sr-only" for="{{ form.name.id_for_label }}">名称</label>
-                                {#                                <input type="text" class="form-control" id="name"#}
-                                {#                                       placeholder="请输入教师姓名" style="width: 200px">#}
                                 {{ form.name }}
                             </div>
                             <div class="form-group">
                                 <label class="sr-only" for="{{ form.username.id_for_label }}">名称</label>
-                                {#                                <input type="text" class="form-control" id="id"#}
-                                {#                                       placeholder="请输入教师工号" style="width: 200px">#}
                                 {{ form.username }}
                             </div>
-                            {#                            <div class="form-group">#}
-                            {#                                <label class="sr-only" for="name">名称</label>#}
-                            {#                                <input type="text" class="form-control" id="pw"#}
-                            {#                                       placeholder="请输入教师密码" style="width: 200px">#}
-                            {#                            </div>#}
                             <div class="form-group">
                                 <label class="sr-only" for="{{ form.school.id_for_label }}">名称</label>
                                 {{ form.school }}
-                                {#                                <input type="text" class="form-control" id="major"#}
-                                {#                                       placeholder="请输入所授课程号" style="width: 200px">#}
                             </div>
                             <div class="form-group">
                                 <label class="sr-only" for="{{ form.major.id_for_label }}">名称</label>
                                 {{ form.major }}
-                                {#                                <input type="text" class="form-control" id="major"#}
-                                {#                                       placeholder="请输入所授课程号" style="width: 200px">#}
                             </div>
                             <div class="form-group">
                                 <label class="sr-only" for="{{ form.sclass.id_for_label }}">名称</label>
                                 {{ form.sclass }}
-                                {#                                <input type="text" class="form-control" id="major"#}
-                                {#                                       placeholder="请输入所授课程号" style="width: 200px">#}
                             </div>
-
                             <button type="submit" class="btn btn-default" name="add_teacher">添加</button>
                         </form>
                     </div>
-
                 </div>
-                <!--                &lt;!&ndash; &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;   删除教师信息&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&ndash;&gt;-->
-                <!--                <div class="big">-->
-                <!--                    <div class="head">-->
-                <!--                        <span><span class="icon-minus"></span>&nbsp;删除教师信息</span><br>-->
-                <!--                    </div>-->
-                <!--                    <div class="formd">-->
-                <!--                        <form class="form-inline" role="form">-->
-                <!--                            <div class="form-group">-->
-                <!--                                <label class="sr-only" for="name">名称</label>-->
-                <!--                                <input type="text" class="form-control" id="id"-->
-                <!--                                       placeholder="请输入教师工号" style="width: 200px">-->
-                <!--                            </div>-->
-                <!--                            <div class="checkbox">-->
-                <!--                                <label>-->
-                <!--                                    <input type="checkbox"> 确认-->
-                <!--                                </label>-->
-                <!--                            </div>-->
-                <!--                            <button type="submit" class="btn btn-default">删除</button>-->
-                <!--                        </form>-->
-                <!--                    </div>-->
-                <!--                </div>-->
-                <!--                &lt;!&ndash; &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;   修改教师信息&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&ndash;&gt;-->
-                <!--                <div class="big">-->
-                <!--                    <div class="head">-->
-                <!--                        <span><span class="icon-wrench"></span>&nbsp;修改教师信息</span><br>-->
-                <!--                    </div>-->
-                <!--                    <div class="formd">-->
-                <!--                        <form class="form-inline" role="form">-->
-                <!--                            <div class="form-group">-->
-                <!--                                <label class="sr-only" for="name">名称</label>-->
-                <!--                                <input type="text" class="form-control" id="name"-->
-                <!--                                       placeholder="请输入教师姓名" style="width: 200px">-->
-                <!--                            </div>-->
-                <!--                            <div class="form-group">-->
-                <!--                                <label class="sr-only" for="name">名称</label>-->
-                <!--                                <input type="text" class="form-control" id="id"-->
-                <!--                                       placeholder="请输入教师工号" style="width: 200px">-->
-                <!--                            </div>-->
-                <!--                            <div class="form-group">-->
-                <!--                                <label class="sr-only" for="name">名称</label>-->
-                <!--                                <input type="text" class="form-control" id="pw"-->
-                <!--                                       placeholder="请输入教师密码" style="width: 200px">-->
-                <!--                            </div>-->
-                <!--                            <div class="form-group">-->
-                <!--                                <label class="sr-only" for="name">名称</label>-->
-                <!--                                <input type="text" class="form-control" id="major"-->
-                <!--                                       placeholder="请输入所授课程号" style="width: 200px">-->
-                <!--                            </div>-->
-                <!--                            <div class="checkbox">-->
-                <!--                                <label>-->
-                <!--                                    <input type="checkbox"> 确认-->
-                <!--                                </label>-->
-                <!--                            </div>-->
-                <!--                            <button type="submit" class="btn btn-default">修改</button>-->
-                <!--                        </form>-->
-                <!--                    </div>-->
-                <!--                </div>-->
+
+
                 <!-- --------------------------------   查询教师信息------------------------------>
                 <div class="big">
                     <div class="head">
@@ -139,12 +66,8 @@
                                 <input type="text" class="form-control" id="id"
                                        placeholder="请输入教师工号" style="width: 200px">
                             </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox"> 确认
-                                </label>
-                            </div>
-                            <button type="submit" class="btn btn-default">查询</button>
+
+                            <button type="submit" name="select_teacher" class="btn btn-default">查询</button>
                         </form>
                     </div>
                 </div>
@@ -168,11 +91,7 @@
                                            style="position:absolute;overflow: hidden;top:0;opacity: 0">
                                 </a>
                             </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox"> 确认
-                                </label>
-                            </div>
+
                             <button type="submit" class="btn btn-default">导入</button>
                         </form>
                     </div>
@@ -211,38 +130,36 @@
                         <tr class="datelisthead">
                             <td>教师工号</td>
                             <td>教师姓名</td>
-                            <td>教师授课号</td>
-                            <td>教师密码</td>
+                            <td>教师所属学院</td>
+                            <td>教师所属系别</td>
                             <td>是否删除</td>
                             <td>是否修改</td>
                         </tr>
-                        <tr class="alt">
-                            <td>(2019-2020-1)-1</td>
-                            <td>161130205</td>
-                            <td><a class="click_class" href="#">计算机网络</a></td>
-                            <td>是</td>
-                            <td>
-                                <button class="delete">删除</button>
-                            </td>
-                            <td>
-                                <button class="alter">修改</button>
-                            </td>
+                        {% for teacher in teacher_list %}
 
-                        </tr>
-                        <tr class="alt">
-                            <td>(2019-2020-1)1</td>
-                            <td>161130206</td>
-                            <td><a href="#" class="click_class"
-                                   onclick="window.open('kcxx.aspx?kcdm=161130206&amp;xh=201711010111','kcxx','toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=1,resizable=0,width=490,height=500,left=200,top=50')">计算机组成原理</a>
-                            </td>
-                            <td>是</td>
-                            <td>
-                                <button class="delete">删除</button>
-                            </td>
-                            <td>
-                                <button class="alter">修改</button>
-                            </td>
-                        </tr>
+                            <tr class="alt">
+                                <td>{{ teacher.username }}</td>
+                                <td>{{ teacher.name }}</td>
+                                <td><a class="click_class" href="#">{{ teacher.school }}</a></td>
+                                <td>{{ teacher.major }}</td>
+                                <td>
+                                    <button class="delete">删除</button>
+                                </td>
+                                <td>
+                                    <button class="alter">修改</button>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        {#                        <tr class="alt">#}
+                        {#                            <td>(2019-2020-1)1</td>#}
+                        {#                            <td>161130206</td>#}
+                        {#                            <td><a href="#" class="click_class"#}
+                        {#                                   onclick="window.open('kcxx.aspx?kcdm=161130206&amp;xh=201711010111','kcxx','toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=1,resizable=0,width=490,height=500,left=200,top=50')">计算机组成原理</a>#}
+                        {#                            </td>#}
+                        {#                            <td>是</td>#}
+                        {#                            <td><button class="delete">删除</button></td>#}
+                        {#                            <td><button class="alter">修改</button></td>#}
+                        {#                        </tr>#}
                         <!--            <canvas id="demo-canvas" style="position:absolute"></canvas>-->
                     </table>
                 </div>

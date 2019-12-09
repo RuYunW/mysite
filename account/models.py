@@ -39,7 +39,6 @@ class User(AbstractUser):
         return self.name
 
 
-
 class Card(models.Model):
     card_id = models.CharField(max_length=20, primary_key=True)
     student_id = models.CharField(max_length=20, default=None)
@@ -59,10 +58,10 @@ class Abnormal(models.Model):
     remark = models.CharField(max_length=500)
 
 
-class AbnormalView(models.Model):
-    class Meta:
-        managed = False
-        db_table = 'account_abnormal_view'
+# class AbnormalView(models.Model):
+#     class Meta:
+#         managed = False
+#         db_table = 'account_abnormal_view'
 
 
 class UserView(models.Model):

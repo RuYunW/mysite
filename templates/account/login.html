@@ -42,7 +42,7 @@
 
                 </ul>
             </nav>
-            <h1><center><a href="../edu_admin/index.html"style="color:white; letter-spacing:20px;font-size:50px;font-family:华文行楷;">山东师范大学</a></center></h1>
+            <h1><center><a href="../edu_admin/index.html"style="color:white; letter-spacing:20px;font-size:50px;font-family:heiti;">山东师范大学</a></center></h1>
         </div>
     </section>
     <!-- #fh5co-header -->
@@ -63,18 +63,18 @@
                     <div class="fh5co-center-position">
                         <form action="." method="post" id="login">{% csrf_token %}
                             {#							  <h3 class="animate-box" style="color:black">用户名：<input type="text" name=name1 style="color:black;opacity: 0.3" sutofocus/></h3>#}
-                            <div style="color:black;opacity: 0.3" sutofocus><h3 class="animate-box" style="color:black">
+                            <div style="color:black;opacity: 1;font-weight: bold" sutofocus><h3 class="animate-box" style="color:black;opacity:1;font-weight: 500">
                                 用户名：{{ form.username }}</h3></div>
                             {#								<h3 class="animate-box" style="color:black">密&emsp;码：<input type="password" name=pw1 style="color:black;opacity: 0.3" sutofocus/></h3>#}
-                            <div style="color:black;opacity: 0.3" sutofocus><h3 class="animate-box" style="color:black">
+                            <div style="color:black;opacity: 1;font-weight: bold" sutofocus><h3 class="animate-box" style="color:black;opacity:1;font-weight: 500">
                                 密&emsp;码：{{ form.password }}</h3></div>
                             <h4 class="animate-box">
                                 <input type="submit"
-                                       style="color:rgba(255,255,255,0.8);width: 150px;height: 50px;border-radius: 30px;border: none; background: rgba(66,57,40,0.5);"
+                                       style="color:rgba(255,255,255,1);opacity:1;width: 150px;height: 50px;border-radius: 30px;border: none; background: rgba(66,57,40,1);"
                                        value="登陆"/>&nbsp;
                                 &emsp;<a href="{% url 'edu_admin:index' %}">
                                 <input type="button"
-                                       style="color:rgba(255,255,255,0.8);width: 150px;height: 50px;border-radius: 30px;border: none; background: rgba(66,57,40,0.5);"
+                                       style="color:rgba(255,255,255,1);opacity:1;width: 150px;height: 50px;border-radius: 30px;border: none; background: rgba(66,57,40,1);"
                                        value="返回"/></a></h4>
                             <script type="text/javascript">{{script}}('{{wrong}}')</script>
                             <!--								&lt;!&ndash;  js文件和button必须放在一起&ndash;&gt;-->

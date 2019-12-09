@@ -2,83 +2,141 @@ from django.shortcuts import render, get_object_or_404
 from edu_admin import models
 from django.http import FileResponse, HttpResponse, JsonResponse
 from edu_admin.forms import AddCourseForm
-from edu_admin.models import Course, Classroom
+from edu_admin.models import Course, Classroom, SelectCourse, StudentSelectCourse
 from account.models import User
 import xlrd
 from account.forms import TeacherForm
 from django.views.decorators.csrf import ensure_csrf_cookie
+from django.contrib.auth.hashers import make_password
 
 
 def Adm_mng_cou(request):
     add_course_form = AddCourseForm(request.POST)
-
     if request.method == "POST" and request.POST.getlist("add_course_button"):
         add_course_form = AddCourseForm(request.POST)
-
         course_id = request.POST.get('course_id')
-        print(course_id)
-        print(666)
-        if Course.objects.filter(course_id=course_id):
-            error_message = "课程号冲突，请重新输入！"
-            return render(request, "edu_admin/Adm_manage_courses.html",
-                          {"form": add_course_form, "add_course_return": False, "error_message": error_message})
-        course_name = request.POST.get('course_name')
-        course_week = "第" + request.POST.get('begin') + "-" + request.POST.get('end') + "周"
-        worktime1 = request.POST.get('workday1') + request.POST.get('workclass1')
-        # 如果有第二节课
-        if request.POST.get('workday2') and request.POST.get('workclass2'):
-            worktime2 = request.POST.get('workday2') + request.POST.get('workclass2')
-        else:
-            worktime2 = ""
-        worktime = worktime1 + ";" + worktime2 + "{" + course_week + "}"
-        # 如果用户存在且身份为老师
-        if User.objects.filter(username=request.POST.get('teacher_id')) and User.objects.get(
-                username=request.POST.get('teacher_id')).is_teacher:
-            teacher = User.objects.get(username=request.POST.get('teacher_id'))
-        else:
-            error_message = "教师不存在!"
-            return render(request, "edu_admin/Adm_manage_courses.html",
-                          {"form": add_course_form, "add_course_return": False, "error_message": error_message})
 
-        credit = request.POST.get('credit')  # 学分
-        course_belong = request.POST.get('course_belong')  # 课程归属
-        course_char = request.POST.get('course_char')  # 课程性质
-
-        bigLoc = request.POST.get('bigLoc')
-        smallLoc = request.POST.get('smallLoc')
-        place_id = request.POST.get('place_id')
-
-        course_num = request.POST.get('course_num')
-        classroom_id = bigLoc + "-" + smallLoc + "-" + place_id
-        if Classroom.objects.filter(room_id=classroom_id):
-            classroom = Classroom.objects.get(room_id=classroom_id)
-            if int(course_num) > int(classroom.number):
-                error_message = "选课人数超出教室容纳人数！"
+        if Course.objects.filter(course_id=course_id):  # 课程已存在
+            course_week = "第" + request.POST.get('begin') + "-" + request.POST.get('end') + "周"
+            worktime1 = request.POST.get('workday1') + request.POST.get('workclass1')
+            # 如果有第二节课
+            if request.POST.get('workday2') and request.POST.get('workclass2'):
+                worktime2 = request.POST.get('workday2') + request.POST.get('workclass2')
+            else:
+                worktime2 = ""
+            worktime = worktime1 + ";" + worktime2 + "{" + course_week + "}"
+            bigLoc = request.POST.get('bigLoc')
+            smallLoc = request.POST.get('smallLoc')
+            place_id = request.POST.get('place_id')
+            classroom_id = bigLoc + "-" + smallLoc + "-" + place_id
+            if Classroom.objects.filter(room_id=classroom_id) \
+                    and User.objects.filter(username=request.POST.get("teacher_id")) \
+                    and User.objects.get(username=request.POST.get("teacher_id")).is_teacher:  # 如果教室存在并且教师存在
+                if SelectCourse.objects.filter(course_id=course_id):
+                    SelectCourse.objects.create(
+                        select_course_id=
+                        "(" + str(request.POST.get("term")) + ")" + "-"
+                        + str(request.POST.get("course_is")) + "-"
+                        + str(request.POST.get("teacher_id")) + "-"
+                        + str(len(SelectCourse.objects.filter(course_id=course_id)) + 1),
+                        course_id=Course.objects.get(course_id=course_id),
+                        course_num=request.POST.get("course_num"),
+                        time=worktime,
+                        term=request.POST.get("term"),
+                        scclass="",
+                        place_id=Classroom.objects.get(room_id=classroom_id),
+                        teacher_id=User.objects.get(username=request.POST.get("teacher_id"))
+                    )
+                else:
+                    SelectCourse.objects.create(
+                        select_course_id=
+                        "(" + str(request.POST.get("term")) + ")" + "-"
+                        + str(course_id) + "-"
+                        + str(request.POST.get("teacher_id")) + "-"
+                        + "1",
+                        course_id=Course.objects.get(course_id=course_id),
+                        course_num=request.POST.get("course_num"),
+                        time=worktime,
+                        term=request.POST.get("term"),
+                        scclass="",
+                        place_id=Classroom.objects.get(room_id=classroom_id),
+                        teacher_id=User.objects.get(username=request.POST.get("teacher_id"))
+                    )
+                return render(request,
+                              "edu_admin/Adm_manage_courses.html",
+                              {"form": add_course_form, "add_course_return": True})
+            else:
+                error_message = "教室或教师不存在"
                 return render(request, "edu_admin/Adm_manage_courses.html",
                               {"form": add_course_form, "add_course_return": False, "error_message": error_message})
+
+        else:  # 课程不存在
+            # 先创建课程
+            Course.objects.create(
+                course_id=request.POST.get("course_id"),
+                course_name=request.POST.get("course_name"),
+                course_belong=request.POST.get('course_belong'),
+                credit=request.POST.get("credit"),
+                course_char=request.POST.get("course_char")
+            )
+
+            # 再新建开课
+            course_week = "第" + request.POST.get('begin') + "-" + request.POST.get('end') + "周"
+            worktime1 = request.POST.get('workday1') + request.POST.get('workclass1')
+            # 如果有第二节课
+            if request.POST.get('workday2') and request.POST.get('workclass2'):
+                worktime2 = request.POST.get('workday2') + request.POST.get('workclass2')
             else:
-                pass
-        else:
-            error_message = "教室不存在！"
-            return render(request, "edu_admin/Adm_manage_courses.html",
-                          {"form": add_course_form, "add_course_return": False, "error_message": error_message})
+                worktime2 = ""
+            worktime = worktime1 + ";" + worktime2 + "{" + course_week + "}"
+            # 如果用户存在且身份为老师
+            if User.objects.filter(username=request.POST.get('teacher_id')) and User.objects.get(
+                    username=request.POST.get('teacher_id')).is_teacher:
+                teacher = User.objects.get(username=request.POST.get('teacher_id'))
+            else:
+                error_message = "教师不存在!"
+                return render(request, "edu_admin/Adm_manage_courses.html",
+                              {"form": add_course_form, "add_course_return": False, "error_message": error_message})
 
-        classroom = Classroom.objects.get(room_id=classroom_id)
-        teacher = User.objects.get(username=request.POST.get('teacher_id'))
-        Course.objects.create(
-            course_id=course_id,
-            course_name=course_name,
-            course_char=course_char,
-            course_belong=course_belong,
-            time=worktime,
-            credit=credit,
-            place_id=classroom,
-            course_num=course_num,
-            teacher_id=teacher,
-        )
+            bigLoc = request.POST.get('bigLoc')
+            smallLoc = request.POST.get('smallLoc')
+            place_id = request.POST.get('place_id')
 
-        return render(request, "edu_admin/Adm_manage_courses.html",
-                      {"form": add_course_form, "add_course_return": True})
+            course_num = request.POST.get('course_num')
+            classroom_id = bigLoc + "-" + smallLoc + "-" + place_id
+            if Classroom.objects.filter(room_id=classroom_id):
+                classroom = Classroom.objects.get(room_id=classroom_id)
+                if int(course_num) > int(classroom.number):
+                    error_message = "选课人数超出教室容纳人数！"
+                    return render(request, "edu_admin/Adm_manage_courses.html",
+                                  {"form": add_course_form, "add_course_return": False, "error_message": error_message})
+                else:
+                    pass
+            else:
+                error_message = "教室不存在！"
+                return render(request, "edu_admin/Adm_manage_courses.html",
+                              {"form": add_course_form, "add_course_return": False, "error_message": error_message})
+
+            classroom = Classroom.objects.get(room_id=classroom_id)
+            teacher = User.objects.get(username=request.POST.get('teacher_id'))
+            SelectCourse.objects.create(
+                select_course_id=
+                "(" + request.POST.get("term") + ")"
+                + request.POST.get("teacher_id")
+                + str(len(SelectCourse.objects.filter(course_id=request.POST.get("course_id"))) + 1),
+                course_id=Course.objects.get(course_id=request.POST.get("course_id")),
+                course_num=request.POST.get("course_num"),
+                time=worktime,
+                term=request.POST.get("term"),
+                scclass="",
+                place_id=classroom,
+                teacher_id=teacher
+            )
+            print(request.POST.get("scclass"))
+            return render(
+                request,
+                "edu_admin/Adm_manage_courses.html",
+                {"form": add_course_form, "add_course_return": True})
 
     # 删除
     # elif request.method == "POST" and request.POST.getlist("course_delete_button"):
@@ -202,13 +260,27 @@ def Adm_mng_cou(request):
     else:
         add_course_form = AddCourseForm()
         # student_objs = User.objects.filter(is_teacher=False)
+        courses = SelectCourse.objects.all()
+        teacher_name = []
+        for course in courses:
+            if User.objects.filter(username=course.teacher_id):
+                teacher_name.append(User.objects.get(username=course.teacher_id).name)
         return render(request,
                       "edu_admin/Adm_manage_courses.html",
-                      {"form": add_course_form})
+                      {"form": add_course_form, "courses": courses, "teacher_name": teacher_name,
+                       "N": str(len(courses))})
 
 
 def Adm_mng_stu(requset):
     return render(requset, 'edu_admin/Adm_manage_students.html', )
+
+
+def Adm_sel_time(request):
+    return render(request, "edu_admin/Adm_select_time.html")
+
+
+def Adm_inp_time(request):
+    return render(request, "edu_admin/Adm_input_time.html")
 
 
 def Adm_mng_tea(requset):
@@ -221,22 +293,28 @@ def Adm_mng_tea(requset):
                           'edu_admin/Adm_manage_teachers.html',
                           {"form": teacher_form, "add_teacher": False, "error_message": error_message})
         else:
-
             User.objects.create(
                 username=requset.POST.get("username"),
-                password=requset.POST.get("username")[-6:],
+                password=make_password(requset.POST.get("username")[-6:]),
                 name=requset.POST.get("name"),
                 school=requset.POST.get("school"),
-                major=requset.POST.get("school"),
+                major=requset.POST.get("major"),
                 sclass=requset.POST.get("sclass"),
                 is_teacher=True
             )
             return render(requset,
                           'edu_admin/Adm_manage_teachers.html',
                           {"form": teacher_form, "add_teacher": True})
+
+    elif requset.method == "POST" and requset.POST.getlist("select_teacher"):
+        pass
+
     else:
         teacher_form = TeacherForm()
-        return render(requset, 'edu_admin/Adm_manage_teachers.html', {"form": teacher_form})
+        teacher_objs = User.objects.filter(is_teacher=1)
+
+        return render(requset, 'edu_admin/Adm_manage_teachers.html',
+                      {"form": teacher_form, "teacher_list": teacher_objs})
 
 
 def index(requset):
@@ -276,7 +354,9 @@ def stu_req_selected(request):
 
 
 def stu_select_src(request):
-    return render(request, "edu_admin/Stu_select_sourses.html", )
+    courses = Course.objects.all()
+
+    return render(request, "edu_admin/Stu_select_sourses.html", {"courses": courses})
 
 
 def wel_adm(requset):
@@ -295,3 +375,19 @@ def course_download(request):
     response['Content-Type'] = 'application/octet-stream'
     response['Content-Disposition'] = 'attachment;filename="course_import.xlsx"'
     return response
+
+
+def tea_my_sch(request):
+    return render(request, "edu_admin/Tea_my_schedule.html")
+
+
+def tea_student(request):
+    return render(request, "edu_admin/Tea_student.html")
+
+
+def tea_student_grade(request):
+    return render(request, "edu_admin/Tea_student_grade.html")
+
+
+def welcome_tea(request):
+    return render(request, "edu_admin/welcome_Tea.html")

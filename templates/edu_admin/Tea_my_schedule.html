@@ -1,0 +1,140 @@
+{% extends 'Tea_based.html' %}
+{% load staticfiles %}
+{% block title %}SDNU Class_Schedule{% endblock %}
+{% block content %}
+    <div class="body_container1">
+
+{#        <div class="return_top">#}
+{#            <a href="#return_button_top">#}
+{#                <img src="{% static '/images/codingmonkey.png' %}" class="codingmonkey"> </a>#}
+{#        </div>#}
+        <div class="schedule">
+            <div><span class="remind">弘德明智 博学笃行</span></div>
+            <div><span class="remind2"><center>我的课程表</center><br></span></div>
+            <table border="1">
+                <tr>
+                    <td colspan="2" rowspan="1" width="2%">时间</td>
+                    <td width="14%" align="Center">星期一</td>
+                    <td width="14%" align="Center">星期二</td>
+                    <td width="14%" align="Center">星期三</td>
+                    <td width="14%" align="Center">星期四</td>
+                    <td width="14%" align="Center">星期五</td>
+                    <td class="noprint" width="14%" align="Center">星期六</td>
+                    <td class="noprint" width="14%" align="Center">星期日</td>
+                </tr>
+                <tr>
+                    <td colspan="2">早晨</td>
+                    <td align="Center">&nbsp;</td>
+                    <td align="Center">&nbsp;</td>
+                    <td align="Center">&nbsp;</td>
+                    <td align="Center">&nbsp;</td>
+                    <td align="Center">&nbsp;</td>
+                    <td class="noprint" align="Center">&nbsp;</td>
+                    <td class="noprint" align="Center">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td rowspan="4" width="1%">上午</td>
+                    <td width="1%">第1节</td>
+                    <td rowspan="2" width="7%" align="Center">计算机组成原理<br>周一第1,2节{第1-18周}<br>翟仑<br>文宗楼1-106</td>
+                    <td rowspan="2" width="7%" align="Center">XML技术<br>周二第1,2节{第1-18周}<br>张永胜<br>文渊楼C座569A</td>
+                    <td rowspan="2" width="7%" align="Center">计算机组成原理<br>周三第1,2节{第1-18周}<br>翟仑<br>文宗楼1-106</td>
+                    <td rowspan="2" width="7%" align="Center">软件工程<br>周四第1,2节{第1-18周}<br>计华<br>文渊楼C座333</td>
+                    <td rowspan="2" width="7%" align="Center">软件工程<br>周五第1,2节{第1-18周}<br>计华<br>文渊楼C座333</td>
+                    <td class="noprint" width="7%" align="Center">&nbsp;</td>
+                    <td class="noprint" width="7%" align="Center">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>第2节</td>
+                    <td class="noprint" align="Center">&nbsp;</td>
+                    <td class="noprint" align="Center">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>第3节</td>
+                    <td align="Center">&nbsp;</td>
+                    <td align="Center">&nbsp;</td>
+                    <td align="Center">&nbsp;</td>
+                    <td rowspan="2" align="Center">数据库实用技术<br>{第1-18周|2节/周}<br>丁艳辉<br>文渊楼B座127</td>
+                    <td rowspan="2" align="Center">Android平台与开发技术<br>周五第3,4节{第1-18周}<br>高保忠<br>文宗楼1-106</td>
+                    <td class="noprint" align="Center">&nbsp;</td>
+                    <td class="noprint" align="Center">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>第4节</td>
+                    <td align="Center">&nbsp;</td>
+                    <td align="Center">&nbsp;</td>
+                    <td align="Center">&nbsp;</td>
+                    <td class="noprint" align="Center">&nbsp;</td>
+                    <td class="noprint" align="Center">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td rowspan="4" width="1%">下午</td>
+                    <td>第5节</td>
+                    <td rowspan="2" align="Center">计算机网络<br>周一第5,6节{第1-18周}<br>孙跃鲁<br>文渊楼C座226</td>
+                    <td rowspan="2" align="Center">计算方法<br>周二第5,6节{第1-18周}<br>李圣涛<br>文渊楼C座255</td>
+                    <td rowspan="2" align="Center">计算机网络<br>周三第5,6节{第1-18周}<br>孙跃鲁<br>文渊楼C座226</td>
+                    <td align="Center">&nbsp;</td>
+                    <td align="Center">&nbsp;</td>
+                    <td class="noprint" align="Center">&nbsp;</td>
+                    <td class="noprint" align="Center">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>第6节</td>
+                    <td align="Center">&nbsp;</td>
+                    <td align="Center">&nbsp;</td>
+                    <td class="noprint" align="Center">&nbsp;</td>
+                    <td class="noprint" align="Center">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>第7节</td>
+                    <td align="Center">&nbsp;</td>
+                    <td align="Center">计算方法<br>周二第7节{第1-18周}<br>李圣涛<br>文渊楼C座255</td>
+                    <td align="Center">&nbsp;</td>
+                    <td align="Center">&nbsp;</td>
+                    <td align="Center">&nbsp;</td>
+                    <td class="noprint" align="Center">&nbsp;</td>
+                    <td class="noprint" align="Center">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>第8节</td>
+                    <td align="Center">&nbsp;</td>
+                    <td align="Center">&nbsp;</td>
+                    <td align="Center">&nbsp;</td>
+                    <td align="Center">&nbsp;</td>
+                    <td align="Center">&nbsp;</td>
+                    <td class="noprint" align="Center">&nbsp;</td>
+                    <td class="noprint" align="Center">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td rowspan="3" width="1%">晚上</td>
+                    <td>第9节</td>
+                    <td align="Center">&nbsp;</td>
+                    <td rowspan="2" align="Center">算法分析与设计<br>{第1-18周|2节/周}<br>段会川<br>文渊楼C座129</td>
+                    <td rowspan="2" align="Center">HTML5技术与应用<br>周三第9,10节{第1-18周}<br>吕蕾<br>文渊楼C座127</td>
+                    <td align="Center">&nbsp;</td>
+                    <td align="Center">&nbsp;</td>
+                    <td class="noprint" align="Center">&nbsp;</td>
+                    <td class="noprint" align="Center">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>第10节</td>
+                    <td align="Center">&nbsp;</td>
+                    <td align="Center">&nbsp;</td>
+                    <td align="Center">&nbsp;</td>
+                    <td class="noprint" align="Center">&nbsp;</td>
+                    <td class="noprint" align="Center">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>第11节</td>
+                    <td align="Center">&nbsp;</td>
+                    <td align="Center">算法分析与设计<br>{第1-18周|1节/周}<br>段会川<br>文渊楼C座129</td>
+                    <td align="Center">&nbsp;</td>
+                    <td align="Center">&nbsp;</td>
+                    <td align="Center">&nbsp;</td>
+                    <td class="noprint" align="Center">&nbsp;</td>
+                    <td class="noprint" align="Center">&nbsp;</td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+{% endblock %}

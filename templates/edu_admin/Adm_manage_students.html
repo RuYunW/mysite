@@ -3,23 +3,33 @@
 {% block title %}SDNU-Adm-manage-student{% endblock %}
 {% block content %}
 
-{#    {% if error_message %}#}
-{#        <script type="text/javascript">#}
-{#            alert("{{ error_message }}");#}
-{#            window.location.href = "/edu_admin/Adm_manage_students.html";#}
-{#        </script>#}
-{#    {% else %}#}
-{#        <script>#}
-{#        alert("{{ error_message }}")#}
-{#        </script>#}
-{#    {% endif %}#}
+    {#    {% if error_message %}#}
+    {#        <script type="text/javascript">#}
+    {#            alert("{{ error_message }}");#}
+    {#            window.location.href = "/edu_admin/Adm_manage_students.html";#}
+    {#        </script>#}
+    {#    {% else %}#}
+    {#        <script>#}
+    {#        alert("{{ error_message }}")#}
+    {#        </script>#}
+    {#    {% endif %}#}
 
-    {% if return_add %}
+    {% if return_add == True %}
         <script type="text/javascript">
             alert("信息录入成功！");
             window.location.href = "/edu_admin/Adm_manage_students.html";
         </script>
     {% elif return_add == False %}
+        <script type="text/javascript">
+            alert("{{ error_message }}");
+            window.location.href = "/edu_admin/Adm_manage_students.html";
+        </script>
+    {% elif return_upload == False %}
+        <script type="text/javascript">
+            alert("{{ error_message }}");
+            window.location.href = "/edu_admin/Adm_manage_students.html";
+        </script>
+    {% elif return_upload == True %}
         <script type="text/javascript">
             alert("{{ error_message }}");
             window.location.href = "/edu_admin/Adm_manage_students.html";
@@ -45,10 +55,7 @@
 
     <div class="body_container1">
 
-        <div class="return_top">
-            <a href="#return_button_top">
-                <img src="{% static '/images/codingmonkey.png' %}" class="codingmonkey"> </a>
-        </div>
+
         <div class="body_background3">
             <div style="font-size: 40px;margin: auto;padding-top: 40px;padding-left: 20px;color: #5a1216">管理学生</div>
             <div class="manage—stu">
@@ -71,12 +78,12 @@
                                 {#                                <input type="text" class="form-control" id="id"#}
                                 {#                                       placeholder="请输入学生学号" style="width: 200px">#}
                             </div>
-{#                            <div class="form-group">#}
-{#                                <label class="sr-only" for="{{ form.password.id_for_label }}">名称</label>#}
-{#                                <div>{{ form.password }}</div>#}
-                                {#                                <input type="text" class="form-control" id="pw"#}
-                                {#                                       placeholder="请输入学生密码" style="width: 200px">#}
-{#                            </div>#}
+                            {#                            <div class="form-group">#}
+                            {#                                <label class="sr-only" for="{{ form.password.id_for_label }}">名称</label>#}
+                            {#                                <div>{{ form.password }}</div>#}
+                            {#                                <input type="text" class="form-control" id="pw"#}
+                            {#                                       placeholder="请输入学生密码" style="width: 200px">#}
+                            {#                            </div>#}
                             <div class="form-group">
                                 <label class="sr-only" for="{{ form.major.id_for_label }}">名称</label>
                                 <div>{{ form.major }}</div>
@@ -128,13 +135,11 @@
                         <span><span class="icon-folder-upload"></span>&nbsp;批量导入学生信息</span><br>
                     </div>
                     <div class="formd">
-
                         {#                        <form action="">#}
                         {#                            <a href="{% url 'crm_download' %}">下载模板</a>#}
                         {#                            <p><input type="file" name="xsfile"></p>#}
                         {#                            <p><input type="submit" value="提交"></p>#}
                         {#                        </form>#}
-
                         <form enctype="multipart/form-data" action="." method="post" class="form-inline"
                               role="form">{% csrf_token %}
                             {#                            <div class="form-group">#}
@@ -147,8 +152,8 @@
                             </div>
                             {#                            <div class="form-group">#}
                             {#                                <label class="sr-only" for="inputfile">文件输入</label>#}
-{#                            <a href="javascript:;" class="select_file"#}
-{#                               style="margin-right:200px;padding: 4px 8px ;height: 20px;line-height: 20px;position: relative;border: 1px solid #999;text-decoration: none;color:#666">选择文件</a>#}
+                            {#                            <a href="javascript:;" class="select_file"#}
+                            {#                               style="margin-right:200px;padding: 4px 8px ;height: 20px;line-height: 20px;position: relative;border: 1px solid #999;text-decoration: none;color:#666">选择文件</a>#}
 
                             <input type="file" id="inputfile" name="myfile">
 
@@ -160,7 +165,7 @@
                             {#                                    <input type="checkbox"> 确认#}
                             {#                                </label>#}
                             {#                            </div>#}
-{#                            <button type="submit" class="btn btn-default" name="file_button">导入</button>#}
+                            {#                            <button type="submit" class="btn btn-default" name="file_button">导入</button>#}
                         </form>
                     </div>
                 </div>
@@ -223,33 +228,33 @@
                         </tr>
                         {% for student in student_objs %}
 
-
-                        <tr class="alt">
-                            <td>{{ student.username }}</td>
-                            <td>{{ student.name }}</td>
-                            <td><a class="click_class" href="#">{{ student.major }}</a></td>
-                            <td>{{ student.sclass }}</td>
-                            <td><button class="delete">删除</button></td>
-                            <td><button class="alter">修改</button></td>
-
-                        </tr>
+                            <tr class="alt">
+                                <td>{{ student.username }}</td>
+                                <td>{{ student.name }}</td>
+                                <td><a class="click_class" href="#">{{ student.major }}</a></td>
+                                <td>{{ student.sclass }}</td>
+                                <td>
+                                    <button class="delete">删除</button>
+                                </td>
+                                <td>
+                                    <button class="alter">修改</button>
+                                </td>
+                            </tr>
                         {% endfor %}
-{#                        <tr class="alt">#}
-{#                            <td>(2019-2020-1)1</td>#}
-{#                            <td>161130206</td>#}
-{#                            <td><a href="#" class="click_class"#}
-{#                                   onclick="window.open('kcxx.aspx?kcdm=161130206&amp;xh=201711010111','kcxx','toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=1,resizable=0,width=490,height=500,left=200,top=50')">计算机组成原理</a>#}
-{#                            </td>#}
-{#                            <td>是</td>#}
-{#                            <td><button class="delete">删除</button></td>#}
-{#                            <td><button class="alter">修改</button></td>#}
-{#                        </tr>#}
+                        {#                        <tr class="alt">#}
+                        {#                            <td>(2019-2020-1)1</td>#}
+                        {#                            <td>161130206</td>#}
+                        {#                            <td><a href="#" class="click_class"#}
+                        {#                                   onclick="window.open('kcxx.aspx?kcdm=161130206&amp;xh=201711010111','kcxx','toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=1,resizable=0,width=490,height=500,left=200,top=50')">计算机组成原理</a>#}
+                        {#                            </td>#}
+                        {#                            <td>是</td>#}
+                        {#                            <td><button class="delete">删除</button></td>#}
+                        {#                            <td><button class="alter">修改</button></td>#}
+                        {#                        </tr>#}
                         <!--            <canvas id="demo-canvas" style="position:absolute"></canvas>-->
                     </table>
-
                 </div>
             </div>
-
         </div>
     </div>
 {% endblock %}

@@ -5,10 +5,10 @@
 
     <div class="body_container1">
 
-{#        <div class="return_top">#}
-{#            <a href="#return_button_top">#}
-{#                <img src="{% static '/images/codingmonkey.png' %}" class="codingmonkey"> </a>#}
-{#        </div>#}
+        {#        <div class="return_top">#}
+        {#            <a href="#return_button_top">#}
+        {#                <img src="{% static '/images/codingmonkey.png' %}" class="codingmonkey"> </a>#}
+        {#        </div>#}
         <!--    <div class="return_top">-->
         <!--        <a href="#return_button_top">-->
         <!--            <div  class="codingmonkey"></div> </a>-->
@@ -36,250 +36,272 @@
                         0
                     </div>
                 </div>
+
                 <div class="body_note_time_container">
                     <div class="body_note_time"> 2019-2020学年</div>
 
                     <div class="body_note_term">第一学期</div>
                 </div>
-
-
                 <div class="body_note_container">
-                    <div class="note">
-                        <span class="icon-bookmark"></span>
-                        <div class="note_class_id">课程代号：161130333</div>
-                        <div class="note_icon"></div>
-                        <div class="note_class">
-                            计算机组成原理
-                        </div>
-                        <div class="note_teacher">
-                            老师1：
-                        </div>
-                        <div class="note_class1">
-                            <div class="note_name"></div>
-                            <div class="note_credit"></div>
-                            <div class="note_time"></div>
-                            <div class="note_position"></div>
-                            <div class="note_select">
-                                <div class="note_selected"></div>
-                            </div>
-                        </div>
-                        <div class="note_teacher">
-                            老师2：
-                        </div>
-                        <div class="note_class1">
-                            <div class="note_name"></div>
-                            <div class="note_credit"></div>
-                            <div class="note_time"></div>
-                            <div class="note_position"></div>
-                            <div class="note_select">
-                                <div class="note_selected"></div>
-                            </div>
-                        </div>
-                        <div class="note_cancel">
-                            取消
-                        </div>
-                        <div class="note_confirm">
-                            确认
-                        </div>
-                    </div>
+                    {% if courses %}
+                        {% for course in courses %}
+                            <tr class="alt">
+                                <td>{{ course.course_id }}</td>
+                                <td>{{ course.course_name }}</td>
+                                <td>{{ course.credit }}</td>
+                                <td>{{ course.course_num }}</td>
+                                <td>{{ course.place_id_id }}</td>
+                                <td>
+                                    <button class="delete">选择课程</button>
+                                </td>
+                                <td>
+                                    <button class="alter">退选课程</button>
+                                </td>
 
-                    <div class="note">
-                        <span class="icon-bookmark"></span>
-                        <div class="note_class_id">课程代号：161130333</div>
-                        <div class="note_icon"></div>
-                        <div class="note_class">
-                            计算机组成原理
-                        </div>
-                        <div class="note_teacher">
-                            老师1：
-                        </div>
-                        <div class="note_class1">
-                            <div class="note_name"></div>
-                            <div class="note_credit"></div>
-                            <div class="note_time"></div>
-                            <div class="note_position"></div>
-                            <div class="note_select">
-                                <div class="note_selected"></div>
-                            </div>
-                        </div>
-                        <div class="note_teacher">
-                            老师2：
-                        </div>
-                        <div class="note_class1">
-                            <div class="note_name"></div>
-                            <div class="note_credit"></div>
-                            <div class="note_time"></div>
-                            <div class="note_position"></div>
-                            <div class="note_select">
-                                <div class="note_selected"></div>
-                            </div>
-                        </div>
-                        <div class="note_cancel">
-                            取消
-                        </div>
-                        <div class="note_confirm">
-                            确认
-                        </div>
-                    </div>
-
-
-                    <div class="note">
-                        <span class="icon-bookmark"></span>
-                        <div class="note_class_id">课程代号：161130333</div>
-                        <div class="note_icon"></div>
-                        <div class="note_class">
-                            计算机组成原理
-                        </div>
-                        <div class="note_teacher">
-                            老师1：
-                        </div>
-                        <div class="note_class1">
-                            <div class="note_name"></div>
-                            <div class="note_credit"></div>
-                            <div class="note_time"></div>
-                            <div class="note_position"></div>
-                            <div class="note_select">
-                                <div class="note_selected"></div>
-                            </div>
-                        </div>
-                        <div class="note_teacher">
-                            老师2：
-                        </div>
-                        <div class="note_class1">
-                            <div class="note_name"></div>
-                            <div class="note_credit"></div>
-                            <div class="note_time"></div>
-                            <div class="note_position"></div>
-                            <div class="note_select">
-                                <div class="note_selected"></div>
-                            </div>
-                        </div>
-                        <div class="note_cancel">
-                            取消
-                        </div>
-                        <div class="note_confirm">
-                            确认
-                        </div>
-                    </div>
-
-                    <div class="note">
-                        <span class="icon-bookmark"></span>
-                        <div class="note_class_id">课程代号：161130333</div>
-                        <div class="note_icon"></div>
-                        <div class="note_class">
-                            计算机组成原理
-                        </div>
-                        <div class="note_teacher">
-                            老师1：
-                        </div>
-                        <div class="note_class1">
-                            <div class="note_name"></div>
-                            <div class="note_credit"></div>
-                            <div class="note_time"></div>
-                            <div class="note_position"></div>
-                            <div class="note_select">
-                                <div class="note_selected"></div>
-                            </div>
-                        </div>
-                        <div class="note_teacher">
-                            老师2：
-                        </div>
-                        <div class="note_class1">
-                            <div class="note_name"></div>
-                            <div class="note_credit"></div>
-                            <div class="note_time"></div>
-                            <div class="note_position"></div>
-                            <div class="note_select">
-                                <div class="note_selected"></div>
-                            </div>
-                        </div>
-                        <div class="note_cancel">
-                            取消
-                        </div>
-                        <div class="note_confirm">
-                            确认
-                        </div>
-                    </div>
-
-                    <div class="note">
-                        <span class="icon-bookmark"></span>
-                        <div class="note_class_id">课程代号：161130333</div>
-                        <div class="note_icon"></div>
-                        <div class="note_class">
-                            计算机组成原理
-                        </div>
-                        <div class="note_teacher">
-                            老师1：
-                        </div>
-                        <div class="note_class1">
-                            <div class="note_name"></div>
-                            <div class="note_credit"></div>
-                            <div class="note_time"></div>
-                            <div class="note_position"></div>
-                            <div class="note_select">
-                                <div class="note_selected"></div>
-                            </div>
-                        </div>
-                        <div class="note_teacher">
-                            老师2：
-                        </div>
-                        <div class="note_class1">
-                            <div class="note_name"></div>
-                            <div class="note_credit"></div>
-                            <div class="note_time"></div>
-                            <div class="note_position"></div>
-                            <div class="note_select">
-                                <div class="note_selected"></div>
-                            </div>
-                        </div>
-                        <div class="note_cancel">
-                            取消
-                        </div>
-                        <div class="note_confirm">
-                            确认
-                        </div>
-                    </div>
-
-                    <div class="note">
-                        <span class="icon-bookmark"></span>
-                        <div class="note_class_id">课程代号：161130333</div>
-                        <div class="note_icon"></div>
-                        <div class="note_class">
-                            计算机组成原理
-                        </div>
-                        <div class="note_teacher">
-                            老师1：
-                        </div>
-                        <div class="note_class1">
-                            <div class="note_name"></div>
-                            <div class="note_credit"></div>
-                            <div class="note_time"></div>
-                            <div class="note_position"></div>
-                            <div class="note_select">
-                                <div class="note_selected"></div>
-                            </div>
-                        </div>
-                        <div class="note_teacher">
-                            老师2：
-                        </div>
-                        <div class="note_class1">
-                            <div class="note_name"></div>
-                            <div class="note_credit"></div>
-                            <div class="note_time"></div>
-                            <div class="note_position"></div>
-                            <div class="note_select">
-                                <div class="note_selected"></div>
-                            </div>
-                        </div>
-                        <div class="note_cancel">
-                            取消
-                        </div>
-                        <div class="note_confirm">
-                            确认
-                        </div>
-                    </div>
+                            </tr>
+                            <br>
+                        {% endfor %}
+                    {% else %}
+                        <div align="center" style="color: black">暂无可选课程</div>
+                    {% endif %}
                 </div>
+
+                {#                    <div class="note">#}
+                {#                        <span class="icon-bookmark"></span>#}
+                {#                        <div class="note_class_id">课程代号：161130333</div>#}
+                {#                        <div class="note_icon"></div>#}
+                {#                        <div class="note_class">#}
+                {#                            计算机组成原理#}
+                {#                        </div>#}
+                {#                        <div class="note_teacher">#}
+                {#                            老师1：#}
+                {#                        </div>#}
+                {#                        <div class="note_class1">#}
+                {#                            <div class="note_name"></div>#}
+                {#                            <div class="note_credit"></div>#}
+                {#                            <div class="note_time"></div>#}
+                {#                            <div class="note_position"></div>#}
+                {#                            <div class="note_select">#}
+                {#                                <div class="note_selected"></div>#}
+                {#                            </div>#}
+                {#                        </div>#}
+                {#                        <div class="note_teacher">#}
+                {#                            老师2：#}
+                {#                        </div>#}
+                {#                        <div class="note_class1">#}
+                {#                            <div class="note_name"></div>#}
+                {#                            <div class="note_credit"></div>#}
+                {#                            <div class="note_time"></div>#}
+                {#                            <div class="note_position"></div>#}
+                {#                            <div class="note_select">#}
+                {#                                <div class="note_selected"></div>#}
+                {#                            </div>#}
+                {#                        </div>#}
+                {#                        <div class="note_cancel">#}
+                {#                            取消#}
+                {#                        </div>#}
+                {#                        <div class="note_confirm">#}
+                {#                            确认#}
+                {#                        </div>#}
+                {#                    </div>#}
+                {##}
+                {#                    <div class="note">#}
+                {#                        <span class="icon-bookmark"></span>#}
+                {#                        <div class="note_class_id">课程代号：161130333</div>#}
+                {#                        <div class="note_icon"></div>#}
+                {#                        <div class="note_class">#}
+                {#                            计算机组成原理#}
+                {#                        </div>#}
+                {#                        <div class="note_teacher">#}
+                {#                            老师1：#}
+                {#                        </div>#}
+                {#                        <div class="note_class1">#}
+                {#                            <div class="note_name"></div>#}
+                {#                            <div class="note_credit"></div>#}
+                {#                            <div class="note_time"></div>#}
+                {#                            <div class="note_position"></div>#}
+                {#                            <div class="note_select">#}
+                {#                                <div class="note_selected"></div>#}
+                {#                            </div>#}
+                {#                        </div>#}
+                {#                        <div class="note_teacher">#}
+                {#                            老师2：#}
+                {#                        </div>#}
+                {#                        <div class="note_class1">#}
+                {#                            <div class="note_name"></div>#}
+                {#                            <div class="note_credit"></div>#}
+                {#                            <div class="note_time"></div>#}
+                {#                            <div class="note_position"></div>#}
+                {#                            <div class="note_select">#}
+                {#                                <div class="note_selected"></div>#}
+                {#                            </div>#}
+                {#                        </div>#}
+                {#                        <div class="note_cancel">#}
+                {#                            取消#}
+                {#                        </div>#}
+                {#                        <div class="note_confirm">#}
+                {#                            确认#}
+                {#                        </div>#}
+                {#                    </div>#}
+                {##}
+                {##}
+                {#                    <div class="note">#}
+                {#                        <span class="icon-bookmark"></span>#}
+                {#                        <div class="note_class_id">课程代号：161130333</div>#}
+                {#                        <div class="note_icon"></div>#}
+                {#                        <div class="note_class">#}
+                {#                            计算机组成原理#}
+                {#                        </div>#}
+                {#                        <div class="note_teacher">#}
+                {#                            老师1：#}
+                {#                        </div>#}
+                {#                        <div class="note_class1">#}
+                {#                            <div class="note_name"></div>#}
+                {#                            <div class="note_credit"></div>#}
+                {#                            <div class="note_time"></div>#}
+                {#                            <div class="note_position"></div>#}
+                {#                            <div class="note_select">#}
+                {#                                <div class="note_selected"></div>#}
+                {#                            </div>#}
+                {#                        </div>#}
+                {#                        <div class="note_teacher">#}
+                {#                            老师2：#}
+                {#                        </div>#}
+                {#                        <div class="note_class1">#}
+                {#                            <div class="note_name"></div>#}
+                {#                            <div class="note_credit"></div>#}
+                {#                            <div class="note_time"></div>#}
+                {#                            <div class="note_position"></div>#}
+                {#                            <div class="note_select">#}
+                {#                                <div class="note_selected"></div>#}
+                {#                            </div>#}
+                {#                        </div>#}
+                {#                        <div class="note_cancel">#}
+                {#                            取消#}
+                {#                        </div>#}
+                {#                        <div class="note_confirm">#}
+                {#                            确认#}
+                {#                        </div>#}
+                {#                    </div>#}
+                {##}
+                {#                    <div class="note">#}
+                {#                        <span class="icon-bookmark"></span>#}
+                {#                        <div class="note_class_id">课程代号：161130333</div>#}
+                {#                        <div class="note_icon"></div>#}
+                {#                        <div class="note_class">#}
+                {#                            计算机组成原理#}
+                {#                        </div>#}
+                {#                        <div class="note_teacher">#}
+                {#                            老师1：#}
+                {#                        </div>#}
+                {#                        <div class="note_class1">#}
+                {#                            <div class="note_name"></div>#}
+                {#                            <div class="note_credit"></div>#}
+                {#                            <div class="note_time"></div>#}
+                {#                            <div class="note_position"></div>#}
+                {#                            <div class="note_select">#}
+                {#                                <div class="note_selected"></div>#}
+                {#                            </div>#}
+                {#                        </div>#}
+                {#                        <div class="note_teacher">#}
+                {#                            老师2：#}
+                {#                        </div>#}
+                {#                        <div class="note_class1">#}
+                {#                            <div class="note_name"></div>#}
+                {#                            <div class="note_credit"></div>#}
+                {#                            <div class="note_time"></div>#}
+                {#                            <div class="note_position"></div>#}
+                {#                            <div class="note_select">#}
+                {#                                <div class="note_selected"></div>#}
+                {#                            </div>#}
+                {#                        </div>#}
+                {#                        <div class="note_cancel">#}
+                {#                            取消#}
+                {#                        </div>#}
+                {#                        <div class="note_confirm">#}
+                {#                            确认#}
+                {#                        </div>#}
+                {#                    </div>#}
+                {##}
+                {#                    <div class="note">#}
+                {#                        <span class="icon-bookmark"></span>#}
+                {#                        <div class="note_class_id">课程代号：161130333</div>#}
+                {#                        <div class="note_icon"></div>#}
+                {#                        <div class="note_class">#}
+                {#                            计算机组成原理#}
+                {#                        </div>#}
+                {#                        <div class="note_teacher">#}
+                {#                            老师1：#}
+                {#                        </div>#}
+                {#                        <div class="note_class1">#}
+                {#                            <div class="note_name"></div>#}
+                {#                            <div class="note_credit"></div>#}
+                {#                            <div class="note_time"></div>#}
+                {#                            <div class="note_position"></div>#}
+                {#                            <div class="note_select">#}
+                {#                                <div class="note_selected"></div>#}
+                {#                            </div>#}
+                {#                        </div>#}
+                {#                        <div class="note_teacher">#}
+                {#                            老师2：#}
+                {#                        </div>#}
+                {#                        <div class="note_class1">#}
+                {#                            <div class="note_name"></div>#}
+                {#                            <div class="note_credit"></div>#}
+                {#                            <div class="note_time"></div>#}
+                {#                            <div class="note_position"></div>#}
+                {#                            <div class="note_select">#}
+                {#                                <div class="note_selected"></div>#}
+                {#                            </div>#}
+                {#                        </div>#}
+                {#                        <div class="note_cancel">#}
+                {#                            取消#}
+                {#                        </div>#}
+                {#                        <div class="note_confirm">#}
+                {#                            确认#}
+                {#                        </div>#}
+                {#                    </div>#}
+                {##}
+                {#                    <div class="note">#}
+                {#                        <span class="icon-bookmark"></span>#}
+                {#                        <div class="note_class_id">课程代号：161130333</div>#}
+                {#                        <div class="note_icon"></div>#}
+                {#                        <div class="note_class">#}
+                {#                            计算机组成原理#}
+                {#                        </div>#}
+                {#                        <div class="note_teacher">#}
+                {#                            老师1：#}
+                {#                        </div>#}
+                {#                        <div class="note_class1">#}
+                {#                            <div class="note_name"></div>#}
+                {#                            <div class="note_credit"></div>#}
+                {#                            <div class="note_time"></div>#}
+                {#                            <div class="note_position"></div>#}
+                {#                            <div class="note_select">#}
+                {#                                <div class="note_selected"></div>#}
+                {#                            </div>#}
+                {#                        </div>#}
+                {#                        <div class="note_teacher">#}
+                {#                            老师2：#}
+                {#                        </div>#}
+                {#                        <div class="note_class1">#}
+                {#                            <div class="note_name"></div>#}
+                {#                            <div class="note_credit"></div>#}
+                {#                            <div class="note_time"></div>#}
+                {#                            <div class="note_position"></div>#}
+                {#                            <div class="note_select">#}
+                {#                                <div class="note_selected"></div>#}
+                {#                            </div>#}
+                {#                        </div>#}
+                {#                        <div class="note_cancel">#}
+                {#                            取消#}
+                {#                        </div>#}
+                {#                        <div class="note_confirm">#}
+                {#                            确认#}
+                {#                        </div>#}
+                {#                    </div>#}
             </div>
         </div>
+    </div>
     </div>
 {% endblock %}

@@ -1,4 +1,4 @@
-{% extends 'adm_based.html' %}
+{% extends 'Tea_based.html' %}
 {% load staticfiles %}
 {% block title %}SDNU-Welcome-administrator{% endblock %}
 {% block content %}
@@ -26,14 +26,14 @@
                 }
             }
         </script>
-{##}
-{#        <div class="return_top" id="box1">#}
-{#            <a href="#return_button_top">#}
-{#                <img src="{% static '/images/codingmonkey.png' %}" class="codingmonkey"> </a>#}
-{#        </div>#}
+
+        <div class="return_top" id="box1">
+            <a href="#return_button_top">
+                <img src="{% static '/images/codingmonkey.png' %}" class="codingmonkey"> </a>
+        </div>
 
         <div class="remind_adm">
-            <span>欢迎使用山东师范大学教务管理系统管理员端！<br></span>
+            <span>欢迎使用山东师范大学教务管理系统教师端！<br></span>
             <canvas id="demo-canvas" style="position:absolute"></canvas>
         </div>
         <!--    <div class="remind_adm1">-->
@@ -50,11 +50,11 @@
                     <img src="{% static '/images/Adm.jpg' %}">
                 </a>
                 <div class="message_">
-                    <p>管理员</p>
+                    <p>王你芸</p>
                 </div>
             </div>
             <div class="meassage_xm">{{ request.session.name }}</div>
-            <div class="meassage_xm">管理工号{{ request.session.username }}</div>
+            <div class="meassage_xm">教师工号{{ request.session.username }}</div>
             <div class="meassage_xm"></div>
             <div class="meassage_xm"></div>
 
