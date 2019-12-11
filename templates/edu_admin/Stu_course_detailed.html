@@ -1,0 +1,57 @@
+{% extends 'stu_base.html' %}
+{% load staticfiles %}
+{% block title %}SDNU-Adm-manage-teacher{% endblock %}
+{% block content %}
+    <!--<div class="body_container">   big head formd-->
+
+    {% if error_message %}
+        <script type="text/javascript">
+            alert("{{ error_message }}")
+        </script>
+    {% elif is_select == True %}
+        <script type="text/javascript">
+            alert("选课成功！")
+        </script>
+    {% endif %}
+
+
+
+    <table border="1">
+        {% if course_state == True %}
+            <form method="POST">{% csrf_token %}
+                <tr class="datelisthead">
+                    <td>选课代码</td>
+                    <td>课程名称</td>
+                    <td>授课教师</td>
+                    <td>上课时间</td>
+                    <td>上课地点</td>
+                    <td>学分</td>
+                </tr>
+
+                {% for course in course_objs %}
+                    <tr class="alt">
+                        <td>{{ course.select_course_id }}</td>
+                        <td>{{ course.course_id.course_name }}</td>
+                        <td>{{ course.teacher_id.name }}</td>
+                        <td>{{ course.time }}</td>
+                        <td>{{ course.place_id.place }}</td>
+                        <td>{{ course.course_id.credit }}</td>
+                        <td>
+                            <button class="delete">删除</button>
+                        </td>
+                        <td>
+                            <label><input name="select" type="radio" value="{{ course.select_course_id }}"/> </label>
+                        </td>
+                    </tr>
+                {% endfor %}
+                <div>
+                    <button type="submit">提交</button>
+                </div>
+            </form>
+        {% else %}
+            <div>暂无可选课程</div>
+        {% endif %}
+    </table>
+
+
+{% endblock %}

@@ -12,7 +12,7 @@ from django.contrib.auth.hashers import make_password
 
 def Adm_mng_cou(request):
     add_course_form = AddCourseForm(request.POST)
-    if request.method == "POST" and request.POST.getlist("add_course_button"):
+    if request.method == "POST" and request.POST.getlist("add_course_button"):  # 添加课程
         add_course_form = AddCourseForm(request.POST)
         course_id = request.POST.get('course_id')
 
@@ -32,7 +32,7 @@ def Adm_mng_cou(request):
             if Classroom.objects.filter(room_id=classroom_id) \
                     and User.objects.filter(username=request.POST.get("teacher_id")) \
                     and User.objects.get(username=request.POST.get("teacher_id")).is_teacher:  # 如果教室存在并且教师存在
-                if SelectCourse.objects.filter(course_id=course_id):
+                if SelectCourse.objects.filter(course_id=course_id):  # 已存在
                     SelectCourse.objects.create(
                         select_course_id=
                         "(" + str(request.POST.get("term")) + ")" + "-"
@@ -40,28 +40,32 @@ def Adm_mng_cou(request):
                         + str(request.POST.get("teacher_id")) + "-"
                         + str(len(SelectCourse.objects.filter(course_id=course_id)) + 1),
                         course_id=Course.objects.get(course_id=course_id),
-                        course_num=request.POST.get("course_num"),
+                        course_num=request.POST.get("course_num"),     # 课容量
+                        course_remain=request.POST.get("course_num"),  # 课余量
                         time=worktime,
                         term=request.POST.get("term"),
-                        scclass="",
+                        scclass=request.POST.getlist("scclass"),
                         place_id=Classroom.objects.get(room_id=classroom_id),
                         teacher_id=User.objects.get(username=request.POST.get("teacher_id"))
                     )
-                else:
+                    print(444)
+                else:  # 没有重复课程
                     SelectCourse.objects.create(
                         select_course_id=
                         "(" + str(request.POST.get("term")) + ")" + "-"
-                        + str(course_id) + "-"
+                        + str(request.POST.get("course_id")) + "-"
                         + str(request.POST.get("teacher_id")) + "-"
                         + "1",
                         course_id=Course.objects.get(course_id=course_id),
                         course_num=request.POST.get("course_num"),
+                        course_remain=request.POST.get("course_num"),
                         time=worktime,
                         term=request.POST.get("term"),
-                        scclass="",
+                        scclass=request.POST.getlist("scclass"),
                         place_id=Classroom.objects.get(room_id=classroom_id),
                         teacher_id=User.objects.get(username=request.POST.get("teacher_id"))
                     )
+                    print(555)
                 return render(request,
                               "edu_admin/Adm_manage_courses.html",
                               {"form": add_course_form, "add_course_return": True})
@@ -107,7 +111,7 @@ def Adm_mng_cou(request):
             if Classroom.objects.filter(room_id=classroom_id):
                 classroom = Classroom.objects.get(room_id=classroom_id)
                 if int(course_num) > int(classroom.number):
-                    error_message = "选课人数超出教室容纳人数！"
+                    error_message = "课容量超出教室容纳人数！"
                     return render(request, "edu_admin/Adm_manage_courses.html",
                                   {"form": add_course_form, "add_course_return": False, "error_message": error_message})
                 else:
@@ -121,18 +125,20 @@ def Adm_mng_cou(request):
             teacher = User.objects.get(username=request.POST.get('teacher_id'))
             SelectCourse.objects.create(
                 select_course_id=
-                "(" + request.POST.get("term") + ")"
-                + request.POST.get("teacher_id")
+                "(" + request.POST.get("term") + ")" + "-"
+                + request.POST.get("teacher_id") + "-"
                 + str(len(SelectCourse.objects.filter(course_id=request.POST.get("course_id"))) + 1),
                 course_id=Course.objects.get(course_id=request.POST.get("course_id")),
                 course_num=request.POST.get("course_num"),
+                course_remain=request.POST.get("course_num"),
                 time=worktime,
                 term=request.POST.get("term"),
-                scclass="",
+                scclass=request.POST.getlist("scclass"),
                 place_id=classroom,
                 teacher_id=teacher
             )
-            print(request.POST.get("scclass"))
+            print(request.POST.getlist("scclass"))
+            print(666)
             return render(
                 request,
                 "edu_admin/Adm_manage_courses.html",
@@ -236,7 +242,8 @@ def Adm_mng_cou(request):
                             time=item['time'],
                             credit=item['credit'],
                             place_id=classroom,
-                            course_num=item['credit'],
+                            course_num=item['course_num'],
+                            course_remain=item['course_num'],
                             teacher_id=User.objects.get(username=item['teacher_id'])
                         )
 
@@ -355,8 +362,39 @@ def stu_req_selected(request):
 
 def stu_select_src(request):
     courses = Course.objects.all()
-
     return render(request, "edu_admin/Stu_select_sourses.html", {"courses": courses})
+
+
+def stu_course_detailed(request, course_id):
+    course_objs = SelectCourse.objects.filter(course_id=course_id)
+    if course_objs:  # 课程存在
+        if request.method == "POST":
+            # print(request.POST.get("select"))
+            if request.POST.get("select"):  # 如果选课valid
+                StudentSelectCourse.objects.create(  # 创建记录
+                    select_id=str(request.POST.get("select")) + "-" + str(request.session.get("username")),
+                    select_course_id=SelectCourse.objects.get(request.POST.get("select")),
+                    student_id=User.objects.get(username=request.session.get("username")),
+                )
+                # SelectCourse.objects.filter(select_course_id=request.POST.get("select")).update(course_remain=)  # 课余量-1
+
+                return render(request, "edu_admin/Stu_course_detailed.html/",
+                              {"course_state": True, "course_objs": course_objs, "is_select": True})
+
+            else:  # 没选
+                error_message = "您未提交选课"
+                return render(request, "edu_admin/Stu_course_detailed.html/",
+                              {"error_message": error_message, "course_objs": course_objs})
+
+            # return render(request, "edu_admin/Stu_course_detailed.html/", {"course_state": True, "course_objs": course_objs})
+        else:
+            return render(request, "edu_admin/Stu_course_detailed.html/",
+                          {"course_state": True, "course_objs": course_objs})
+
+    else:  # 课程不存在
+        error_message = "暂无可选课程"
+        return render(request, "edu_admin/Stu_course_detailed.html/",
+                      {"course_state": False, "error_message": error_message})
 
 
 def wel_adm(requset):
