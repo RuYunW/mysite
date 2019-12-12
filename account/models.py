@@ -64,7 +64,13 @@ class Abnormal(models.Model):
 #         db_table = 'account_abnormal_view'
 
 
-class UserView(models.Model):
+class StuUserView(models.Model):
     class Meta:
         managed = True
-        db_table = 'account_user_view'
+        db_table = 'account_stu_user_view'
+
+
+class ScoreCalculateView(models.Model):
+    class Meta:
+        managed = True
+        db_table = 'score_calculate_view'

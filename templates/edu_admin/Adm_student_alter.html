@@ -1,0 +1,44 @@
+{% extends 'adm_based.html' %}
+{% load staticfiles %}
+{% block title %}SDNU-Adm-manage-student{% endblock %}
+{% block content %}
+
+    {% if return_message %}
+        <script type="text/javascript">
+            alert("信息修改成功！");
+            window.location.href = "/edu_admin/Adm_manage_students.html/{{ student_id }}/";
+
+        </script>
+    {% endif %}
+
+    <div class="body_container1">
+        <div class="body_background3">
+
+            <div style="font-weight:700;font-size: 40px;margin: auto;padding-top: 40px;padding-left: 20px;color: #5a1216">
+                管理学生-修改信息
+            </div>
+            <form method="POST">{% csrf_token %}
+                <div class="sdu_alter">学生学号:&nbsp;&nbsp;
+                    <label for="sdu_id"><input disabled class="sdu_alter_input" value="{{ stu_obj.username }}" type="text"
+                                               name="sdu_id"></label>
+                </div>
+                <div class="sdu_alter">学生姓名:&nbsp;&nbsp;
+                    <label for="sdu_name"><input class="sdu_alter_input" value="{{ stu_obj.name }}" type="text"
+                                                 name="sdu_name"></label>
+                </div>
+                <div class="sdu_alter">学生专业:&nbsp;&nbsp;
+                    <label for="sdu_major"><input class="sdu_alter_input" value="{{ stu_obj.major }}" type="text"
+                                                  name="sdu_major"></label>
+                </div>
+                <div class="sdu_alter">学生班级:&nbsp;&nbsp;
+                    <label for="sdu_class"><input class="sdu_alter_input" value="{{ stu_obj.sclass }}" type="text"
+                                                  name="sdu_class"></label>
+                </div>
+                <button type="submit" class="select_submit">修改</button>
+            </form>
+
+        </div>
+    </div>
+    </div>
+{% endblock %}
+

@@ -14,9 +14,12 @@
 {
 
     width:100%;
-    height:1100px;
+    height:1000px;
     background: url("../images/index.jpg");
+    background-size: 100%;
     /*opacity: 0.6;*/
+    overflow: auto;
+    zoom:1;
 
 
 }
@@ -43,8 +46,11 @@
 .body_background3
 {
     background: rgba(255,255,255,0.8);
-    height:1200px;
-    width:100%
+    height:1000px;
+    width:100%;
+    overflow: auto;
+    zoom:1;
+
 }
 .codingmonkey
 {
@@ -67,8 +73,31 @@
     width: 60px;
     height: 60px;
     margin-left: 95%;
-    margin-top: 430px;
+    margin-top: 450px;
     position: fixed;
+    float: right;
+}
+.Adm_manage1
+{
+    width:20px;
+    height: 20px;
+    border-radius: 60px;
+    background: #7b4c30;
+    right:100px;
+    bottom:100px;
+    position:fixed;
+    float: right;
+}
+.Adm_manage2
+{
+    width:20px;
+    height: 20px;
+    border-radius: 60px;
+    background: #7b4c30;
+    right:120px;
+    bottom:60px;
+    position: fixed;
+    float: right;
 }
 .body_note
 {
@@ -151,8 +180,7 @@
 }
 .body_note_time_container
 {
-    margin-top: 20px;
-    width: 600px;
+    width: 400px;
     height: 250px;
     float: right;
 }
@@ -192,7 +220,7 @@
     /*background: #d9d7cb;*/
     background: -webkit-linear-gradient(top,#faf2cc,#d9d7cb);
     width: 30%;
-    height: 600px;
+    height: 400px;
     opacity: 0.9;
     border-radius: 20px;
     transform: rotate(1deg);
@@ -215,6 +243,7 @@
 .note_class_id
 {
     float: left;
+    margin-left: 10%;
     width: 200px;
     height: 20px;
     color: black;
@@ -262,7 +291,6 @@
     box-shadow: 3px 3px 5px 1px rgba(0,0,0,0.6);
     border: none;
     margin-top: 5px;
-    color: black;
     padding: 5px;
     text-align: center;
     margin-right: 10px;
@@ -296,24 +324,16 @@
 .note_credit
 {
     border-radius: 20px;
-    width: 100px;
-    margin-top:10px;
-    margin-right: 10px;
-    height: 40px;
-    background: rgba(157,157,157,0.3);
-    float: right;
-}
-
-.note_name
-{
-    border-radius: 20px;
     margin-top:10px;
     margin-left: 10px;
-    width: 200px;
+    width: 150px;
     height: 40px;
     background: rgba(157,157,157,0.3);
     float: left;
+    padding-left: 10%;
 }
+
+
 .note_time
 {
     margin-top:10px;
@@ -423,6 +443,8 @@
 }
 .head
 {
+    margin-top: 30px;
+    margin-bottom: 15px;
     font-size: 20px;
     color:#5a1216;
 }
@@ -439,21 +461,54 @@
 }
 .delete
 {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding-top: 10px;
     width: 100px;
     text-align: center;
     border:1px ;
-    background: #f2dede;
+    color: black;
+    background: rgba(124,118,98,0.5);
+}
+.select_submit
+{
+    border-radius: 20px;
+    width: 100px;
+    text-align: center;
+    height: 40px;
+    color: white;
+    border: none;
+    background: rgba(66,54,40,0.6);
+    box-shadow: 3px 3px 5px 1px rgba(0,0,0,0.6);
+    margin-right: 2%;
+    float: right;
+}
+.select_submit:hover
+{
+    background: rgba(135, 111, 105, 0.6);
 }
 .alter
 {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding-top: 10px;
+    border-radius: 20px;
+    float: right;
     width: 100px;
     text-align: center;
-    border:1px ;
-    background: #f2dede;
+    height: 40px;
+    border: none;
+    color: black;
+    padding: 5px;
+    background: rgba(103,177,104,0.6);
+    box-shadow: 3px 3px 5px 1px rgba(0,0,0,0.6);
+    margin-top: 5px;
+    margin-right: 10px;
+}
+.alter :hover
+{
+    background: #9d9d9d;
+    border: none;
+}
+.select_course
+{
+    color:#0b0b0b;
+}
+.select_course:hover
+{
+    color: #0b0b0b;
 }

@@ -2,7 +2,51 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7420a71c-8d7a-4f7e-8f49-41a3b36d33fd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/templates/edu_admin/Stu_course_detailed.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/mysite.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/mysite.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/account/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/account/migrations/0002_auto_20191202_2029.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/account/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/account/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/account/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/account/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/edu_admin/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/edu_admin/migrations/0002_auto_20191125_0904.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/edu_admin/migrations/0003_auto_20191125_1006.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/edu_admin/migrations/0004_auto_20191125_1630.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/edu_admin/migrations/0005_auto_20191125_1955.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/edu_admin/migrations/0006_auto_20191127_1552.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/edu_admin/migrations/0007_select_test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/edu_admin/migrations/0008_remove_select_test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/edu_admin/migrations/0009_course_course_num.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/edu_admin/migrations/0010_auto_20191130_1643.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/edu_admin/migrations/0011_auto_20191130_1655.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/edu_admin/migrations/0012_auto_20191130_1657.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/edu_admin/migrations/0013_auto_20191201_1041.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/edu_admin/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/edu_admin/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/edu_admin/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/edu_admin/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/edu_admin/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/edu_admin/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/edu_admin/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/student_import.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/media/student_import.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/style1.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style1.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/style2.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style2.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/account/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/account/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/account/wrongPass.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/adm_header.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/adm_header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/edu_admin/Adm_input_time.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/edu_admin/Adm_input_time.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/edu_admin/Adm_manage_courses.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/edu_admin/Adm_manage_courses.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/edu_admin/Adm_manage_students.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/edu_admin/Adm_manage_students.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/edu_admin/Adm_manage_teachers.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/edu_admin/Adm_manage_teachers.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/edu_admin/Adm_select_time.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/edu_admin/Adm_select_time.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/edu_admin/Stu_my_grade.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/edu_admin/Stu_my_grade.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/edu_admin/Stu_required_selected.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/edu_admin/Stu_required_selected.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/edu_admin/Stu_select_sourses.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/edu_admin/Stu_select_sourses.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/edu_admin/welcome_Adm.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/edu_admin/welcome_Adm.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/edu_admin/welcome_Stu.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/edu_admin/welcome_Stu.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/stu_base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/stu_base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/stu_header.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/stu_header.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,14 +58,65 @@
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
+    <splitter split-orientation="horizontal" split-proportion="0.4673629">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/templates/edu_admin/Stu_select_sourses.html">
+            <entry file="file://$PROJECT_DIR$/edu_admin/views.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="275">
-                  <caret line="23" column="25" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
+                <state relative-caret-position="147">
+                  <caret line="275" column="26" selection-start-line="275" selection-start-column="26" selection-end-line="275" selection-end-column="26" />
+                  <folding>
+                    <element signature="e#0#54#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/account/models.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="403">
+                  <caret line="64" selection-start-line="64" selection-end-line="64" />
+                  <folding>
+                    <element signature="e#0#28#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/edu_admin/models.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="575">
+                  <caret line="40" column="82" selection-start-line="40" selection-start-column="82" selection-end-line="40" selection-end-column="82" />
+                  <folding>
+                    <element signature="e#0#28#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/edu_admin/forms.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="42">
+                  <caret line="2" selection-start-line="2" selection-end-line="2" />
+                  <folding>
+                    <element signature="e#0#24#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/edu_admin/urls.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="231">
+                  <caret line="33" column="38" selection-start-line="33" selection-start-column="38" selection-end-line="33" selection-end-column="38" />
+                  <folding>
+                    <element signature="e#0#28#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -29,34 +124,83 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/templates/edu_admin/Adm_student_alter.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="105">
+                  <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
+                </state>
+              </provider>
+            </entry>
+          </file>
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/templates/edu_admin/Stu_select_sourses.html">
-              <provider selected="true" editor-type-id="text-editor" />
+            <entry file="file://$PROJECT_DIR$/templates/edu_admin/Adm_manage_courses.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state>
+                  <caret line="391" column="37" selection-start-line="391" selection-start-column="37" selection-end-line="391" selection-end-column="37" />
+                </state>
+              </provider>
             </entry>
           </file>
         </leaf>
       </split-second>
     </splitter>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectConfigurationFiles">
-    <option name="files">
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/.idea/mysite.iml" />
-        <option value="$PROJECT_DIR$/.idea/misc.xml" />
-        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
-        <option value="$PROJECT_DIR$/.idea/modules.xml" />
+        <option value="$PROJECT_DIR$/templates/edu_admin/Stu_course_detailed.py" />
+        <option value="$PROJECT_DIR$/edu_admin/forms.py" />
+        <option value="$PROJECT_DIR$/templates/edu_admin/welcome_Tea.html" />
+        <option value="$PROJECT_DIR$/templates/edu_admin/Tea_student.html" />
+        <option value="$PROJECT_DIR$/account/forms.py" />
+        <option value="$PROJECT_DIR$/account/models.py" />
+        <option value="$PROJECT_DIR$/templates/Tea_based.html" />
+        <option value="$PROJECT_DIR$/templates/edu_admin/Stu_select_sourses.html" />
+        <option value="$PROJECT_DIR$/templates/edu_admin/Stu_required_selected.html" />
+        <option value="$PROJECT_DIR$/templates/edu_admin/Stu_my_grade.html" />
+        <option value="$PROJECT_DIR$/templates/edu_admin/welcome_Adm.html" />
+        <option value="$PROJECT_DIR$/templates/stu_base.html" />
+        <option value="$PROJECT_DIR$/static/css/style2.css" />
+        <option value="$PROJECT_DIR$/static/css/style1.css" />
+        <option value="$PROJECT_DIR$/templates/edu_admin/Stu_course_detailed.html" />
+        <option value="$PROJECT_DIR$/templates/account/login.html" />
+        <option value="$PROJECT_DIR$/templates/adm_header.html" />
+        <option value="$PROJECT_DIR$/templates/edu_admin/welcome_Stu.html" />
+        <option value="$PROJECT_DIR$/mysite/settings.py" />
+        <option value="$PROJECT_DIR$/account/views.py" />
+        <option value="$PROJECT_DIR$/templates/edu_admin/Adm_backup_restore.html" />
+        <option value="$PROJECT_DIR$/templates/edu_admin/Adm_manage_students.html" />
+        <option value="$PROJECT_DIR$/templates/edu_admin/Adm_student_alter.html" />
+        <option value="$PROJECT_DIR$/templates/edu_admin/Adm_manage_teachers.html" />
+        <option value="$PROJECT_DIR$/templates/edu_admin/Adm_teacher_alter.html" />
+        <option value="$PROJECT_DIR$/edu_admin/urls.py" />
+        <option value="$PROJECT_DIR$/templates/edu_admin/Adm_course_alter.html" />
+        <option value="$PROJECT_DIR$/templates/edu_admin/Adm_manage_courses.html" />
+        <option value="$PROJECT_DIR$/edu_admin/models.py" />
+        <option value="$PROJECT_DIR$/edu_admin/views.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="153" />
-    <option name="y" value="-15" />
-    <option name="width" value="854" />
-    <option name="height" value="525" />
+    <option name="x" value="147" />
+    <option name="y" value="-21" />
+    <option name="width" value="861" />
+    <option name="height" value="531" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -67,32 +211,38 @@
         <subPane>
           <expand>
             <path>
-              <item name="mysite" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mysite" type="462c0819:PsiDirectoryNode" />
+              <item name="mysite (3)" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mysite (3)" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="mysite" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mysite" type="462c0819:PsiDirectoryNode" />
+              <item name="mysite (3)" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mysite (3)" type="462c0819:PsiDirectoryNode" />
               <item name="account" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="mysite" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mysite" type="462c0819:PsiDirectoryNode" />
+              <item name="mysite (3)" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mysite (3)" type="462c0819:PsiDirectoryNode" />
               <item name="edu_admin" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="mysite" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mysite" type="462c0819:PsiDirectoryNode" />
+              <item name="mysite (3)" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mysite (3)" type="462c0819:PsiDirectoryNode" />
               <item name="mysite" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="mysite" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mysite" type="462c0819:PsiDirectoryNode" />
+              <item name="mysite (3)" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mysite (3)" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="mysite" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mysite" type="462c0819:PsiDirectoryNode" />
+              <item name="mysite (3)" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mysite (3)" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="account" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mysite (3)" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mysite (3)" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="edu_admin" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -104,10 +254,22 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/edu_admin" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Study\HTML5\mysite\templates\edu_admin" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Study\HTML5\mysite\templates\edu_admin" />
+      <recent name="E:\Study\HTML5\mysite\edu_admin" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -121,7 +283,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python tests.pytest for views.testOS">
     <configuration name="mysite" type="Python.DjangoServer" factoryName="Django server">
       <module name="mysite" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -145,6 +307,27 @@
       <option name="customRunCommand" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="pytest for views.testOS" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="mysite" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/edu_admin" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;views.testOS&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python tests.pytest for views.testOS" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -158,33 +341,51 @@
       <updated>1575877173165</updated>
       <workItem from="1575877175792" duration="96000" />
       <workItem from="1575877296624" duration="384000" />
+      <workItem from="1575898979741" duration="2115000" />
+      <workItem from="1575938273397" duration="18821000" />
+      <workItem from="1576046968395" duration="1945000" />
+      <workItem from="1576063597166" duration="882000" />
+      <workItem from="1576065463007" duration="1930000" />
+      <workItem from="1576069800981" duration="7754000" />
+      <workItem from="1576110124477" duration="11154000" />
+      <workItem from="1576131521985" duration="121000" />
+      <workItem from="1576132481143" duration="5008000" />
+      <workItem from="1576138642470" duration="2199000" />
+      <workItem from="1576147164196" duration="84000" />
+      <workItem from="1576152228098" duration="279000" />
+      <workItem from="1576152536519" duration="10506000" />
     </task>
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="pytest_for_views_testOS - 2019.12.12 at 11h 06m 13s.xml">
+      <configuration name="pytest for views.testOS" configurationId="tests" />
+    </history-entry>
+  </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="480000" />
+    <option name="totallyTimeSpent" value="68588000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
+    <frame x="-7" y="-7" width="1295" height="735" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.04904051" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17299919" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32786885" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3283582" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Statistic" order="10" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.32952183" />
+      <window_info anchor="bottom" id="Database Changes" order="9" weight="0.32935917" />
+      <window_info anchor="bottom" id="Statistic" order="10" weight="0.14864865" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.39303482" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
-      <window_info anchor="bottom" id="Python Console" order="13" />
+      <window_info anchor="bottom" id="Python Console" order="13" weight="0.32935917" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -195,6 +396,9 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/mysite$pytest_for_views_testOS.coverage" NAME="pytest for views.testOS Coverage Results" MODIFIED="1576119971932" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/edu_admin" />
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/edu_admin/tests.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -203,10 +407,442 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/edu_admin/Stu_course_detailed.py" />
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/django/urls/resolvers.py" />
+    <entry file="file://$PROJECT_DIR$/static/images/index.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/style_Adm_manage.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2688" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/style.css.map">
+      <provider selected="true" editor-type-id="text-editor" />
+      <provider editor-type-id="sourcemapFileViewerProvider" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/icomoon.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/flexslider.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-189" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/demo.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/bootstrap.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-84" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/animate.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3423" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/style_search.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/style_bookmark.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-510" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/style_animated_button.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1350" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/Tea_based.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="23" column="6" lean-forward="true" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/edu_admin/Tea_student.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="12" column="45" selection-start-line="12" selection-start-column="45" selection-end-line="12" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/edu_admin/welcome_Tea.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1092">
+          <caret line="52" column="26" selection-start-line="52" selection-start-column="26" selection-end-line="52" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/edu_admin/Stu_modify_information.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="20" column="36" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/edu_admin/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="41" column="83" selection-start-line="41" selection-start-column="83" selection-end-line="41" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/adm_based.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/edu_admin/Stu_required_selected.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/edu_admin/Tea_my_schedule.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="43" column="76" selection-start-line="43" selection-start-column="76" selection-end-line="43" selection-end-column="76" />
+          <folding>
+            <element signature="e#2418#2424#1#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/edu_admin/Stu_my_grade.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="736">
+          <caret line="32" column="20" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="20" />
+          <folding>
+            <element signature="e#1202#1208#1#HTML" expanded="true" />
+            <element signature="e#1238#1244#1#HTML" expanded="true" />
+            <element signature="e#1274#1280#1#HTML" expanded="true" />
+            <element signature="e#1343#1349#1#HTML" expanded="true" />
+            <element signature="e#1569#1575#1#HTML" expanded="true" />
+            <element signature="e#1605#1611#1#HTML" expanded="true" />
+            <element signature="e#1641#1647#1#HTML" expanded="true" />
+            <element signature="e#1940#1946#1#HTML" expanded="true" />
+            <element signature="e#1976#1982#1#HTML" expanded="true" />
+            <element signature="e#2012#2018#1#HTML" expanded="true" />
+            <element signature="e#2305#2311#1#HTML" expanded="true" />
+            <element signature="e#2341#2347#1#HTML" expanded="true" />
+            <element signature="e#2377#2383#1#HTML" expanded="true" />
+            <element signature="e#2676#2682#1#HTML" expanded="true" />
+            <element signature="e#2712#2718#1#HTML" expanded="true" />
+            <element signature="e#2748#2754#1#HTML" expanded="true" />
+            <element signature="e#3043#3049#1#HTML" expanded="true" />
+            <element signature="e#3079#3085#1#HTML" expanded="true" />
+            <element signature="e#3115#3121#1#HTML" expanded="true" />
+            <element signature="e#3409#3415#1#HTML" expanded="true" />
+            <element signature="e#3445#3451#1#HTML" expanded="true" />
+            <element signature="e#3481#3487#1#HTML" expanded="true" />
+            <element signature="e#3776#3782#1#HTML" expanded="true" />
+            <element signature="e#3812#3818#1#HTML" expanded="true" />
+            <element signature="e#3848#3854#1#HTML" expanded="true" />
+            <element signature="e#4147#4153#1#HTML" expanded="true" />
+            <element signature="e#4183#4189#1#HTML" expanded="true" />
+            <element signature="e#4219#4225#1#HTML" expanded="true" />
+            <element signature="e#4509#4515#1#HTML" expanded="true" />
+            <element signature="e#4545#4551#1#HTML" expanded="true" />
+            <element signature="e#4581#4587#1#HTML" expanded="true" />
+            <element signature="e#4877#4883#1#HTML" expanded="true" />
+            <element signature="e#4913#4919#1#HTML" expanded="true" />
+            <element signature="e#4949#4955#1#HTML" expanded="true" />
+            <element signature="e#5241#5247#1#HTML" expanded="true" />
+            <element signature="e#5277#5283#1#HTML" expanded="true" />
+            <element signature="e#5313#5319#1#HTML" expanded="true" />
+            <element signature="e#5605#5611#1#HTML" expanded="true" />
+            <element signature="e#5641#5647#1#HTML" expanded="true" />
+            <element signature="e#5677#5683#1#HTML" expanded="true" />
+            <element signature="e#5969#5975#1#HTML" expanded="true" />
+            <element signature="e#6005#6011#1#HTML" expanded="true" />
+            <element signature="e#6041#6047#1#HTML" expanded="true" />
+            <element signature="e#6336#6342#1#HTML" expanded="true" />
+            <element signature="e#6372#6378#1#HTML" expanded="true" />
+            <element signature="e#6408#6414#1#HTML" expanded="true" />
+            <element signature="e#6748#6754#1#HTML" expanded="true" />
+            <element signature="e#6784#6790#1#HTML" expanded="true" />
+            <element signature="e#7119#7125#1#HTML" expanded="true" />
+            <element signature="e#7155#7161#1#HTML" expanded="true" />
+            <element signature="e#7444#7450#1#HTML" expanded="true" />
+            <element signature="e#7480#7486#1#HTML" expanded="true" />
+            <element signature="e#7516#7522#1#HTML" expanded="true" />
+            <element signature="e#7808#7814#1#HTML" expanded="true" />
+            <element signature="e#7844#7850#1#HTML" expanded="true" />
+            <element signature="e#7880#7886#1#HTML" expanded="true" />
+            <element signature="e#8172#8178#1#HTML" expanded="true" />
+            <element signature="e#8208#8214#1#HTML" expanded="true" />
+            <element signature="e#8244#8250#1#HTML" expanded="true" />
+            <element signature="e#8540#8546#1#HTML" expanded="true" />
+            <element signature="e#8576#8582#1#HTML" expanded="true" />
+            <element signature="e#8612#8618#1#HTML" expanded="true" />
+            <element signature="e#8911#8917#1#HTML" expanded="true" />
+            <element signature="e#8947#8953#1#HTML" expanded="true" />
+            <element signature="e#8983#8989#1#HTML" expanded="true" />
+            <element signature="e#9278#9284#1#HTML" expanded="true" />
+            <element signature="e#9314#9320#1#HTML" expanded="true" />
+            <element signature="e#9350#9356#1#HTML" expanded="true" />
+            <element signature="e#9643#9649#1#HTML" expanded="true" />
+            <element signature="e#9679#9685#1#HTML" expanded="true" />
+            <element signature="e#9715#9721#1#HTML" expanded="true" />
+            <element signature="e#10012#10018#1#HTML" expanded="true" />
+            <element signature="e#10048#10054#1#HTML" expanded="true" />
+            <element signature="e#10084#10090#1#HTML" expanded="true" />
+            <element signature="e#10380#10386#1#HTML" expanded="true" />
+            <element signature="e#10416#10422#1#HTML" expanded="true" />
+            <element signature="e#10452#10458#1#HTML" expanded="true" />
+            <element signature="e#10789#10795#1#HTML" expanded="true" />
+            <element signature="e#10825#10831#1#HTML" expanded="true" />
+            <element signature="e#11113#11119#1#HTML" expanded="true" />
+            <element signature="e#11149#11155#1#HTML" expanded="true" />
+            <element signature="e#11185#11191#1#HTML" expanded="true" />
+            <element signature="e#11493#11499#1#HTML" expanded="true" />
+            <element signature="e#11529#11535#1#HTML" expanded="true" />
+            <element signature="e#11565#11571#1#HTML" expanded="true" />
+            <element signature="e#11857#11863#1#HTML" expanded="true" />
+            <element signature="e#11893#11899#1#HTML" expanded="true" />
+            <element signature="e#11929#11935#1#HTML" expanded="true" />
+            <element signature="e#12222#12228#1#HTML" expanded="true" />
+            <element signature="e#12258#12264#1#HTML" expanded="true" />
+            <element signature="e#12294#12300#1#HTML" expanded="true" />
+            <element signature="e#12602#12608#1#HTML" expanded="true" />
+            <element signature="e#12638#12644#1#HTML" expanded="true" />
+            <element signature="e#12674#12680#1#HTML" expanded="true" />
+            <element signature="e#12970#12976#1#HTML" expanded="true" />
+            <element signature="e#13006#13012#1#HTML" expanded="true" />
+            <element signature="e#13042#13048#1#HTML" expanded="true" />
+            <element signature="e#13336#13342#1#HTML" expanded="true" />
+            <element signature="e#13372#13378#1#HTML" expanded="true" />
+            <element signature="e#13408#13414#1#HTML" expanded="true" />
+            <element signature="e#13705#13711#1#HTML" expanded="true" />
+            <element signature="e#13741#13747#1#HTML" expanded="true" />
+            <element signature="e#13777#13783#1#HTML" expanded="true" />
+            <element signature="e#14069#14075#1#HTML" expanded="true" />
+            <element signature="e#14105#14111#1#HTML" expanded="true" />
+            <element signature="e#14141#14147#1#HTML" expanded="true" />
+            <element signature="e#14435#14441#1#HTML" expanded="true" />
+            <element signature="e#14471#14477#1#HTML" expanded="true" />
+            <element signature="e#14507#14513#1#HTML" expanded="true" />
+            <element signature="e#14574#14580#1#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/stu_base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/edu_admin/welcome_Adm.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="59" column="19" lean-forward="true" selection-start-line="59" selection-start-column="19" selection-end-line="59" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/tableheight.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" column="16" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/Tea_header.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-253">
+          <caret line="10" column="48" selection-start-line="10" selection-start-column="48" selection-end-line="10" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/stu_header.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="26" column="55" selection-start-line="26" selection-start-column="55" selection-end-line="26" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/style2.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="12150">
+          <caret line="486" column="1" selection-start-line="486" selection-start-column="1" selection-end-line="486" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/edu_admin/Stu_course_detailed.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="26" column="4" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/style1.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8575">
+          <caret line="343" column="35" selection-start-line="343" selection-start-column="35" selection-end-line="343" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/adm_header.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="43" column="41" lean-forward="true" selection-start-line="43" selection-start-column="41" selection-end-line="43" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mysite/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="92" column="29" selection-start-line="92" selection-start-column="29" selection-end-line="92" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/account/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-500">
+          <caret line="73" column="48" selection-start-line="73" selection-start-column="48" selection-end-line="73" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/edu_admin/welcome_Stu.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/account/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="267">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/edu_admin/Adm_manage_teachers.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3171">
+          <caret line="151" selection-start-line="151" selection-end-line="151" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/edu_admin/Adm_teacher_alter.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="609">
+          <caret line="29" column="16" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/edu_admin/Stu_select_sourses.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="23" column="25" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
+        <state relative-caret-position="419">
+          <caret line="84" column="93" selection-start-line="84" selection-start-column="93" selection-end-line="84" selection-end-column="93" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/edu_admin/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="33" column="38" selection-start-line="33" selection-start-column="38" selection-end-line="33" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/account/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="398">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/edu_admin/Adm_backup_restore.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="26" column="54" selection-start-line="26" selection-start-column="54" selection-end-line="26" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/edu_admin/Adm_student_alter.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/edu_admin/Adm_course_alter.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-21">
+          <caret line="8" column="90" selection-start-line="8" selection-start-column="90" selection-end-line="8" selection-end-column="90" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/edu_admin/Adm_manage_students.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="447">
+          <caret line="220" column="13" selection-start-line="220" selection-start-column="13" selection-end-line="220" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/edu_admin/Adm_manage_courses.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="391" column="37" selection-start-line="391" selection-start-column="37" selection-end-line="391" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/edu_admin/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/account/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="403">
+          <caret line="64" selection-start-line="64" selection-end-line="64" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/edu_admin/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="575">
+          <caret line="40" column="82" selection-start-line="40" selection-start-column="82" selection-end-line="40" selection-end-column="82" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/edu_admin/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="275" column="26" selection-start-line="275" selection-start-column="26" selection-end-line="275" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#54#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

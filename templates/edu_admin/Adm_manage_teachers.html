@@ -19,11 +19,12 @@
     <div class="body_container1">
 
         <div class="body_background3">
-            <div style="font-size: 40px;margin: auto;padding-top: 40px;padding-left: 20px;color: #5a1216">管理教师</div>
+
+            <div style="font-weight:700;font-size: 40px;margin: auto;padding-top: 40px;padding-left: 20px;color: #5a1216">管理教师</div>
             <div class="manage—stu">
                 <!-- --------------------------------   添加教师信息------------------------------>
                 <div class="big">
-                    <div class="head">
+                    <div class="head" style="margin-top: 30px">
                         <span><span class="icon-plus"></span>&nbsp;添加教师信息</span><br>
                     </div>
                     <div class="formd">
@@ -56,7 +57,7 @@
 
                 <!-- --------------------------------   查询教师信息------------------------------>
                 <div class="big">
-                    <div class="head">
+                    <div class="head" style="margin-top: 30px">
                         <span><span class="icon-binoculars"></span>&nbsp;查询教师信息</span><br>
                     </div>
                     <div class="formd">
@@ -73,7 +74,7 @@
                 </div>
                 <!-- --------------------------------   批量导入教师信息------------------------------>
                 <div class="big">
-                    <div class="head">
+                    <div class="head" style="margin-top: 30px">
                         <span><span class="icon-folder-upload"></span>&nbsp;批量导入教师信息</span><br>
                     </div>
                     <div class="formd">
@@ -124,45 +125,37 @@
                         <option value="计算机科学与技术">计算机科学与技术</option>
                     </select>
 
-                    <table border="1">
-
-                        <!--            <caption>已选 选修</caption>-->
-                        <tr class="datelisthead">
-                            <td>教师工号</td>
-                            <td>教师姓名</td>
-                            <td>教师所属学院</td>
-                            <td>教师所属系别</td>
-                            <td>是否删除</td>
-                            <td>是否修改</td>
-                        </tr>
-                        {% for teacher in teacher_list %}
-
-                            <tr class="alt">
-                                <td>{{ teacher.username }}</td>
-                                <td>{{ teacher.name }}</td>
-                                <td><a class="click_class" href="#">{{ teacher.school }}</a></td>
-                                <td>{{ teacher.major }}</td>
-                                <td>
-                                    <button class="delete">删除</button>
-                                </td>
-                                <td>
-                                    <button class="alter">修改</button>
-                                </td>
-                            </tr>
-                        {% endfor %}
-                        {#                        <tr class="alt">#}
-                        {#                            <td>(2019-2020-1)1</td>#}
-                        {#                            <td>161130206</td>#}
-                        {#                            <td><a href="#" class="click_class"#}
-                        {#                                   onclick="window.open('kcxx.aspx?kcdm=161130206&amp;xh=201711010111','kcxx','toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=1,resizable=0,width=490,height=500,left=200,top=50')">计算机组成原理</a>#}
-                        {#                            </td>#}
-                        {#                            <td>是</td>#}
-                        {#                            <td><button class="delete">删除</button></td>#}
-                        {#                            <td><button class="alter">修改</button></td>#}
-                        {#                        </tr>#}
-                        <!--            <canvas id="demo-canvas" style="position:absolute"></canvas>-->
-                    </table>
                 </div>
+            </div>
+            <div style="margin-left: 6%;">
+                <a name="table"></a>
+            <table border="1">
+
+                <!--            <caption>已选 选修</caption>-->
+                <tr class="datelisthead">
+                    <td>教师工号</td>
+                    <td>教师姓名</td>
+                    <td>教师所属学院</td>
+                    <td>教师所属系别</td>
+{#                    <td>是否删除</td>#}
+                    <td>是否修改</td>
+                </tr>
+                {% for teacher in teacher_list %}
+
+                    <tr class="alt">
+                        <td>{{ teacher.username }}</td>
+                        <td>{{ teacher.name }}</td>
+                        <td><a class="click_class" href="#">{{ teacher.school }}</a></td>
+                        <td>{{ teacher.major }}</td>
+{#                        <td>#}
+{#                            <button class="delete">删除</button>#}
+{#                        </td>#}
+                        <td style="padding-right: 3%">
+                            <a class="alter" style="margin: 10px" href="{{ teacher.username }}">修改</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
             </div>
         </div>
     </div>

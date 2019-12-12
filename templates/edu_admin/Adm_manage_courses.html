@@ -51,6 +51,7 @@
 
 
         <div class="body_background3">
+
             <div style="font-weight:700;font-size: 40px;margin: auto;padding-top: 40px;padding-left: 20px;color: #5a1216">
                 管理课程
             </div>
@@ -63,32 +64,32 @@
                     <div class="formd">
                         <form class="form-inline" role="form" action="." method="POST"
                               enctype="multipart/form-data">{% csrf_token %}
-                            <div class="form-group">
+                            <div class="form-group" style="margin-top: 30px">
                                 <label class="sr-only" for="{{ form.course_id.id_for_label }}">名称</label>
-                                <div>{{ form.course_id }}</div>
-                                {#                                <input type="text" class="form-control" id="name"#}
-                                {#                                       placeholder="请输入课程名称" style="width: 200px">#}
-                                {#                            </div>#}
-                                <div class="form-group">
+                                <div>{{ form.course_id }}
+                                    {#                                <input type="text" class="form-control" id="name"#}
+                                    {#                                       placeholder="请输入课程名称" style="width: 200px">#}
+                                    {#                            </div>#}
+
                                     <label class="sr-only" for="course_name">名称</label>
-{#                                    <div>{{ form.course_name }}</div>#}
+                                    {#                                    <div>{{ form.course_name }}</div>#}
                                     <input type="text" class="form-control" id="name" name="course_name"
-                                                                       placeholder="请输入课程名称" style="width: 200px">
-                                </div>
-                                <div>
+                                           placeholder="请输入课程名称" style="width: 200px">
+
                                     <input class="form-control" name="term" type="text" value="2019-2020-1"
                                            placeholder="开课学期">
+                                    <div class="form-group">
+                                        <label class="sr-only" for="{{ form.teacher_id.id_for_label }}">名称</label>
+                                        <div>{{ form.teacher_id }}</div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="sr-only" for="{{ form.course_num.id_for_label }}">名称</label>
+                                        <div>{{ form.course_num }}</div>
+                                    </div>
                                 </div>
                                 <br>
-{#                                <div><select>#}
-{#                                    <option selected disabled>请选择开课班级</option>#}
-{#                                    <option value=""></option>#}
-{#                                    <option value=""></option>#}
-{#                                    <option value=""></option>#}
-{#                                    <option value="></option>#}
-{#                                    <option value=""></option>#}
-{#                                    <option value=""></option>#}
-{#                                </select></div>#}
+
                                 <div>
                                     <div>请选择开课班级</div>
                                     <label><input name="scclass" type="checkbox" value="计工本1701"/>计工本1701 </label>
@@ -101,6 +102,7 @@
                                 <div class="form-group">
                                     {#                                    <label class="sr-only" for="{{ form.time.id_for_label }}">名称</label>#}
                                     {#                                <div>{{ form.time }}</div>#}
+                                    <div style="margin-top: 30px">请选择开课时间</div>
                                     <select id="begin" name="begin">
                                         <option value="" disabled selected>请选择起周</option>
                                         {% for i in "x"|ljust:"18" %}
@@ -114,10 +116,9 @@
                                             <option value="{{ forloop.counter }}">{{ forloop.counter }}</option>
                                         {% endfor %}
                                     </select>
-                                </div>
-                                <div>
+
                                     <select name="workday1">
-                                        <option value="" disabled selected>请选择上课周次</option>
+                                        <option value="" disabled selected>请选择上课周次1</option>
                                         <option value="周一">周一</option>
                                         <option value="周二">周二</option>
                                         <option value="周三">周三</option>
@@ -127,17 +128,15 @@
                                         <option value="周日">周日</option>
                                     </select>
                                     <select name="workclass1">
-                                        <option value="" disabled selected>请选择上课时间</option>
+                                        <option value="" disabled selected>请选择上课时间1</option>
                                         <option value="第1,2节">第1,2节</option>
                                         <option value="第3,4节">第3,4节</option>
                                         <option value="第5,6节">第5,6节</option>
                                         <option value="第7,8节">第7,8节</option>
                                         <option value="第9,10节">第9,10节</option>
                                     </select>
-                                </div>
-                                <div>
                                     <select name="workday2">
-                                        <option value="" disabled selected>请选择上课周次</option>
+                                        <option value="" disabled selected>请选择上课周次2</option>
                                         <option value="周一">周一</option>
                                         <option value="周二">周二</option>
                                         <option value="周三">周三</option>
@@ -147,7 +146,7 @@
                                         <option value="周日">周日</option>
                                     </select>
                                     <select name="workclass2">
-                                        <option value="" disabled selected>请选择上课时间</option>
+                                        <option value="" disabled selected>请选择上课时间2</option>
                                         <option value="第1,2节">第1,2节</option>
                                         <option value="第3,4节">第3,4节</option>
                                         <option value="第5,6节">第5,6节</option>
@@ -155,18 +154,10 @@
                                         <option value="第9,10节">第9,10节</option>
                                     </select>
                                 </div>
-                                <div class="form-group">
-                                    <label class="sr-only" for="{{ form.teacher_id.id_for_label }}">名称</label>
-                                    <div>{{ form.teacher_id }}</div>
-                                </div>
 
                                 <br>
                                 <div class="form-group">
-                                    <label class="sr-only" for="{{ form.course_num.id_for_label }}">名称</label>
-                                    <div>{{ form.course_num }}</div>
-                                </div>
-                                <br>
-                                <div class="form-group">
+                                    <div style="margin-top: 30px">请选择课程性质</div>
                                     <label class="sr-only" for="{{ form.credit.id_for_label }}">名称</label>
                                     <select name="credit">
                                         <option value="" disabled selected>请设置课程学分</option>
@@ -176,8 +167,7 @@
                                         <option value="4">4</option>
                                         <option value="5">5</option>
                                     </select>
-                                </div>
-                                <div class="form-group">
+
                                     <label class="sr-only" for="{{ form.course_belong.id_for_label }}">名称</label>
                                     <select name="course_belong">
                                         <option value="" disabled selected>请选择课程归属</option>
@@ -186,9 +176,8 @@
                                         <option value="创新创业类">创新创业类</option>
                                         <option value="专业课">专业课</option>
                                     </select>
-                                </div>
-                                <div class="form-group">
-                                    <label class="sr-only" for="{{ form.course_char.id_for_label }}">名称</label>
+
+                                    <label class="sr-only" for="{{ form.course_char.id_for_label }}"></label>
                                     <select name="course_char">
                                         <option value="" disabled selected>请选择课程性质</option>
                                         <option value="必修">必修</option>
@@ -197,7 +186,8 @@
                                     </select>
                                 </div>
                                 <div>
-                                    <table>
+                                    <div style="margin-top: 30px">请选择上课地点</div>
+                                    <table style="margin-top: 10px;margin-bottom: 30px">
                                         <tr>
                                             <td><select id="bigLoc" name="bigLoc">
                                                 <option value="" disabled selected>请选择教室位置</option>
@@ -205,12 +195,14 @@
                                                 <option value="2">文宗楼</option>
                                                 <option value="3">文澜楼</option>
                                             </select></td>
-                                            <td><select id="smallLoc" name="smallLoc"></select>　</td>
+                                            {#                                            <td><select id="smallLoc" name="smallLoc"></select>　</td>#}
                                             <td><label class="sr-only" for="{{ form.place_id.id_for_label }}">名称</label>
                                                 <div>{{ form.place_id }}</div>
                                             </td>
                                         </tr>
                                     </table>
+                                    <button type="submit" class="btn btn-default" name="add_course_button"
+                                    ">添加</button>
                                 </div>
                                 <script type="text/javascript">
                                     var select = document.getElementById("bigLoc");
@@ -244,7 +236,6 @@
                                         }
                                     };
                                 </script>
-                                <button type="submit" class="btn btn-default" name="add_course_button">添加</button>
                         </form>
 
                     </div>
@@ -343,7 +334,7 @@
                             <div class="form-group">
                                 <a href="{% url 'edu_admin:course_import' %}">下载模板</a>
                                 <input type="file" id="inputfile" name="myfile">
-                                <input type="submit" value="上传" name="file_button">
+                                <input type="submit" value="上传" name="file_button" class="btn btn-default">
                             </div>
                         </form>
                     </div>
@@ -374,9 +365,9 @@
                         <option value="计算机科学与技术（信息技术方向）">计算机科学与技术（信息技术方向）</option>
                         <option value="计算机科学与技术">计算机科学与技术</option>
                     </select>
-
-                    <table border="1">
-
+                    <a name="table"></a>
+                <form method="POST">{% csrf_token %}
+                    <table border="1" style="margin-bottom: 80px;margin-top:20px">
                         <!--            <caption>已选 选修</caption>-->
                         <tr class="datelisthead">
                             <td>开设学期</td>
@@ -397,27 +388,16 @@
                                 <td>{{ course.course_num }}</td>
                                 <td>{{ course.place_id.place }}</td>
                                 <td>
-                                    <button class="delete">删除</button>
+                                    <button type="submit" class="delete" name="delete" value="{{ course.select_course_id }}">删除</button>
                                 </td>
-                                <td>
-                                    <button class="alter">修改</button>
+                                <td style="padding-right: 3%">
+                                    <a class="alter" style="margin: 10px"
+                                       href="{{ course.select_course_id }}">修改</a>
                                 </td>
                             </tr>
                         {% endfor %}
-                        {#                        <tr class="alt">#}
-                        {#                            <td>(2019-2020-1)1</td>#}
-                        {#                            <td>161130206</td>#}
-                        {#                            <td><a href="#" class="click_class"#}
-                        {#                                   onclick="window.open('kcxx.aspx?kcdm=161130206&amp;xh=201711010111','kcxx','toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=1,resizable=0,width=490,height=500,left=200,top=50')">计算机组成原理</a>#}
-                        {#                            </td>#}
-                        {#                            <td>孙跃鲁</td>#}
-                        {#                            <td>120</td>#}
-                        {#                            <td>C223</td>#}
-                        {#                            <td><button class="delete">删除</button></td>#}
-                        {#                            <td><button class="alter">修改</button></td>#}
-                        {#                        </tr>#}
-                        <!--            <canvas id="demo-canvas" style="position:absolute"></canvas>-->
                     </table>
+                </form>
                 </div>
             </div>
         </div>

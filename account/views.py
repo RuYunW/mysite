@@ -6,7 +6,8 @@ from django.http import FileResponse
 import xlrd
 from django.db import models
 from django.shortcuts import redirect
-from django.contrib.auth.hashers import make_password
+from django.contrib.auth.hashers import make_password, check_password
+import os
 
 
 def index(request):
@@ -14,6 +15,8 @@ def index(request):
 
 
 def user_login(request):
+    # print(os.system('python manage.py dumpdata > a.json'))
+
     if request.method == "POST":
         login_form = LoginForm(request.POST)
         if login_form.is_valid():
@@ -28,11 +31,11 @@ def user_login(request):
                 request.session['sclass'] = request.user.sclass
                 print(request.session.get("username"))
                 print(request.session.get("name"))
-                if user.is_superuser:
+                if user.is_superuser:  # 如果是超级用户
                     # return render(request, "edu_admin/welcome_Adm.html", {"form": login_form, "username": request.user.username, "name": User.objects.get(username=request.user.username).name})  # 管理员
                     return render(request, "edu_admin/welcome_Adm.html", {"form": login_form})
-                elif user.is_teacher:
-                    return render(request, "edu_admin/welcome_Adm.html", {"form": login_form})
+                elif user.is_teacher:  # 如果是教师
+                    return render(request, "edu_admin/welcome_Tea.html", {"form": login_form})
                 else:
                     return render(request, "edu_admin/welcome_Stu.html", {"form": login_form})  # 普通用户
             else:
@@ -60,7 +63,8 @@ def register(request):
                 name=request.POST.get('name'),
                 major=request.POST.get('major'),
                 sclass=request.POST.get('sclass'),
-                password=make_password(request.POST.get('username')[-6:]))
+                password=make_password(request.POST.get('username')[-6:])
+            )
         # new_user = user_form.save(commit=False)
         # new_user.set_password(user_form.cleaned_data['password'])
         # new_user.save()
@@ -132,7 +136,7 @@ def register(request):
                 # 写入数据库
                 if len(lines) > 0:  # 如果工作队列lines有数据，存入数据库
                     for item in lines:
-                        User.objects.create_user(
+                        User.objects.create(
                             username=item["username"],
                             name=item["name"],
                             sex=item["sex"],
@@ -140,8 +144,13 @@ def register(request):
                             major=item["major"],
                             sclass=item["sclass"],
                             admin_data=item["admin_data"],
-                            password=make_password(item["username"][-6:])
+                            password=make_password(item["username"][-6:]),
                         )
+                        # print(make_password('010102'))
+                        # print(make_password(lines[0]["username"][-6:]))
+                        # print(lines[0]["username"][-6:])
+                        # print(check_password('010102', make_password(lines[0]["username"][-6:])))
+                        # print(check_password('010102', make_password('010102')))
 
                 error_message = "共上传"+str(nrows-1)+"人，成功"+str(len(lines))+"人，失败"+str(len(error_list))+"人，失败人员名单如下："
 

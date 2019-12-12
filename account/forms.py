@@ -1,5 +1,5 @@
 from django import forms
-from account.models import User, UserView
+from account.models import User, StuUserView
 
 
 class LoginForm(forms.Form):
@@ -28,7 +28,7 @@ class TeacherForm(forms.ModelForm):
     sclass = forms.CharField(label="sclass", widget=forms.TextInput(attrs={'placeholder': u'请输入职称', "class": "form-control", "id": "id", "style": "width: 200px"}))
 
     class Meta:
-        model = UserView
+        model = StuUserView
         fields = ("name", "username", "school", "major", "sclass")
 
 

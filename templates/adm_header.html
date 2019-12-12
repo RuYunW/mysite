@@ -22,6 +22,7 @@
 {% endif %}
 
 <nav class="navbar-default" role="navigation" style="background: #9d6b2e;opacity: 0.7">
+
     <div class="container-fluid">
         <!--        <div class="navbar-header" style="background: #152620;opacity: 0.6">-->
         <!--            <a class="navbar-brand" href="#">&nbsp;&nbsp;&nbsp;管理学生&nbsp;&nbsp;&nbsp;</a>-->
@@ -38,17 +39,19 @@
                 </li>
                 <li class="dropdown"><a href="{% url 'edu_admin:Adm_mng_cou' %}" style="color:white">&nbsp;&nbsp;&nbsp;管理课程&nbsp;&nbsp;&nbsp;</a>
                 </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:white">
-                        &nbsp;&nbsp;&nbsp;管理其他&nbsp;&nbsp;&nbsp;
-                        <b class="caret"></b>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="{% url "edu_admin:Adm_sel_time" %}"  style="color:black">修改选课时间</a></li>
-                        <li class="divider"></li>
-                        <li><a href="{% url 'edu_admin:Adm_inp_time' %}"  style="color:black;">修改录入成绩时间</a></li>
-                    </ul>
+                <li class="dropdown"><a href="{% url 'edu_admin:Adm_ba_re' %}" style="color:white">&nbsp;&nbsp;&nbsp;备份还原&nbsp;&nbsp;&nbsp;</a>
                 </li>
+{#                <li class="dropdown">#}
+{#                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:white">#}
+{#                        &nbsp;&nbsp;&nbsp;管理其他&nbsp;&nbsp;&nbsp;#}
+{#                        <b class="caret"></b>#}
+{#                    </a>#}
+{#                    <ul class="dropdown-menu">#}
+{#                        <li><a href="{% url "edu_admin:Adm_sel_time" %}"  style="color:black">修改选课时间</a></li>#}
+{#                        <li class="divider"></li>#}
+{#                        <li><a href="{% url 'edu_admin:Adm_inp_time' %}"  style="color:black;">修改录入成绩时间</a></li>#}
+{#                    </ul>#}
+{#                </li>#}
             </ul>
             <div class="navbar-header" style="background: #152620;opacity: 0.6">
                 <a class="navbar-brand" href="{% url 'account:user_logout' %}" style="color:white">&nbsp;&nbsp;&nbsp;退出登录&nbsp;&nbsp;</a>
@@ -57,6 +60,8 @@
     </div>
 </nav>
 
+<a href="#return_button_top"><div class="Adm_manage1"></div></a>
+<a href="#table"><div class="Adm_manage2"></div></a>
     <div class="return_top" style="margin-top: 400px">
         <a href="#return_button_top">
             <img src="{% static '/images/codingmonkey2.png' %}" class="codingmonkey" style="height:150px;"> </a>

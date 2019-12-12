@@ -35,15 +35,18 @@
                 </li>
                 <li><a href="{% url 'edu_admin:stu_my_grade' %}" style="background: #152620;color:white">&nbsp;&nbsp;&nbsp;成绩&nbsp;&nbsp;&nbsp;</a>
                 </li>
-                <li class="dropdown" style="background: #152620;">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:white">
-                        &nbsp;&nbsp;&nbsp;查看已选&nbsp;&nbsp;&nbsp;<b class="caret"></b>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="{% url 'edu_admin:stu_req_select' %}">必修</a></li>
-                        <li class="divider"></li>
-                        <li><a href="{% url 'edu_admin:stu_ele_select' %}">选修</a></li>
-                    </ul>
+{#                <li class="dropdown" style="background: #152620;">#}
+{#                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:white">#}
+{#                        &nbsp;&nbsp;&nbsp;查看已选&nbsp;&nbsp;&nbsp;<b class="caret"></b>#}
+{#                    </a>#}
+{#                    <ul class="dropdown-menu">#}
+{#                        <li><a href="{% url 'edu_admin:stu_req_select' %}">必修</a></li>#}
+{#                        <li class="divider"></li>#}
+{#                        <li><a href="{% url 'edu_admin:stu_ele_select' %}">选修</a></li>#}
+{#                    </ul>#}
+{#                </li>#}
+                <li><a href="{% url 'edu_admin:stu_req_select' %}" style="background: #152620;color:white">&nbsp;&nbsp;&nbsp;查看已选&nbsp;&nbsp;&nbsp;</a>
+                    <!--合并到原必修 注意引用-->
                 </li>
 
             </ul>
