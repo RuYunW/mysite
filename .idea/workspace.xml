@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="7420a71c-8d7a-4f7e-8f49-41a3b36d33fd" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/templates/edu_admin/Stu_course_detailed.html" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/mysite.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/mysite.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -11,6 +12,12 @@
       <change beforePath="$PROJECT_DIR$/account/migrations/0002_auto_20191202_2029.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/account/migrations/__init__.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/account/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/account/models.py" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/account/migrations/0002_auto_20191202_2029.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/account/migrations/__init__.py" beforeDir="false" />
+>>>>>>> c54543a14b3ee2fbd8a380e9ff8bf099f0aeb2d3
       <change beforePath="$PROJECT_DIR$/account/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/account/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/edu_admin/migrations/0001_initial.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/edu_admin/migrations/0002_auto_20191125_0904.py" beforeDir="false" />
@@ -30,6 +37,7 @@
       <change beforePath="$PROJECT_DIR$/edu_admin/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/edu_admin/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/edu_admin/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/edu_admin/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/media/student_import.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/media/student_import.xlsx" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/static/css/style1.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style1.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/style2.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style2.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/account/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/account/login.html" afterDir="false" />
@@ -47,6 +55,9 @@
       <change beforePath="$PROJECT_DIR$/templates/edu_admin/welcome_Stu.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/edu_admin/welcome_Stu.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/stu_base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/stu_base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/stu_header.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/stu_header.html" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/templates/edu_admin/Stu_select_sourses.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/edu_admin/Stu_select_sourses.html" afterDir="false" />
+>>>>>>> c54543a14b3ee2fbd8a380e9ff8bf099f0aeb2d3
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -58,11 +69,28 @@
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
   <component name="FileEditorManager">
+<<<<<<< HEAD
     <splitter split-orientation="horizontal" split-proportion="0.4673629">
+=======
+    <splitter split-orientation="horizontal" split-proportion="0.47167408">
+>>>>>>> c54543a14b3ee2fbd8a380e9ff8bf099f0aeb2d3
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/account/views.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="3375">
+                  <caret line="143" column="15" selection-start-line="143" selection-start-column="15" selection-end-line="143" selection-end-column="15" />
+                  <folding>
+                    <element signature="e#0#35#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/edu_admin/views.py">
+<<<<<<< HEAD
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="147">
                   <caret line="275" column="26" selection-start-line="275" selection-start-column="26" selection-end-line="275" selection-end-column="26" />
@@ -114,6 +142,47 @@
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="231">
                   <caret line="33" column="38" selection-start-line="33" selection-start-column="38" selection-end-line="33" selection-end-column="38" />
+=======
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="250">
+                  <caret line="49" column="21" selection-start-line="49" selection-start-column="21" selection-end-line="49" selection-end-column="21" />
+                  <folding>
+                    <element signature="e#0#54#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/edu_admin/models.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1025">
+                  <caret line="42" column="57" selection-start-line="42" selection-start-column="57" selection-end-line="42" selection-end-column="57" />
+                  <folding>
+                    <element signature="e#0#28#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/edu_admin/forms.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="25">
+                  <caret line="2" selection-start-line="2" selection-end-line="2" />
+                  <folding>
+                    <element signature="e#0#24#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/edu_admin/urls.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="50">
+                  <caret line="4" selection-start-line="4" selection-end-line="4" />
+>>>>>>> c54543a14b3ee2fbd8a380e9ff8bf099f0aeb2d3
                   <folding>
                     <element signature="e#0#28#0" expanded="true" />
                   </folding>
@@ -126,10 +195,26 @@
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
             <entry file="file://$PROJECT_DIR$/templates/edu_admin/Adm_student_alter.html">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="105">
                   <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
+=======
+            <entry file="file://$PROJECT_DIR$/templates/edu_admin/Stu_select_sourses.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1400">
+                  <caret line="56" column="35" selection-start-line="56" selection-start-column="35" selection-end-line="56" selection-end-column="35" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/templates/edu_admin/Stu_course_detailed.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="25">
+                  <caret line="1" column="22" selection-start-line="1" selection-start-column="22" selection-end-line="1" selection-end-column="22" />
+>>>>>>> c54543a14b3ee2fbd8a380e9ff8bf099f0aeb2d3
                 </state>
               </provider>
             </entry>
@@ -137,8 +222,22 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/templates/edu_admin/Adm_manage_courses.html">
               <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
                 <state>
                   <caret line="391" column="37" selection-start-line="391" selection-start-column="37" selection-end-line="391" selection-end-column="37" />
+=======
+                <state relative-caret-position="300">
+                  <caret line="27" column="43" selection-start-line="27" selection-start-column="43" selection-end-line="27" selection-end-column="43" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/templates/edu_admin/Adm_manage_teachers.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="3650">
+                  <caret line="146" column="36" selection-start-line="146" selection-start-column="36" selection-end-line="146" selection-end-column="36" />
+>>>>>>> c54543a14b3ee2fbd8a380e9ff8bf099f0aeb2d3
                 </state>
               </provider>
             </entry>
@@ -160,6 +259,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/templates/edu_admin/Stu_course_detailed.py" />
         <option value="$PROJECT_DIR$/edu_admin/forms.py" />
         <option value="$PROJECT_DIR$/templates/edu_admin/welcome_Tea.html" />
@@ -189,6 +289,15 @@
         <option value="$PROJECT_DIR$/templates/edu_admin/Adm_course_alter.html" />
         <option value="$PROJECT_DIR$/templates/edu_admin/Adm_manage_courses.html" />
         <option value="$PROJECT_DIR$/edu_admin/models.py" />
+=======
+        <option value="$PROJECT_DIR$/templates/edu_admin/Stu_select_sourses.html" />
+        <option value="$PROJECT_DIR$/templates/edu_admin/Stu_course_detailed.py" />
+        <option value="$PROJECT_DIR$/templates/edu_admin/Stu_course_detailed.html" />
+        <option value="$PROJECT_DIR$/edu_admin/urls.py" />
+        <option value="$PROJECT_DIR$/edu_admin/forms.py" />
+        <option value="$PROJECT_DIR$/edu_admin/models.py" />
+        <option value="$PROJECT_DIR$/account/views.py" />
+>>>>>>> c54543a14b3ee2fbd8a380e9ff8bf099f0aeb2d3
         <option value="$PROJECT_DIR$/edu_admin/views.py" />
       </list>
     </option>
@@ -198,6 +307,9 @@
     <option name="y" value="-21" />
     <option name="width" value="861" />
     <option name="height" value="531" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -220,9 +332,26 @@
               <item name="account" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
+<<<<<<< HEAD
               <item name="mysite (3)" type="b2602c69:ProjectViewProjectNode" />
               <item name="mysite (3)" type="462c0819:PsiDirectoryNode" />
+=======
+              <item name="mysite" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mysite" type="462c0819:PsiDirectoryNode" />
+              <item name="account" type="462c0819:PsiDirectoryNode" />
+              <item name="migrations" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mysite" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mysite" type="462c0819:PsiDirectoryNode" />
               <item name="edu_admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mysite" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mysite" type="462c0819:PsiDirectoryNode" />
+>>>>>>> c54543a14b3ee2fbd8a380e9ff8bf099f0aeb2d3
+              <item name="edu_admin" type="462c0819:PsiDirectoryNode" />
+              <item name="migrations" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="mysite (3)" type="b2602c69:ProjectViewProjectNode" />
@@ -344,6 +473,7 @@
       <workItem from="1575898979741" duration="2115000" />
       <workItem from="1575938273397" duration="18821000" />
       <workItem from="1576046968395" duration="1945000" />
+<<<<<<< HEAD
       <workItem from="1576063597166" duration="882000" />
       <workItem from="1576065463007" duration="1930000" />
       <workItem from="1576069800981" duration="7754000" />
@@ -354,6 +484,8 @@
       <workItem from="1576147164196" duration="84000" />
       <workItem from="1576152228098" duration="279000" />
       <workItem from="1576152536519" duration="10506000" />
+=======
+>>>>>>> c54543a14b3ee2fbd8a380e9ff8bf099f0aeb2d3
     </task>
     <servers />
   </component>
@@ -363,13 +495,21 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="68588000" />
+=======
+    <option name="totallyTimeSpent" value="23361000" />
+>>>>>>> c54543a14b3ee2fbd8a380e9ff8bf099f0aeb2d3
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="735" extended-state="6" />
     <editor active="true" />
     <layout>
+<<<<<<< HEAD
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17299919" />
+=======
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.09115139" />
+>>>>>>> c54543a14b3ee2fbd8a380e9ff8bf099f0aeb2d3
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -381,9 +521,15 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
+<<<<<<< HEAD
       <window_info anchor="bottom" id="Database Changes" order="9" weight="0.32935917" />
       <window_info anchor="bottom" id="Statistic" order="10" weight="0.14864865" />
       <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.39303482" />
+=======
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Statistic" order="10" weight="0.14864865" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.2962578" />
+>>>>>>> c54543a14b3ee2fbd8a380e9ff8bf099f0aeb2d3
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="13" weight="0.32935917" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -408,6 +554,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/edu_admin/Stu_course_detailed.py" />
+<<<<<<< HEAD
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/django/urls/resolvers.py" />
     <entry file="file://$PROJECT_DIR$/static/images/index.jpg">
       <provider selected="true" editor-type-id="images" />
@@ -513,10 +660,26 @@
           <caret line="43" column="76" selection-start-line="43" selection-start-column="76" selection-end-line="43" selection-end-column="76" />
           <folding>
             <element signature="e#2418#2424#1#HTML" expanded="true" />
+=======
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/django/urls/resolvers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="592" selection-start-line="592" selection-end-line="592" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/account/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3375">
+          <caret line="143" column="15" selection-start-line="143" selection-start-column="15" selection-end-line="143" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+>>>>>>> c54543a14b3ee2fbd8a380e9ff8bf099f0aeb2d3
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/templates/edu_admin/Stu_my_grade.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="736">
@@ -632,10 +795,19 @@
             <element signature="e#14471#14477#1#HTML" expanded="true" />
             <element signature="e#14507#14513#1#HTML" expanded="true" />
             <element signature="e#14574#14580#1#HTML" expanded="true" />
+=======
+    <entry file="file://$PROJECT_DIR$/edu_admin/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1025">
+          <caret line="42" column="57" selection-start-line="42" selection-start-column="57" selection-end-line="42" selection-end-column="57" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+>>>>>>> c54543a14b3ee2fbd8a380e9ff8bf099f0aeb2d3
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/templates/stu_base.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
@@ -726,10 +898,19 @@
           <caret line="18" selection-start-line="18" selection-end-line="18" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
+=======
+    <entry file="file://$PROJECT_DIR$/edu_admin/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+>>>>>>> c54543a14b3ee2fbd8a380e9ff8bf099f0aeb2d3
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/templates/edu_admin/Adm_manage_teachers.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3171">
@@ -741,11 +922,31 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="609">
           <caret line="29" column="16" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="16" />
+=======
+    <entry file="file://$PROJECT_DIR$/edu_admin/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/edu_admin/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="49" column="21" selection-start-line="49" selection-start-column="21" selection-end-line="49" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#54#0" expanded="true" />
+          </folding>
+>>>>>>> c54543a14b3ee2fbd8a380e9ff8bf099f0aeb2d3
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/edu_admin/Stu_select_sourses.html">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="419">
           <caret line="84" column="93" selection-start-line="84" selection-start-column="93" selection-end-line="84" selection-end-column="93" />
         </state>
@@ -796,11 +997,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="447">
           <caret line="220" column="13" selection-start-line="220" selection-start-column="13" selection-end-line="220" selection-end-column="13" />
+=======
+        <state relative-caret-position="1400">
+          <caret line="56" column="35" selection-start-line="56" selection-start-column="35" selection-end-line="56" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/edu_admin/Stu_course_detailed.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="1" column="22" selection-start-line="1" selection-start-column="22" selection-end-line="1" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/edu_admin/Adm_manage_teachers.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3650">
+          <caret line="146" column="36" selection-start-line="146" selection-start-column="36" selection-end-line="146" selection-end-column="36" />
+>>>>>>> c54543a14b3ee2fbd8a380e9ff8bf099f0aeb2d3
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/edu_admin/Adm_manage_courses.html">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state>
           <caret line="391" column="37" selection-start-line="391" selection-start-column="37" selection-end-line="391" selection-end-column="37" />
         </state>
@@ -843,6 +1063,10 @@
           <folding>
             <element signature="e#0#54#0" expanded="true" />
           </folding>
+=======
+        <state relative-caret-position="300">
+          <caret line="27" column="43" selection-start-line="27" selection-start-column="43" selection-end-line="27" selection-end-column="43" />
+>>>>>>> c54543a14b3ee2fbd8a380e9ff8bf099f0aeb2d3
         </state>
       </provider>
     </entry>
