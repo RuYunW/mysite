@@ -17,6 +17,8 @@
         {#            <a href="#return_button_top">#}
         {#                <img src="{% static '/images/codingmonkey.png' %}" class="codingmonkey"> </a>#}
         {#        </div>#}
+
+
         <div class="schedule">
             <select name="tea_course">
                 <option value="" disabled selected>选择课程</option>
@@ -25,7 +27,6 @@
             </select>
 
                 <table border="1">
-
                     <!--            <caption>已选 选修</caption>-->
                     <tr class="datelisthead">
                         <td>学生学号</td>
@@ -39,18 +40,20 @@
 
                     {% for student in stu_tea_cou_objs %}
                         <form method="POST">{% csrf_token %}
-                        <tr class="alt">
-                            <td><input type="text" name="student_id" value="{{ student.student_id.username }}" readonly></td>
-                            <td>{{ student.student_id.name }}</td>
-                            <td>{{ student.student_id.sclass }}</td>
-                            <td>{{ student.course_id.course_name }}</td>
-                            <td><input name="course_id" value="{{ student.select_course_id_id }}" readonly></td>
-                            <td><input name="score" value="{{ student.score }}"></td>
-                            <td>
-                                <button type="submit" class="alter" name="score_button">提交
-                                </button>
-                            </td>
-                        </tr>
+                            <tr class="alt">
+                                <td><input type="text" name="student_id" value="{{ student.student_id.username }}"
+                                           readonly>
+                                </td>
+                                <td>{{ student.student_id.name }}</td>
+                                <td>{{ student.student_id.sclass }}</td>
+                                <td>{{ student.course_id.course_name }}</td>
+                                <td><input name="course_id" value="{{ student.select_course_id_id }}" readonly></td>
+                                <td><input name="score" value="{{ student.score }}"></td>
+                                <td>
+                                    <button type="submit" class="alter" name="score_button">提交
+                                    </button>
+                                </td>
+                            </tr>
                         </form>
                     {% endfor %}
 
@@ -60,6 +63,7 @@
                 </table>
 
         </div>
+
 
     </div>
     <script src="{% static '/js/TweenLite.min.js' %}"></script>

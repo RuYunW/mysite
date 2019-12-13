@@ -11,6 +11,7 @@ from django.contrib.auth.hashers import make_password
 from django.db.models import Q
 import os
 import pymysql
+from django.db import connection
 
 
 def Adm_mng_cou(request):
@@ -309,37 +310,126 @@ def Adm_inp_time(request):
     return render(request, "edu_admin/Adm_input_time.html")
 
 
-def Adm_mng_tea(requset):
-    if requset.method == "POST" and requset.POST.getlist("add_teacher"):
-        teacher_form = TeacherForm(requset.POST)
+def Adm_mng_tea(request):
+    if request.method == "POST" and request.POST.getlist("add_teacher"):
+        teacher_form = TeacherForm(request.POST)
 
-        if User.objects.filter(username=requset.POST.get("username")):
+        if User.objects.filter(username=request.POST.get("username")):
             error_message = "添加失败！用户已存在！"
-            return render(requset,
+            return render(request,
                           'edu_admin/Adm_manage_teachers.html',
                           {"form": teacher_form, "add_teacher": False, "error_message": error_message})
         else:
             User.objects.create(
-                username=requset.POST.get("username"),
-                password=make_password(requset.POST.get("username")[-6:]),
-                name=requset.POST.get("name"),
-                school=requset.POST.get("school"),
-                major=requset.POST.get("major"),
-                sclass=requset.POST.get("sclass"),
+                username=request.POST.get("username"),
+                password=make_password(request.POST.get("username")[-6:]),
+                name=request.POST.get("name"),
+                school=request.POST.get("school"),
+                major=request.POST.get("major"),
+                sclass=request.POST.get("sclass"),
                 is_teacher=True
             )
-            return render(requset,
+            return render(request,
                           'edu_admin/Adm_manage_teachers.html',
                           {"form": teacher_form, "add_teacher": True})
 
-    elif requset.method == "POST" and requset.POST.getlist("select_teacher"):
-        pass
+    # 查询
+    elif request.method == "POST" and request.POST.getlist("select_teacher"):
+        username = request.POST.get("username")
+        teacher_form = TeacherForm(request.POST)
+        # 查询成功
+        if User.objects.filter(username=username) and User.objects.get(username=username).is_teacher:
+            user = User.objects.get(username=username)
+            return render(request, "edu_admin/Adm_manage_teachers.html",
+                          {"form": teacher_form, "return_select": True, "user": user})
+        # 查询失败
+        else:
+            return render(request, "edu_admin/Adm_manage_teachers.html", {"form": teacher_form, "return_select": False})
+
+
+    # 批量上传
+    elif request.method == "POST" and request.POST.getlist('file_button'):
+        teacher_form = TeacherForm(request.POST)
+        lines = []
+        error_list = []
+        myFile = request.FILES.get("myfile", None)
+        error_message = ""
+        if not myFile:
+            error_message = "no files for upload!"
+            return render(
+                request,
+                "edu_admin/Adm_manage_teachers.html",
+                {"form": teacher_form, "upload": False, "error_message": error_message})
+
+        if myFile.name == 'teacher_import.xlsx':  # 如果是模板文件
+            destination = open('media/' + myFile.name, 'wb+')
+            for chunk in myFile.chunks():
+                destination.write(chunk)
+            destination.close()
+            # 读
+            x1 = xlrd.open_workbook("media/teacher_import.xlsx")
+            table = x1.sheet_by_index(0)
+            nrows = table.nrows
+
+            if nrows <= 1:
+                error_message = "文件为空，批量导入失败！"
+                return render(
+                    request,
+                    "edu_admin/Adm_manage_teachers.html",
+                    {"form": teacher_form, "upload": False, "error_message": error_message})
+
+            else:  # 不为空
+                for row in range(1, nrows):
+                    if User.objects.filter(username=table.cell_value(row, 0)):  # 如果已经存在
+                        error_list.append(table.cell_value(row, 0) + ":" + table.cell_value(row, 1) + ",")
+
+                    else:  # 不产生冲突，记录插入值
+                        lines.append({"username": table.cell_value(row, 0),
+                                      "name": table.cell_value(row, 1),
+                                      "sex": table.cell_value(row, 2),
+                                      "school": table.cell_value(row, 3),
+                                      "major": table.cell_value(row, 4),
+                                      "sclass": table.cell_value(row, 5),
+                                      "join_date": table.cell_value(row, 6),
+                                      })
+                # 写入数据库
+                if len(lines) > 0:  # 如果工作队列lines有数据，存入数据库
+                    for item in lines:
+                        User.objects.create(
+                            username=item["username"],
+                            name=item['name'],
+                            sex=item['sex'],
+                            school=item['school'],
+                            major=item['major'],
+                            sclass=item['sclass'],
+                            admin_data=item['join_date'],
+                            is_teacher=1,
+                            password=make_password(item['username'][-6:])
+                        )
+
+                error_message = "共上传" + str(nrows - 1) + "人，成功" + str(len(lines)) + "人，失败" + str(
+                    len(error_list)) + "人，失败人员名单如下："
+
+                for i in error_list:
+                    error_message += i
+                print(error_message)
+                return render(
+                    request,
+                    "edu_admin/Adm_manage_teachers.html",
+                    {"form": teacher_form, "upload": True, "error_message": error_message})
+
+        else:  # 不是模板文件
+            teacher_form = TeacherForm(request.POST)
+            error_message = "请勿修改文件名及表格格式，可尝试重新上传。"
+            return render(request,
+                          "edu_admin/Adm_manage_teachers.html",
+                          {"form": teacher_form, "upload": False, "error_message": error_message})
 
     else:
         teacher_form = TeacherForm()
         teacher_objs = User.objects.filter(is_teacher=1)
 
-        return render(requset, 'edu_admin/Adm_manage_teachers.html',
+        return render(request, 'edu_admin/Adm_manage_teachers.html',
                       {"form": teacher_form, "teacher_list": teacher_objs})
 
 
@@ -421,12 +511,12 @@ def stu_course_detailed(request, course_id):
                               {"course_state": True,
                                "course_objs": course_objs,
                                "is_select": True,
-                               "course_been_select_obj": course_been_select_obj[0]})
+                               "course_been_select_obj": course_been_select_obj[0], "course_id": course_id})
 
             else:  # 没选
                 error_message = "您未提交选课"
                 return render(request, "edu_admin/Stu_course_detailed.html/",
-                              {"error_message": error_message, "course_objs": course_objs})
+                              {"error_message": error_message, "course_objs": course_objs, "course_id": course_id})
 
             # return render(request, "edu_admin/Stu_course_detailed.html/", {"course_state": True, "course_objs": course_objs})
 
@@ -439,7 +529,7 @@ def stu_course_detailed(request, course_id):
                           {"is_delete": True,
                            "course_state": True,
                            "course_objs": course_objs,
-                           "course_been_select_obj": course_been_select_obj})
+                           "course_been_select_obj": course_been_select_obj, "course_id": course_id})
 
         else:
             # print(course_been_select_obj[0].select_course_id.select_course_id)
@@ -447,21 +537,20 @@ def stu_course_detailed(request, course_id):
                 return render(request, "edu_admin/Stu_course_detailed.html/",
                               {"course_state": True,
                                "course_objs": course_objs,
-                               "course_been_select_obj": course_been_select_obj[0]})
+                               "course_been_select_obj": course_been_select_obj[0], "course_id": course_id})
             else:
                 return render(request, "edu_admin/Stu_course_detailed.html/",
                               {"course_state": True,
                                "course_objs": course_objs,
-                               "course_been_select_obj": course_been_select_obj})
+                               "course_been_select_obj": course_been_select_obj, "course_id": course_id})
 
     else:  # 课程不存在
         error_message = "暂无可选课程"
         return render(request, "edu_admin/Stu_course_detailed.html/",
-                      {"course_state": False, "error_message": error_message})
+                      {"course_state": False, "error_message": error_message, "course_id": course_id})
 
 
 def wel_adm(requset):
-
     return render(requset, 'edu_admin/welcome_Adm.html', )
 
 
@@ -479,6 +568,14 @@ def course_download(request):
     return response
 
 
+def teacher_download(request):
+    file = open('static/file_download/teacher_import.xlsx', 'rb')
+    response = FileResponse(file)
+    response['Content-Type'] = 'application/octet-stream'
+    response['Content-Disposition'] = 'attachment;filename="teacher_import.xlsx"'
+    return response
+
+
 def tea_student_grade(request):
     username = request.session.get("username")
     grade_objs = StudentSelectCourse.objects.filter(Q(student_id=username) & ~Q(score=None))
@@ -490,12 +587,21 @@ def tea_my_sch(request):
 
 
 def tea_student(request):
-    if SelectCourse.objects.filter(teacher_id=request.session.get("username")):  # 如果有授课
-        stu_sel_cou_objs = StuTeaCouView.objects.filter(teacher_id_id=request.session.get("username"))
+    teacher_id = request.session.get("username")  # 教工号
+    tea_course_objs = SelectCourse.objects.filter(teacher_id=teacher_id)
 
-        return render(request, "edu_admin/Tea_student.html", {"stu_sel_cou_objs": stu_sel_cou_objs})
+    if tea_course_objs:  # 如果有授课
+        stu_sel_cou_objs = StuTeaCouView.objects.filter(teacher_id_id=request.session.get("username"))
+        cursor = connection.cursor()  # 获取游标对象
+        cursor.execute("SELECT tea_all_sum(\'" + teacher_id + "\');")
+        items_num = cursor.fetchall()[0][0]
+        return render(
+            request,
+            "edu_admin/Tea_student.html",
+            {"stu_sel_cou_objs": stu_sel_cou_objs, "course_num": len(tea_course_objs), "items_num": items_num}
+        )
     else:
-        return render(request, "edu_admin/Tea_student.html")
+        return render(request, "edu_admin/Tea_student.html", {"course_num": 0, "items_num": 0})
 
 
 def tea_student_grade(request):
@@ -506,7 +612,8 @@ def tea_student_grade(request):
         print(request.POST.get("course_id"))
         print(request.POST.get("student_id"))
         print()
-        StudentSelectCourse.objects.filter(Q(select_course_id_id=request.POST.get("course_id")) & Q(student_id_id=request.POST.get("student_id"))).update(score=score)
+        StudentSelectCourse.objects.filter(Q(select_course_id_id=request.POST.get("course_id")) & Q(
+            student_id_id=request.POST.get("student_id"))).update(score=score)
 
         # StuTeaCouView.objects.filter(select_course_id_id=request.POST.get("score_button"),
         #                              student_id=request.POST.get("student_id")).update(score=score)

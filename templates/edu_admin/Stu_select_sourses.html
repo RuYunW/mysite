@@ -75,17 +75,19 @@
                                 <div class="note_class1">
                                     <div class="note_credit">学分:{{ course.credit }}</div>
                                     <div class="note_name"></div>
-                                    <div class="note_time">余量:{{ course.course_num }}</div>
-                                    <div class="note_position">地点:{{ course.place_id_id }}</div>
+                                    <br>
+                                    <br>
+                                    <div class="note_time" style="width: 90%;">课程介绍:{{ course.description }}</div>
+{#                                    <div class="note_position">地点:{{ course.place_id_id }}</div>#}
 {#                                    <div class="note_select">#}
 {#                                        <div class="note_selected"></div>#}
 {#                                    </div>#}
                                 </div>
                                 <div class="note_cancel">
-                                    <a name="select_course_link" href="{{ course.course_id }}" class="select_course">选择课程</a>
+                                    <a name="select_course_link" href="{{ course.course_id }}" class="select_course">进入选课</a>
                                 </div>
 {#                                <div class="note_confirm">#}
-                                    <button class="alter">退选课程</button>
+{#                                    <button class="alter">退选课程</button>#}
 {#                                </div>#}
                             </div>
 

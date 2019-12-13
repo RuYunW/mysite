@@ -12,11 +12,13 @@
     {% elif is_select == True %}
         <script type="text/javascript">
             alert("选课成功！");
+                        window.location.href = "/edu_admin/Stu_select_sourses.html/{{ course_id }}/";
             {#location.reload();#}
         </script>
     {% elif is_delete == True %}
         <script type="text/javascript">
             alert("退课成功！");
+            window.location.href = "/edu_admin/Stu_select_sourses.html/{{ course_id }}/";
         </script>
     {% endif %}
 

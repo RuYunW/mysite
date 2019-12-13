@@ -18,6 +18,7 @@ urlpatterns = [
     path('welcome_Stu.html/', views.wel_stu, name='wel_stu'),
     path(r'down_load/student_import/', student_download, name='student_import'),
     path(r'down_load/course_import/', views.course_download, name='course_import'),
+    path(r'down_load/teacher_import/', views.teacher_download, name='teacher_import'),
 
     path('Tea_my_schedule.html/', views.tea_my_sch, name="Tea_my_sch"),
     path('Tea_student.html/', views.tea_student, name="Tea_student"),
