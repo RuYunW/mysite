@@ -50,10 +50,10 @@
                     <img src="{% static '/images/Adm.jpg' %}">
                 </a>
                 <div class="message_">
-                    <p>王你芸</p>
+                    <p>{{ request.session.name }}</p>
                 </div>
             </div>
-            <div class="meassage_xm">{{ request.session.name }}</div>
+{#            <div class="meassage_xm">{{ request.session.name }}</div>#}
             <div class="meassage_xm">教师工号{{ request.session.username }}</div>
             <div class="meassage_xm"></div>
             <div class="meassage_xm"></div>

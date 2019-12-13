@@ -15,47 +15,25 @@
 
                 <!--            <caption>已选 选修</caption>-->
                 <tr class="datelisthead">
-                    <td>学生序号</td>
+                    <td>所选课程</td>
                     <td>学生学号</td>
                     <td>学生姓名</td>
                     <td>学生专业</td>
                     <td>学生班级</td>
                 </tr>
+
+                {% for student in stu_sel_cou_objs %}
                 <tr class="alt">
-                    <td>1</td>
-                    <td>201711010201</td>
-                    <td>王你芸</td>
-                    <td>计算机科学与技术</td>
-                    <td>计工本1702</td>
+                    <td>{{ student.course_id.course_name }}</td>
+                    <td>{{ student.student_id.username }}</td>
+                    <td>{{ student.student_id.name }}</td>
+                    <td>{{ student.student_id.major }}</td>
+                    <td>{{ student.student_id.sclass }}</td>
                 </tr>
-                <tr class="alt">
-                    <td>2</td>
-                    <td>201711010202</td>
-                    <td>王你芸2</td>
-                    <td>计算机科学与技术</td>
-                    <td>计工本1702</td>
-                </tr>
-                                <tr class="alt">
-                    <td>2</td>
-                    <td>201711010202</td>
-                    <td>王你芸2</td>
-                    <td>计算机科学与技术</td>
-                    <td>计工本1702</td>
-                </tr>
-                <tr class="alt">
-                    <td>4</td>
-                    <td>201711010204</td>
-                    <td>王你芸4</td>
-                    <td>计算机科学与技术</td>
-                    <td>计工本1702</td>
-                </tr>
-                <tr class="alt">
-                    <td>5</td>
-                    <td>201711010205</td>
-                    <td>王你芸5</td>
-                    <td>计算机科学与技术</td>
-                    <td>计工本1702</td>
-                </tr>
+                {% endfor %}
+
+
+
                 <!--            <canvas id="demo-canvas" style="position:absolute"></canvas>-->
             </table>
 

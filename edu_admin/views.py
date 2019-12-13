@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from edu_admin import models
 from django.http import FileResponse, HttpResponse, JsonResponse
 from edu_admin.forms import AddCourseForm
-from edu_admin.models import Course, Classroom, SelectCourse, StudentSelectCourse
+from edu_admin.models import Course, Classroom, SelectCourse, StudentSelectCourse, StuTeaCouView
 from account.models import User
 import xlrd
 from account.forms import TeacherForm
@@ -43,7 +43,7 @@ def Adm_mng_cou(request):
                         + str(request.POST.get("teacher_id")) + "-"
                         + str(len(SelectCourse.objects.filter(course_id=course_id)) + 1),
                         course_id=Course.objects.get(course_id=course_id),
-                        course_num=request.POST.get("course_num"),     # 课容量
+                        course_num=request.POST.get("course_num"),  # 课容量
                         course_remain=request.POST.get("course_num"),  # 课余量
                         time=worktime,
                         term=request.POST.get("term"),
@@ -399,7 +399,8 @@ def stu_select_src(request):
 
 def stu_course_detailed(request, course_id):
     course_objs = SelectCourse.objects.filter(course_id=course_id)
-    course_been_select_obj = StudentSelectCourse.objects.filter(student_id=request.session.get("username"), course_id=course_id)
+    course_been_select_obj = StudentSelectCourse.objects.filter(student_id=request.session.get("username"),
+                                                                course_id=course_id)
 
     if course_objs:  # 课程存在
         if request.method == "POST" and request.POST.getlist("select_button"):
@@ -460,6 +461,7 @@ def stu_course_detailed(request, course_id):
 
 
 def wel_adm(requset):
+
     return render(requset, 'edu_admin/welcome_Adm.html', )
 
 
@@ -476,27 +478,46 @@ def course_download(request):
     response['Content-Disposition'] = 'attachment;filename="course_import.xlsx"'
     return response
 
+
 def tea_student_grade(request):
     username = request.session.get("username")
     grade_objs = StudentSelectCourse.objects.filter(Q(student_id=username) & ~Q(score=None))
     return render(request, "edu_admin/Stu_my_grade.html", {"grade_objs": grade_objs})
 
+
 def tea_my_sch(request):
     return render(request, "edu_admin/Tea_my_schedule.html")
 
 
-
-
 def tea_student(request):
-    return render(request, "edu_admin/Tea_student.html")
+    if SelectCourse.objects.filter(teacher_id=request.session.get("username")):  # 如果有授课
+        stu_sel_cou_objs = StuTeaCouView.objects.filter(teacher_id_id=request.session.get("username"))
+
+        return render(request, "edu_admin/Tea_student.html", {"stu_sel_cou_objs": stu_sel_cou_objs})
+    else:
+        return render(request, "edu_admin/Tea_student.html")
 
 
 def tea_student_grade(request):
-    return render(request, "edu_admin/Tea_student_grade.html")
+    stu_sel_cou_objs = StuTeaCouView.objects.filter(teacher_id_id=request.session.get("username"))
+    if request.method == "POST":
+        score = request.POST.get("score")
+        print(score)
+        print(request.POST.get("course_id"))
+        print(request.POST.get("student_id"))
+        print()
+        StudentSelectCourse.objects.filter(Q(select_course_id_id=request.POST.get("course_id")) & Q(student_id_id=request.POST.get("student_id"))).update(score=score)
+
+        # StuTeaCouView.objects.filter(select_course_id_id=request.POST.get("score_button"),
+        #                              student_id=request.POST.get("student_id")).update(score=score)
+        return_score = True
+        return render(request, "edu_admin/Tea_student_grade.html",
+                      {"stu_tea_cou_objs": stu_sel_cou_objs, "return_score": return_score})
+    else:
+        return render(request, "edu_admin/Tea_student_grade.html", {"stu_tea_cou_objs": stu_sel_cou_objs})
 
 
 def welcome_tea(request):
-
     return render(request, "edu_admin/welcome_Tea.html")
 
 
@@ -547,7 +568,8 @@ def Adm_cou_alt(request, course_select_id):
 
     if request.method == "POST":  # 表单提交
         # 修改课程信息
-        if User.objects.filter(username="cou_tea_id") and Classroom.objects.filter(room_id=request.POST.get("cou_place_id")):
+        if User.objects.filter(username="cou_tea_id") and Classroom.objects.filter(
+                room_id=request.POST.get("cou_place_id")):
             SelectCourse.objects.filter(select_course_id=course_select_id).update(
                 course_num=request.POST.get("cou_num"),
                 teacher_id=User.objects.get(username="cou_tea_id"),
@@ -562,7 +584,8 @@ def Adm_cou_alt(request, course_select_id):
             {"cou_obj": cou_obj, "return_message": return_message, "course_select_id": course_select_id})
 
     else:  # 正常访问
-        return render(request, "edu_admin/Adm_course_alter.html", {"cou_obj": cou_obj, "course_select_id": course_select_id})
+        return render(request, "edu_admin/Adm_course_alter.html",
+                      {"cou_obj": cou_obj, "course_select_id": course_select_id})
 
     # return render(request, "edu_admin/Adm_course_alter.html")
 
@@ -589,5 +612,3 @@ def Adm_ba_re(request):
             request,
             "edu_admin/Adm_backup_restore.html",
         )
-
-

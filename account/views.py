@@ -8,6 +8,7 @@ from django.db import models
 from django.shortcuts import redirect
 from django.contrib.auth.hashers import make_password, check_password
 import os
+from django.db import connection
 
 
 def index(request):
@@ -16,6 +17,9 @@ def index(request):
 
 def user_login(request):
     # print(os.system('python manage.py dumpdata > a.json'))
+    cursor = connection.cursor()
+    cursor.execute("SELECT all_sum();")
+    print(cursor.fetchall()[0][0])
 
     if request.method == "POST":
         login_form = LoginForm(request.POST)
