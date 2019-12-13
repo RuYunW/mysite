@@ -1,0 +1,79 @@
+{% extends 'stu_base.html' %}
+{% load staticfiles %}
+{% block title %}SDNU-Adm-manage-teacher{% endblock %}
+{% block content %}
+    <!--<div class="body_container">   big head formd-->
+
+    {% if error_message %}
+        <script type="text/javascript">
+            alert("{{ error_message }}");
+            location.reload();
+        </script>
+    {% elif is_select == True %}
+        <script type="text/javascript">
+            alert("选课成功！");
+            {#location.reload();#}
+        </script>
+    {% elif is_delete == True %}
+        <script type="text/javascript">
+            alert("退课成功！");
+        </script>
+    {% endif %}
+
+
+    <div class="body_container">
+    <div style="padding: 2%">
+    <table border="1">
+        {% if course_state == True %}
+            <form method="POST">{% csrf_token %}
+                <div>
+                    <tr class="datelisthead">
+                        <td>选课代码</td>
+                        <td>课程名称</td>
+                        <td>授课教师</td>
+                        <td>上课时间</td>
+                        <td>上课地点</td>
+                        <td>课余量</td>
+                        <td>学分</td>
+
+                        <td>选择</td>
+                    </tr>
+
+                    {% for course in course_objs %}
+                        <tr class="alt">
+                            <td>{{ course.select_course_id }}</td>
+                            <td>{{ course.course_id.course_name }}</td>
+                            <td>{{ course.teacher_id.name }}</td>
+                            <td>{{ course.time }}</td>
+                            <td>{{ course.place_id.place }}</td>
+                            <td>{{ course.course_remain }}/{{ course.course_num }}</td>
+                            <td>{{ course.course_id.credit }}</td>
+
+                            {% if course_been_select_obj and course_been_select_obj.select_course_id.select_course_id == course.select_course_id %}
+                                <td>
+                                    <label><input name="select" type="radio" value="{{ course.select_course_id }}"
+                                                  checked/> </label>
+                                </td>
+                            {% else %}
+                                <td>
+                                    <label><input name="select" type="radio" value="{{ course.select_course_id }}"/>
+                                    </label>
+                                </td>
+                            {% endif %}
+                        </tr>
+                    {% endfor %}
+                </div>
+                <div>
+                    <button type="submit" class="select_submit" name="select_button">提交</button>
+                    <button type="submit" class="select_submit" name="delete_button">删除</button>
+
+                </div>
+            </form>
+
+        {% else %}
+            <div>暂无可选课程</div>
+        {% endif %}
+    </table>
+
+
+{% endblock %}

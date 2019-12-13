@@ -1,0 +1,41 @@
+{% extends 'adm_based.html' %}
+{% load staticfiles %}
+{% block title %}DNU-Adm-manage-courses{% endblock %}
+{% block content %}
+    <!--<canvas id="demo-canvas" style="position:absolute"></canvas>-->
+    <!--<div class="body_container">   big head formd-->
+
+
+    {% if return_message %}
+        <script type="text/javascript">
+            alert("{{ return_message }}");
+            {#window.location.href = "/edu_admin/Adm_manage_courses.html";#}
+        </script>
+    {% endif %}
+
+    <div class="body_container1">
+
+        <div class="body_background3">
+            <!--        <div style="font-size: 40px;margin: auto;padding-top: 40px;padding-left: 20px;color: #5a1216">修改录入成绩时间</div>-->
+            <div class="manage—stu">
+
+                <!-- -------------------------------------------------------------->
+                <div class="big" style="padding-top: 100px">
+                    <div class="head" style="margin-bottom: 50px">
+                        &nbsp;备份还原</span><br>
+                    </div>
+                    <form method="POST"> {% csrf_token %}
+                        <button class="return  material-design" data-color="#ffffff" name="backup">备份</button>
+                        <button class="return  material-design" data-color="#ffffff" name="restore">还原</button>
+                    </form>
+                    <script src="{% static 'js/index_animated_button.js' %}"></script>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <!--</div>-->
+
+{% endblock %}

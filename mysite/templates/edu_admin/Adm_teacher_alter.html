@@ -1,0 +1,38 @@
+{% extends 'adm_based.html' %}
+{% load staticfiles %}
+{% block title %}SDNU-Adm-manage-student{% endblock %}
+{% block content %}
+
+    {% if return_message %}
+        <script type="text/javascript">
+            alert("信息修改成功！");
+            window.location.href = "/edu_admin/Adm_manage_teachers.html/{{ teacher_id }}/";
+
+        </script>
+    {% endif %}
+
+    <div class="body_container1">
+        <div class="body_background3">
+
+            <div style="font-weight:700;font-size: 40px;margin: auto;padding-top: 40px;padding-left: 20px;color: #5a1216">管理教师-修改信息</div>
+            <form method="POST">{% csrf_token %}
+                <div class="sdu_alter">教师工号:&nbsp;&nbsp;
+                    <input value="{{ tea_obj.username }}" disabled class="sdu_alter_input" type="text" name="tea_id">
+                </div>
+                <div class="sdu_alter">教师姓名:&nbsp;&nbsp;
+                    <input value="{{ tea_obj.name }}" class="sdu_alter_input" type="text" name="tea_name">
+                </div>
+                <div class="sdu_alter">教师所属学院:&nbsp;&nbsp;
+                    <input value="{{ tea_obj.school }}" class="sdu_alter_input" type="text" name="tea_major">
+                </div>
+                <div class="sdu_alter">教师所属系别:&nbsp;&nbsp;
+                    <input value="{{ tea_obj.major }}" class="sdu_alter_input" type="text" name="tea_class">
+                </div>
+                <button type="submit" class="select_submit">修改</button>
+            </form>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
