@@ -1,0 +1,407 @@
+{% extends 'adm_based.html' %}
+{% load staticfiles %}
+{% block title %}DNU-Adm-manage-courses{% endblock %}
+{% block content %}
+    <!--<canvas id="demo-canvas" style="position:absolute"></canvas>-->
+    <!--<div class="body_container">   big head formd-->
+
+    {% if add_course_return == True %}
+        <script type="text/javascript">
+            alert("课程添加成功！");
+            window.location.href = "/edu_admin/Adm_manage_courses.html";
+        </script>
+    {% elif add_course_return == False %}
+        <script type="text/javascript">
+            alert("{{ error_message }}");
+            window.location.href = "/edu_admin/Adm_manage_courses.html";
+        </script>
+    {% elif add_course_return == "Ask" %}
+        <script type="text/javascript">
+            alert("{{ warning_message }}");
+            window.location.href = "/edu_admin/Adm_manage_courses.html";
+        </script>
+    {% elif search_course_return %}
+        <script type="text/javascript">
+            alert("{{ course_name }}\n{{ teacher_name }}\n{{ credit }}\n{{ course_time }}\n{{ classroom }}");
+            window.location.href = "/edu_admin/Adm_manage_courses.html";
+        </script>
+    {% elif search_course_return == False %}
+        <script type="text/javascript">
+            alert("{{ error_message }}");
+            window.location.href = "/edu_admin/Adm_manage_courses.html";
+        </script>
+    {% elif upload == False %}
+        <script type="text/javascript">
+            alert("{{ error_message }}");
+            window.location.href = "/edu_admin/Adm_manage_courses.html";
+        </script>
+    {% elif upload == True %}
+        <script type="text/javascript">
+            alert("{{ error_message }}");
+            window.location.href = "/edu_admin/Adm_manage_courses.html";
+        </script>
+    {% else %}
+    {% endif %}
+
+
+
+    <div class="return_top">
+    </div>
+    <div class="body_container1">
+
+
+        <div class="body_background3">
+
+            <div style="font-weight:700;font-size: 40px;margin: auto;padding-top: 40px;padding-left: 20px;color: #5a1216">
+                管理课程
+            </div>
+            <div class="manage—stu">
+                <!-- --------------------------------   添加课程信息------------------------------>
+                <div class="big">
+                    <div class="head">
+                        <span><span class="icon-plus"></span>&nbsp;添加课程信息</span><br>
+                    </div>
+                    <div class="formd">
+                        <form class="form-inline" role="form" action="." method="POST"
+                              enctype="multipart/form-data">{% csrf_token %}
+                            <div class="form-group" style="margin-top: 30px">
+                                <label class="sr-only" for="{{ form.course_id.id_for_label }}">名称</label>
+                                <div>{{ form.course_id }}
+                                    {#                                <input type="text" class="form-control" id="name"#}
+                                    {#                                       placeholder="请输入课程名称" style="width: 200px">#}
+                                    {#                            </div>#}
+
+                                    <label class="sr-only" for="course_name">名称</label>
+                                    {#                                    <div>{{ form.course_name }}</div>#}
+                                    <input type="text" class="form-control" id="name" name="course_name"
+                                           placeholder="请输入课程名称" style="width: 200px">
+
+                                    <input class="form-control" name="term" type="text" value="2019-2020-1"
+                                           placeholder="开课学期">
+                                    <div class="form-group">
+                                        <label class="sr-only" for="{{ form.teacher_id.id_for_label }}">名称</label>
+                                        <div>{{ form.teacher_id }}</div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="sr-only" for="{{ form.course_num.id_for_label }}">名称</label>
+                                        <div>{{ form.course_num }}</div>
+                                    </div>
+                                </div>
+                                <br>
+
+                                <div>
+                                    <div>请选择开课班级</div>
+                                    <label><input name="scclass" type="checkbox" value="计工本1701"/>计工本1701 </label>
+                                    <label><input name="scclass" type="checkbox" value="计工本1702"/>计工本1702 </label>
+                                    <label><input name="scclass" type="checkbox" value="计工本1703"/> 计工本1703</label>
+                                    <label><input name="scclass" type="checkbox" value="计工本1704"/>计工本1704</label>
+                                    <label><input name="scclass" type="checkbox" value="计信本1701"/>计信本1701 </label>
+                                    <label><input name="scclass" type="checkbox" value="计本1701"/>计本1701 </label>
+                                </div>
+                                <div class="form-group">
+                                    {#                                    <label class="sr-only" for="{{ form.time.id_for_label }}">名称</label>#}
+                                    {#                                <div>{{ form.time }}</div>#}
+                                    <div style="margin-top: 30px">请选择开课时间</div>
+                                    <select id="begin" name="begin">
+                                        <option value="" disabled selected>请选择起周</option>
+                                        {% for i in "x"|ljust:"18" %}
+                                            <option value="{{ forloop.counter }}">{{ forloop.counter }}</option>
+                                        {% endfor %}
+                                    </select>
+
+                                    <select id="end" name="end">
+                                        <option value="" disabled selected>请选择止周</option>
+                                        {% for i in "x"|ljust:"18" %}
+                                            <option value="{{ forloop.counter }}">{{ forloop.counter }}</option>
+                                        {% endfor %}
+                                    </select>
+
+                                    <select name="workday1">
+                                        <option value="" disabled selected>请选择上课周次1</option>
+                                        <option value="周一">周一</option>
+                                        <option value="周二">周二</option>
+                                        <option value="周三">周三</option>
+                                        <option value="周四">周四</option>
+                                        <option value="周五">周五</option>
+                                        <option value="周六">周六</option>
+                                        <option value="周日">周日</option>
+                                    </select>
+                                    <select name="workclass1">
+                                        <option value="" disabled selected>请选择上课时间1</option>
+                                        <option value="第1,2节">第1,2节</option>
+                                        <option value="第3,4节">第3,4节</option>
+                                        <option value="第5,6节">第5,6节</option>
+                                        <option value="第7,8节">第7,8节</option>
+                                        <option value="第9,10节">第9,10节</option>
+                                    </select>
+                                    <select name="workday2">
+                                        <option value="" disabled selected>请选择上课周次2</option>
+                                        <option value="周一">周一</option>
+                                        <option value="周二">周二</option>
+                                        <option value="周三">周三</option>
+                                        <option value="周四">周四</option>
+                                        <option value="周五">周五</option>
+                                        <option value="周六">周六</option>
+                                        <option value="周日">周日</option>
+                                    </select>
+                                    <select name="workclass2">
+                                        <option value="" disabled selected>请选择上课时间2</option>
+                                        <option value="第1,2节">第1,2节</option>
+                                        <option value="第3,4节">第3,4节</option>
+                                        <option value="第5,6节">第5,6节</option>
+                                        <option value="第7,8节">第7,8节</option>
+                                        <option value="第9,10节">第9,10节</option>
+                                    </select>
+                                </div>
+
+                                <br>
+                                <div class="form-group">
+                                    <div style="margin-top: 30px">请选择课程性质</div>
+                                    <label class="sr-only" for="{{ form.credit.id_for_label }}">名称</label>
+                                    <select name="credit">
+                                        <option value="" disabled selected>请设置课程学分</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+
+                                    <label class="sr-only" for="{{ form.course_belong.id_for_label }}">名称</label>
+                                    <select name="course_belong">
+                                        <option value="" disabled selected>请选择课程归属</option>
+                                        <option value="人文与修养类">人文与修养类</option>
+                                        <option value="职业规划与就业指导类">职业规划与就业指导类</option>
+                                        <option value="创新创业类">创新创业类</option>
+                                        <option value="专业课">专业课</option>
+                                    </select>
+
+                                    <label class="sr-only" for="{{ form.course_char.id_for_label }}"></label>
+                                    <select name="course_char">
+                                        <option value="" disabled selected>请选择课程性质</option>
+                                        <option value="必修">必修</option>
+                                        <option value="限选">限选</option>
+                                        <option value="公选">公选</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <div style="margin-top: 30px">请选择上课地点</div>
+                                    <table style="margin-top: 10px;margin-bottom: 30px">
+                                        <tr>
+                                            <td><select id="bigLoc" name="bigLoc">
+                                                <option value="" disabled selected>请选择教室位置</option>
+                                                <option value="1">文渊楼</option>
+                                                <option value="2">文宗楼</option>
+                                                <option value="3">文澜楼</option>
+                                            </select></td>
+                                            {#                                            <td><select id="smallLoc" name="smallLoc"></select>　</td>#}
+                                            <td><label class="sr-only" for="{{ form.place_id.id_for_label }}">名称</label>
+                                                <div>{{ form.place_id }}</div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <button type="submit" class="btn btn-default" name="add_course_button"
+                                    ">添加</button>
+                                </div>
+                                <script type="text/javascript">
+                                    var select = document.getElementById("bigLoc");
+                                    select.onchange = function () {
+                                        var selvalue = select.value;
+                                        var val = document.getElementById("smallLoc");
+                                        switch (selvalue) {
+                                            case "1" :
+                                                val.innerHTML =
+                                                    "<option value='' selected disabled>请选择具体位置</option>" +
+                                                    "<option value=A>A座</option>" +
+                                                    "<option value=B>B座</option>" +
+                                                    "<option value=C>C座</option>" +
+                                                    "<option value=D>D座</option>" +
+                                                    "<option value=E>E座</option>";
+                                                break;
+                                            case "2" :
+                                                val.innerHTML =
+                                                    "<option value='' selected disaled>请选择具体位置</option>" +
+                                                    "<option value=1>1</option>" +
+                                                    "<option value=2>2</option>";
+                                                break;
+                                            case "3" :
+                                                val.innerHTML =
+                                                    "<option value='' selected disabled>请选择具体位置</option>" +
+                                                    "<option value=A>A座</option>" +
+                                                    "<option value=B>B座</option>";
+                                                break;
+                                            default :
+                                                alert("error");
+                                        }
+                                    };
+                                </script>
+                        </form>
+
+                    </div>
+                </div>
+                <!--                &lt;!&ndash; &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;   删除课程信息&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&ndash;&gt;-->
+                <!--                <div class="big">-->
+                <!--                    <div class="head">-->
+                <!--                        <span><span class="icon-minus"></span>&nbsp;删除课程信息</span><br>-->
+                <!--                    </div>-->
+                <!--                    <div class="formd">-->
+                <!--                        <form class="form-inline" role="form">-->
+                <!--                            <div class="form-group">-->
+                <!--                                <label class="sr-only" for="{{ form.course_id.id_for_label }}">名称</label>-->
+                <!--                                {#                                <input type="text" class="form-control" id="id"#}-->
+                <!--                                {#                                       placeholder="请输入课程号" style="width: 200px">#}-->
+                <!--                                <div>{{ form.course_id }}</div>-->
+                <!--                            </div>-->
+                <!--                            {#                            <div class="checkbox">#}-->
+                <!--                            {#                                <label>#}-->
+                <!--                            {#                                    <input type="checkbox"> 确认#}-->
+                <!--                            {#                                </label>#}-->
+                <!--                            {#                            </div>#}-->
+                <!--                            <button type="submit" class="btn btn-default" name="course_delete_button">删除</button>-->
+                <!--                        </form>-->
+                <!--                    </div>-->
+                <!--                </div>-->
+                <!--                &lt;!&ndash; &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;   修改课程信息&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&ndash;&gt;-->
+                <!--                <div class="big">-->
+                <!--                    <div class="head">-->
+                <!--                        <span><span class="icon-wrench"></span>&nbsp;修改课程信息</span><br>-->
+                <!--                    </div>-->
+                <!--                    <div class="formd">-->
+                <!--                        <form class="form-inline" role="form">-->
+                <!--                            <div class="form-group">-->
+                <!--                                <label class="sr-only" for="name">名称</label>-->
+                <!--                                <input type="text" class="form-control" id="name"-->
+                <!--                                       placeholder="请输入课程名称" style="width: 200px">-->
+                <!--                            </div>-->
+                <!--                            <div class="form-group">-->
+                <!--                                <label class="sr-only" for="name">名称</label>-->
+                <!--                                <input type="text" class="form-control" id="id"-->
+                <!--                                       placeholder="请输入课程号" style="width: 200px">-->
+                <!--                            </div>-->
+                <!--                            <div class="form-group">-->
+                <!--                                <label class="sr-only" for="name">名称</label>-->
+                <!--                                <input type="text" class="form-control" id="pw"-->
+                <!--                                       placeholder="请输入上课时间" style="width: 200px">-->
+                <!--                            </div>-->
+                <!--                            <div class="form-group">-->
+                <!--                                <label class="sr-only" for="name">名称</label>-->
+                <!--                                <input type="text" class="form-control" id="major"-->
+                <!--                                       placeholder="请输入上课地点" style="width: 200px">-->
+                <!--                            </div>-->
+                <!--                            <div class="form-group">-->
+                <!--                                <label class="sr-only" for="name">名称</label>-->
+                <!--                                <input type="text" class="form-control" id="class"-->
+                <!--                                       placeholder="请输入授课教师" style="width: 200px">-->
+                <!--                            </div>-->
+                <!--                            <div class="form-group">-->
+                <!--                                <label class="sr-only" for="name">名称</label>-->
+                <!--                                <input type="text" class="form-control" id="class"-->
+                <!--                                       placeholder="请输入课程容量" style="width: 200px">-->
+                <!--                            </div>-->
+                <!--                            <div class="checkbox">-->
+                <!--                                <label>-->
+                <!--                                    <input type="checkbox"> 确认-->
+                <!--                                </label>-->
+                <!--                            </div>-->
+                <!--                            <button type="submit" class="btn btn-default">修改</button>-->
+                <!--                        </form>-->
+                <!--                    </div>-->
+                <!--                </div>-->
+                <!--                &lt;!&ndash; &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;   查询课程信息&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&ndash;&gt;-->
+                <!--                <div class="big">-->
+                <!--                    <div class="head">-->
+                <!--                        <span><span class="icon-binoculars"></span>&nbsp;查询课程信息</span><br>-->
+                <!--                    </div>-->
+                <!--                    <div class="formd">-->
+                <!--                        <form class="form-inline" role="form" method="POST">{% csrf_token %}-->
+                <!--                            <div class="form-group">-->
+                <!--                                <label class="sr-only" for="name">名称</label>-->
+                <!--                                {{ form.course_id }}-->
+                <!--                            </div>-->
+                <!--                            <button type="submit" class="btn btn-default" name="course_search_button">查询</button>-->
+                <!--                        </form>-->
+                <!--                    </div>-->
+                <!--                </div>-->
+                <!-- --------------------------------   批量导入课程信息------------------------------>
+                <div class="big">
+                    <div class="head">
+                        <span><span class="icon-folder-upload"></span>&nbsp;批量导入课程信息</span><br>
+                    </div>
+                    <div class="formd">
+                        <form enctype="multipart/form-data" action="." method="post" class="form-inline"
+                              role="form">{% csrf_token %}
+                            <div class="form-group">
+                                <a href="{% url 'edu_admin:course_import' %}">下载模板</a>
+                                <input type="file" id="inputfile" name="myfile">
+                                <input type="submit" value="上传" name="file_button" class="btn btn-default">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="Adu_table">
+                    <select name="college">
+                        <option value="" disabled selected>选择学院</option>
+                        <option value="信息科学与工程学院">信息科学与工程学院</option>
+                        <option value="数学科学学院">数学科学学院</option>
+                        <option value="体育学院">体育学院</option>
+                        <option value="物理与电子科学学院">物理与电子科学学院</option>
+                        <option value="化学化工与材料科学学院">化学化工与材料科学学院</option>
+                        <option value="生命科学学院">生命科学学院</option>
+                        <option value="人口·资源与环境学院">人口·资源与环境学院</option>
+                        <option value="传播学院">传播学院</option>
+                        <option value="美术学院">美术学院</option>
+                        <option value="音乐学院">音乐学院</option>
+                        <option value="教育学院">教育学院</option>
+                        <option value="历史文化与社会发展学院">历史文化与社会发展学院</option>
+                        <option value="政法学院">政法学院</option>
+                        <option value="外国语学院">外国语学院</option>
+                        <option value="教育学院">教育学院</option>
+                        <option value="文学院">文学院</option>
+                    </select>
+                    <select name="stu_major">
+                        <option value="" disabled selected>选择专业</option>
+                        <option value="计算机科学与技术（软件工程方向）">计算机科学与技术（软件工程方向）</option>
+                        <option value="计算机科学与技术（信息技术方向）">计算机科学与技术（信息技术方向）</option>
+                        <option value="计算机科学与技术">计算机科学与技术</option>
+                    </select>
+                    <a name="table"></a>
+                <form method="POST">{% csrf_token %}
+                    <table border="1" style="margin-bottom: 80px;margin-top:20px">
+                        <!--            <caption>已选 选修</caption>-->
+                        <tr class="datelisthead">
+                            <td>开设学期</td>
+                            <td>课程编号</td>
+                            <td>课程名称</td>
+                            <td>教师姓名</td>
+                            <td>课容量</td>
+                            <td>开设教室</td>
+                            <td>是否删除</td>
+                            <td>是否修改</td>
+                        </tr>
+                        {% for course in courses %}
+                            <tr class="alt">
+                                <td>(2019-2020-1)-1</td>
+                                <td>{{ course.course_id.course_id }}</td>
+                                <td><a class="click_class" href="#">{{ course.course_id.course_name }}</a></td>
+                                <td>{{ course.teacher_id.name }}</td>
+                                <td>{{ course.course_num }}</td>
+                                <td>{{ course.place_id.place }}</td>
+                                <td>
+                                    <button type="submit" class="delete" name="delete" value="{{ course.select_course_id }}">删除</button>
+                                </td>
+                                <td style="padding-right: 3%">
+                                    <a class="alter" style="margin: 10px"
+                                       href="{{ course.select_course_id }}">修改</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!--</div>-->
+{% endblock %}

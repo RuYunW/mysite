@@ -1,0 +1,70 @@
+{% extends 'Tea_based.html' %}
+{% load staticfiles %}
+{% block title %}SDNU Student_elective_selected{% endblock %}
+{% block content %}
+
+    <div class="body_container1">
+
+{#        <div class="return_top">#}
+{#            <a href="#return_button_top">#}
+{#                <img src="{% static '/images/codingmonkey.png' %}" class="codingmonkey"> </a>#}
+{#        </div>#}
+        <div class="schedule">
+            <div class="number_of_student>"全部学生 共100人</div>
+            <table border="1">
+
+                <!--            <caption>已选 选修</caption>-->
+                <tr class="datelisthead">
+                    <td>学生序号</td>
+                    <td>学生学号</td>
+                    <td>学生姓名</td>
+                    <td>学生专业</td>
+                    <td>学生班级</td>
+                </tr>
+                <tr class="alt">
+                    <td>1</td>
+                    <td>201711010201</td>
+                    <td>王你芸</td>
+                    <td>计算机科学与技术</td>
+                    <td>计工本1702</td>
+                </tr>
+                <tr class="alt">
+                    <td>2</td>
+                    <td>201711010202</td>
+                    <td>王你芸2</td>
+                    <td>计算机科学与技术</td>
+                    <td>计工本1702</td>
+                </tr>
+                                <tr class="alt">
+                    <td>2</td>
+                    <td>201711010202</td>
+                    <td>王你芸2</td>
+                    <td>计算机科学与技术</td>
+                    <td>计工本1702</td>
+                </tr>
+                <tr class="alt">
+                    <td>4</td>
+                    <td>201711010204</td>
+                    <td>王你芸4</td>
+                    <td>计算机科学与技术</td>
+                    <td>计工本1702</td>
+                </tr>
+                <tr class="alt">
+                    <td>5</td>
+                    <td>201711010205</td>
+                    <td>王你芸5</td>
+                    <td>计算机科学与技术</td>
+                    <td>计工本1702</td>
+                </tr>
+                <!--            <canvas id="demo-canvas" style="position:absolute"></canvas>-->
+            </table>
+
+        </div>
+
+    </div>
+    <script src="{% static '/js/TweenLite.min.js' %}"></script>
+    <script src="{% static '/js/EasePack.min.js' %}"></script>
+    <script src="{% static '/js/rAF.js' %}"></script>
+    <script src="{% static '/js/demo-1.js' %}"></script>
+    <!-- 代码部分end -->
+{% endblock %}

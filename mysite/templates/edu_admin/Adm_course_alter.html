@@ -1,0 +1,34 @@
+{% extends 'adm_based.html' %}
+{% load staticfiles %}
+{% block title %}SDNU-Adm-manage-student{% endblock %}
+{% block content %}
+
+    {% if return_message %}
+        <script type="text/javascript">
+            alert("信息修改成功！");
+            window.location.href = "/edu_admin/Adm_manage_courses.html/{{ course_select_id }}/";
+
+        </script>
+    {% endif %}
+
+    <div class="body_container1">
+        <div class="body_background3">
+
+            <div style="font-weight:700;font-size: 40px;margin: auto;padding-top: 40px;padding-left: 20px;color: #5a1216">管理课程-修改信息</div>
+            <form method="POST">{% csrf_token %}
+                <div class="sdu_alter">开设学期:&nbsp;&nbsp;<input class="sdu_alter_input" type="text" name="cou_team" value="2019-2020-1" disabled></div>
+                <div class="sdu_alter">课程编号:&nbsp;&nbsp;<input class="sdu_alter_input" type="text" name="cou_id" value="{{ cou_obj.course_id.course_id }}" disabled></div>
+                <div class="sdu_alter">课程名称:&nbsp;&nbsp;<input class="sdu_alter_input" type="text" name="cou_name" value="{{ cou_obj.course_id.course_name }}" disabled></div>
+                <div class="sdu_alter">教师工号:&nbsp;&nbsp;<input class="sdu_alter_input" type="text" name="cou_tea_id" value="{{ cou_obj.teacher_id.username }}"></div>
+                <div class="sdu_alter">教师姓名:&nbsp;&nbsp;<input class="sdu_alter_input" type="text" name="cou_tea_name" value="{{ cou_obj.teacher_id.name }}" disabled></div>
+                <div class="sdu_alter">课容量:&nbsp;&nbsp;<input class="sdu_alter_input" type="text" name="cou_num" value="{{ cou_obj.course_num }}"></div>
+                <div class="sdu_alter">教室编号:&nbsp;&nbsp;<input class="sdu_alter_input" type="text" name="cou_place_id" value="{{ cou_obj.place_id.room_id }}"></div>
+                <div class="sdu_alter">开设教室:&nbsp;&nbsp;<input class="sdu_alter_input" type="text" name="cou_classroom" value="{{ cou_obj.place_id.place }}" disabled></div>
+                <button type="submit" class="select_submit">修改</button>
+            </form>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

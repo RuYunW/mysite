@@ -1,0 +1,54 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static '/css/style1.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/css/style2.css' %}">
+    <!-- Animate.css 滑动-->
+    <link rel="stylesheet" href="{% static '/css/animate.css' %}">
+    <!-- Icomoon Icon Fonts 图标-->
+    <link rel="stylesheet" href="{% static '/css/icomoon.css' %}">
+    <!-- Bootstrap 框架 -->
+    <link rel="stylesheet" href="{% static '/css/bootstrap.css' %}">
+
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+    <!-- 搜索框的查找图标 -->
+    <link rel="stylesheet" href="{% static '/css/style_search.css' %}">
+    <!--    水纹按钮动画-->
+    <script src="{% static '/js/prefixfree.min_animated_button.js' %}"></script>
+    <!--[if IE]鼠标动画-->
+    <script src="{% static '/js/html5.js' %}"></script>
+    <!--[endif]-->
+
+
+    <!--    <link rel="stylesheet" href="css/style_animated_button.css">-->
+</head>
+<body background="">
+
+{% include 'stu_header.html' %}
+
+{% block content %}{% endblock %}
+
+</body>
+<script src="{% static '/js/TweenLite.min.js' %}"></script>
+<script src="{% static '/js/EasePack.min.js' %}"></script>
+<script src="{% static '/js/rAF.js' %}"></script>
+<script src="{% static '/js/demo-1.js' %}"></script>
+<!-- 代码部分end -->
+<!-- jQuery -->
+<script src="{% static '/js/jquery.min.js' %}"></script>
+<!-- jQuery Easing -->
+<script src="{% static '/js/jquery.easing.1.3.js' %}"></script>
+<!-- Bootstrap -->
+<script src="{% static '/js/bootstrap.min.js' %}"></script>
+<!-- Waypoints -->
+<script src="{% static '/js/jquery.waypoints.min.js' %}"></script>
+<!-- Flexslider -->
+<script src="{% static '/js/jquery.flexslider-min.js' %}"></script>
+<!-- Magnific Popup -->
+<script src="{% static '/js/jquery.magnific-popup.min.js' %}"></script>
+<script src="{% static '/js/magnific-popup-options.js' %}"></script>
+
+<script src="{% static '/js/main.js' %}"></script>

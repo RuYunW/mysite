@@ -1,0 +1,51 @@
+{% extends 'stu_base.html' %}
+{% load staticfiles %}
+{% block title %}SDNU-Welcome student{% endblock %}
+{% block content %}
+    <div class="body_container">
+        <canvas id="demo-canvas" style="position:absolute"></canvas>
+{#        <div class="return_top">#}
+{#            <a href="#return_button_top">#}
+{#                <img src="{% static '/images/codingmonkey.png' %}" class="codingmonkey"> </a>#}
+{#        </div>#}
+        <div class="infrom">
+            <div class="infrom_text">
+                通知
+            </div>
+
+            <div class="inform_content">
+                <ul>
+                    <li><a href="#">2019-2020学年第二学期选课通知已经上传，请同学们查看！</a><br>
+                    </li>
+                    <li><a href="#">2019-2020学年第一学期期末成绩录入已全部完成，请进入确认页面确认成绩！</a><br>
+                    </li>
+                    <li><a href="#">请及时完成教师教学质量评价，以免影响选课！</a><br>
+                    </li>
+                </ul>
+                <!--                <a href="#">2019-2020学年第二学期选课通知已经上传，请同学们查看！</a><br>-->
+                <!--                <a href="#">2019-2020学年第一学期期末成绩录入已全部完成，请进入确认页面确认成绩！</a><br>-->
+                <!--                <a href="#">请及时完成教师教学质量评价，以免影响选课！</a><br>-->
+            </div>
+        </div>
+        <div class="message">
+            <div class="touxiang">
+                <a href="http://www.sdnu.edu.cn/">
+                    <img src="{% static 'images/index.jpg' %}">
+                </a>
+                <div class="message_">
+                    <p>{{ request.session.name }}</p>
+                </div>
+            </div>
+
+            <div class="meassage_xm">{{ request.session.username }}</div>
+            <div class="meassage_xm">{{ request.session.school }}</div>
+            <div class="meassage_xm">{{ request.session.major }}</div>
+            <div class="meassage_xm">{{ request.session.sclass }}</div>
+
+            <!--  js文件和button必须放在一起-->
+{#            <button class="return  material-design" data-color="#ffffff">返回</button>#}
+            <script src="{% static 'js/index_animated_button.js' %}"></script>
+            <!--        <button class="btn btn-round color-2 material-design" data-color="#ffffff">返回</button>-->
+        </div>
+    </div>
+{% endblock %}

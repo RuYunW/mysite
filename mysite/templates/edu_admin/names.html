@@ -1,0 +1,21 @@
+{% extends "stu_base.html" %}
+{% block title%}names{% endblock %}
+{% block content %}
+<div class="row text-center vertical-middle-sm">
+    <h1>名字</h1>
+</div>
+<div class="row">
+    <div class="col-xs-12 col-md-8">
+        <ul>
+            {% for s in stus %}
+            <li><a href="{{ s.stu_no }}">{{ s.stu_name }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="col-xs-6 col-md-4">
+        <h2>广告</h2>
+        <p>hahahahaha</p>
+        <img src="QQ图片20191124212524.jpg">
+    </div>
+</div>
+{% endblock %}

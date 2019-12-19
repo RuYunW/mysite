@@ -1,0 +1,89 @@
+{% extends 'Tea_based.html' %}
+{% load staticfiles %}
+{% block title %}SDNU Student_elective_selected{% endblock %}
+{% block content %}
+
+    <div class="body_container1">
+
+{#        <div class="return_top">#}
+{#            <a href="#return_button_top">#}
+{#                <img src="{% static '/images/codingmonkey.png' %}" class="codingmonkey"> </a>#}
+{#        </div>#}
+        <div class="schedule">
+                    <select name="tea_course">
+                        <option value="" disabled selected>选择课程</option>
+                        <option value="专业英语">专业英语</option>
+                        <option value="人工智能导论">人工智能导论</option>
+                    </select>
+            <table border="1">
+
+                <!--            <caption>已选 选修</caption>-->
+                <tr class="datelisthead">
+                    <td>学生学号</td>
+                    <td>学生姓名</td>
+                    <td>学生班级</td>
+                    <td>学生课程</td>
+                    <td>学生成绩</td>
+                    <td>是否修改</td>
+                </tr>
+                <tr class="alt">
+                    <td>201711010201</td>
+                    <td>王你芸</td>
+                    <td>计工本1702</td>
+                    <td>专业英语</td>
+                    <td>100</td>
+                    <td><button class="alter">修改</button></td>
+                </tr>
+                                <tr class="alt">
+                    <td>201711010201</td>
+                    <td>王你芸</td>
+                    <td>计工本1702</td>
+                    <td>专业英语</td>
+                    <td>100</td>
+                    <td><button class="alter">修改</button></td>
+                </tr>
+                                <tr class="alt">
+                    <td>201711010201</td>
+                    <td>王你芸</td>
+                    <td>计工本1702</td>
+                    <td>专业英语</td>
+                    <td>100</td>
+                    <td><button class="alter">修改</button></td>
+                </tr>
+                                <tr class="alt">
+                    <td>201711010201</td>
+                    <td>王你芸</td>
+                    <td>计工本1702</td>
+                    <td>专业英语</td>
+                    <td>100</td>
+                    <td><button class="alter">修改</button></td>
+                </tr>
+                                <tr class="alt">
+                    <td>201711010201</td>
+                    <td>王你芸</td>
+                    <td>计工本1702</td>
+                    <td>专业英语</td>
+                    <td>100</td>
+                    <td><button class="alter">修改</button></td>
+                </tr>
+                                <tr class="alt">
+                    <td>201711010201</td>
+                    <td>王你芸</td>
+                    <td>计工本1702</td>
+                    <td>专业英语</td>
+                    <td>100</td>
+                    <td><button class="alter">修改</button></td>
+                </tr>
+
+                <!--            <canvas id="demo-canvas" style="position:absolute"></canvas>-->
+            </table>
+
+        </div>
+
+    </div>
+    <script src="{% static '/js/TweenLite.min.js' %}"></script>
+    <script src="{% static '/js/EasePack.min.js' %}"></script>
+    <script src="{% static '/js/rAF.js' %}"></script>
+    <script src="{% static '/js/demo-1.js' %}"></script>
+    <!-- 代码部分end -->
+{% endblock %}

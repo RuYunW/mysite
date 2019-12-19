@@ -1,0 +1,18 @@
+{% extends "stu_base.html" %}
+{% block title %}student info{% endblock %}
+
+{% block content %}
+<div class="row text-center vertical-middle-sm">
+    <h1>{{ stu.stu_name }}</h1>
+</div>
+<div class="row">
+    <div class="col-xs-12 col-md-8"></div>
+    <p class="text-center">
+        <span>{{ stu.stu_name }}</span>
+        <span style="margin-left: 20px">{{ school }}-{{ major }}-{{ sclass }}</span>
+        </p>
+</div>
+<div class="col-xs-6 col-md-4">
+
+</div>
+{% endblock %}

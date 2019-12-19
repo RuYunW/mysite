@@ -1,0 +1,51 @@
+{% extends 'stu_base.html' %}
+{% load staticfiles %}
+{% block title %}SDNU-Student_my_grade{% endblock %}
+{% block content %}
+
+    <div class="body_container1">
+        <!--    <canvas id="demo-canvas" style="position:absolute"></canvas>-->
+        {#        <div class="return_top">#}
+        {#            <a href="#return_button_top">#}
+        {#                <img src="{% static '/images/codingmonkey.png' %}" class="codingmonkey"> </a>#}
+        {#        </div>#}
+        <div class="schedule">
+            <div><span class="remind">弘德明智 博学笃行</span></div>
+            <div><span class="remind2"><center>成绩单</center><br></span></div>
+            <table border="1">
+                <tr class="datelisthead">
+                    <td>课程代码</td>
+                    <td>课程名称</td>
+                    <td>课程性质</td>
+                    <td>成绩</td>
+                    <td>课程归属</td>
+                    <td>补考成绩</td>
+                    <td>重修成绩</td>
+                    <td>学分</td>
+                    <td>辅修标记</td>
+                </tr>
+                {% for grade in grade_objs %}
+                    <tr class="alt">
+                        <td>{{ grade.course_id.course_id }}</td>
+                        <td>{{ grade.course_id.course_name }}</td>
+                        <td>{{ grade.course_id.course_char }}</td>
+                        <td>{{ grade.score }}</td>
+                        {% if grade.course_id.course_belong %}
+                            <td>{{ grade.course_id.course_belong }}</td>
+                        {% else %}
+                            <td>&nbsp;</td>
+                        {% endif %}
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>{{ grade.course_id.credit }}</td>
+                        {% if grade.is_reread %}
+                            <td>1</td>
+                        {% else %}
+                            <td>0</td>
+                        {% endif %}
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+{% endblock %}
