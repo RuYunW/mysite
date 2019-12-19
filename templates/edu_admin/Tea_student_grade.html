@@ -3,82 +3,67 @@
 {% block title %}SDNU Student_elective_selected{% endblock %}
 {% block content %}
 
+    {% if return_score %}
+        <script type="text/javascript">
+            alert("成绩录入成功！");
+            window.location.href = "/edu_admin/Tea_student_grade.html/";
+
+        </script>
+    {% endif %}
+
     <div class="body_container1">
 
-{#        <div class="return_top">#}
-{#            <a href="#return_button_top">#}
-{#                <img src="{% static '/images/codingmonkey.png' %}" class="codingmonkey"> </a>#}
-{#        </div>#}
+        {#        <div class="return_top">#}
+        {#            <a href="#return_button_top">#}
+        {#                <img src="{% static '/images/codingmonkey.png' %}" class="codingmonkey"> </a>#}
+        {#        </div>#}
+
+
         <div class="schedule">
-                    <select name="tea_course">
-                        <option value="" disabled selected>选择课程</option>
-                        <option value="专业英语">专业英语</option>
-                        <option value="人工智能导论">人工智能导论</option>
-                    </select>
-            <table border="1">
+            <!-- <select name="tea_course"> -->
+            <!--    <option value="" disabled selected>选择课程</option> -->
+            <!--    <option value="专业英语">专业英语</option> -->
+            <!--    <option value="人工智能导论">人工智能导论</option> -->
+            <!-- </select>  -->
 
-                <!--            <caption>已选 选修</caption>-->
-                <tr class="datelisthead">
-                    <td>学生学号</td>
-                    <td>学生姓名</td>
-                    <td>学生班级</td>
-                    <td>学生课程</td>
-                    <td>学生成绩</td>
-                    <td>是否修改</td>
-                </tr>
-                <tr class="alt">
-                    <td>201711010201</td>
-                    <td>王你芸</td>
-                    <td>计工本1702</td>
-                    <td>专业英语</td>
-                    <td>100</td>
-                    <td><button class="alter">修改</button></td>
-                </tr>
-                                <tr class="alt">
-                    <td>201711010201</td>
-                    <td>王你芸</td>
-                    <td>计工本1702</td>
-                    <td>专业英语</td>
-                    <td>100</td>
-                    <td><button class="alter">修改</button></td>
-                </tr>
-                                <tr class="alt">
-                    <td>201711010201</td>
-                    <td>王你芸</td>
-                    <td>计工本1702</td>
-                    <td>专业英语</td>
-                    <td>100</td>
-                    <td><button class="alter">修改</button></td>
-                </tr>
-                                <tr class="alt">
-                    <td>201711010201</td>
-                    <td>王你芸</td>
-                    <td>计工本1702</td>
-                    <td>专业英语</td>
-                    <td>100</td>
-                    <td><button class="alter">修改</button></td>
-                </tr>
-                                <tr class="alt">
-                    <td>201711010201</td>
-                    <td>王你芸</td>
-                    <td>计工本1702</td>
-                    <td>专业英语</td>
-                    <td>100</td>
-                    <td><button class="alter">修改</button></td>
-                </tr>
-                                <tr class="alt">
-                    <td>201711010201</td>
-                    <td>王你芸</td>
-                    <td>计工本1702</td>
-                    <td>专业英语</td>
-                    <td>100</td>
-                    <td><button class="alter">修改</button></td>
-                </tr>
+                <table border="1">
+                    <!--            <caption>已选 选修</caption>-->
+                    <tr class="datelisthead">
+                        <td>学生学号</td>
+                        <td>学生姓名</td>
+                        <td>学生班级</td>
+                        <td>课程名称</td>
+                        <td>选课代码</td>
+                        <td>学生成绩</td>
+                        <td>是否修改</td>
+                    </tr>
 
-                <!--            <canvas id="demo-canvas" style="position:absolute"></canvas>-->
-            </table>
+                    {% for student in stu_tea_cou_objs %}
+                        <form method="POST">{% csrf_token %}
+                            <tr class="alt">
+                                <td><input type="text" name="student_id" value="{{ student.student_id.username }}"
+                                           readonly>
+                                </td>
+                                <td>{{ student.student_id.name }}</td>
+                                <td>{{ student.student_id.sclass }}</td>
+                                <td>{{ student.course_id.course_name }}</td>
+                                <td><input name="course_id" value="{{ student.select_course_id_id }}" readonly></td>
+                                <td><input name="score" value="{{ student.score }}"></td>
+                                <td>
+                                    <button type="submit" class="alter" name="score_button">提交
+                                    </button>
+                                </td>
+                            </tr>
+                        </form>
+                    {% endfor %}
+
+
+
+                    <!--            <canvas id="demo-canvas" style="position:absolute"></canvas>-->
+                </table>
 
         </div>
+
 
     </div>
     <script src="{% static '/js/TweenLite.min.js' %}"></script>

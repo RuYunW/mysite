@@ -160,19 +160,19 @@
 }
 .body_points
 {
-    width: 200px;
-    height: 250px;
+    width: 100px;
+    height: 200px;
     float: left;
     margin-top: 20px;
-    margin-left: 150px;
+    margin-left: 10%;
     text-align: center;
     color: black;
 }
 .body_points_number
 {
-    width: 200px;
-    height: 200px;
     color: rgba(124,182,119,0.9);
+    width: 100px;
+    height: 200px;
     margin-top: 30px;
     text-align: center;
     font-size: 60px;
@@ -180,7 +180,7 @@
 }
 .body_note_time_container
 {
-    width: 400px;
+    width:30%;
     height: 250px;
     float: right;
 }
@@ -188,7 +188,7 @@
 {
     background: rgba(66,57,40,0.3);
     height: 50px;
-    width: 400px;
+    width:90%;
     color: white;
     float: right;
     padding-top: 10px;
@@ -216,11 +216,11 @@
 }
 
 .note{
-    margin: 20px;
+    margin: 2%;
     /*background: #d9d7cb;*/
     background: -webkit-linear-gradient(top,#faf2cc,#d9d7cb);
-    width: 30%;
-    height: 400px;
+    width: 28%;
+    height: 500px;
     opacity: 0.9;
     border-radius: 20px;
     transform: rotate(1deg);
@@ -231,7 +231,8 @@
 .note_icon
 {
     float: right;
-    margin: 10px;
+    margin-top: 10px;
+    margin-right: 10px;
     width: 50px;
     height: 50px;
     border-radius: 50px;
@@ -251,9 +252,12 @@
 }
 .note_class
 {
-    margin:16px;
+    margin-left:16px;
+    margin-right: 16px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     float: left;
-    width: 72%;
+    width: 80%;
     height: 70px;
     font-size:25px;
     /*background: rgba(252,248,227,0.3);*/
@@ -272,27 +276,28 @@
 {
     float: left;
     width: 90%;
-    height: 150px;
+    height:58%;
     background: rgba(149,136,127,0.2);
-   margin-left: 20px;
+    margin-left: 20px;
     margin-right: 20px;
     margin-top: 10px;
     border-radius: 20px;
-    margin-bottom: 5px;
     /*padding-top: 120px;*/
 }
 .note_cancel
 {
     border-radius: 20px;
-    float: right;
-    width: 100px;
+    width: 30%;
+    right: 0px;
+    bottom: 0px;
     height: 40px;
     background: rgba(121,63,58,0.6);
     box-shadow: 3px 3px 5px 1px rgba(0,0,0,0.6);
     border: none;
-    margin-top: 5px;
+    margin-bottom: 2%;
     padding: 5px;
     text-align: center;
+    position:absolute;
     margin-right: 10px;
 }
 .note_cancel:hover
@@ -321,28 +326,53 @@
 {
     background: #9d9d9d;
 }
+.note_coursenatrue
+{
+    border-radius: 20px;
+    margin-top:10px;
+    margin-left: 2%;
+    width: 55%;
+    height: 30px;
+    background: rgba(157,157,157,0.3);
+    float: left;
+    padding-left: 3%;
+}
 .note_credit
 {
     border-radius: 20px;
     margin-top:10px;
-    margin-left: 10px;
-    width: 150px;
-    height: 40px;
+    margin-right: 10px;
+    width: 30%;
+    height: 30px;
     background: rgba(157,157,157,0.3);
-    float: left;
-    padding-left: 10%;
+    float: right;
+    padding-left:3%;
 }
 
-
-.note_time
+.note_coursetype
 {
-    margin-top:10px;
-    margin-left: 10px;
+   margin-top:10px;
+    margin-left:2%;
+    width: 55%;
+    height: 30px;
     border-radius: 20px;
-    width: 250px;
-    height: 60px;
+    padding-left:3%;
     background: rgba(157,157,157,0.3);
     float: left;
+}
+.note_time
+{
+    margin-top:3%;
+    margin-left:3%;
+    padding-left: 3%;
+    padding-top: 3%;
+    border-radius: 20px;
+    width: 90%;
+    height: 180px;
+    background: rgba(157,157,157,0.3);
+    float: left;
+    overflow: auto;
+    zoom:1;
 
 }
 .note_position
@@ -412,10 +442,11 @@
     float: left;
     padding-top: 50px;
     padding-left: 10%;
-
     line-height: 80px;
-    font-size: 40px;
+    font-size: 30px;
     color: #ffffff;
+
+
     /*color:#5a1216;*/
 }
 /*.remind_adm1{*/

@@ -44,3 +44,17 @@ class StudentSelectCourse(models.Model):  # 学生选课表
     is_reread = models.BooleanField(default=False)  # 重修标记
     course_id = models.ForeignKey(Course, on_delete=models.CASCADE, default='161130205')
 
+
+class StuTeaCouView(models.Model):
+    select_id = models.CharField(max_length=50, primary_key=True)  # 学生选课ID
+    select_course_id_id = models.CharField(max_length=50)  # 开课课程代码
+    student_id = models.ForeignKey(User, on_delete=models.DO_NOTHING)  # 学生学号
+    score = models.CharField(max_length=50)  # 课程成绩
+    is_reread = models.CharField(max_length=50)  # 重修标记
+    course_id = models.ForeignKey(Course, on_delete=models.CASCADE, default='161130205')
+    teacher_id_id = models.CharField(max_length=50)     # 授课教师
+
+    class Meta:
+        managed = True
+        db_table = 'stu_tea_cou_view'
+

@@ -50,17 +50,17 @@
                     <img src="{% static '/images/Adm.jpg' %}">
                 </a>
                 <div class="message_">
-                    <p>王你芸</p>
+                    <p>{{ request.session.name }}</p>
                 </div>
             </div>
-            <div class="meassage_xm">{{ request.session.name }}</div>
+{#            <div class="meassage_xm">{{ request.session.name }}</div>#}
             <div class="meassage_xm">教师工号{{ request.session.username }}</div>
             <div class="meassage_xm"></div>
             <div class="meassage_xm"></div>
 
             <!--        <button class="return"><a href="login.html">返回</a></button>-->
-            <button class="return  material-design" data-color="#ffffff" onclick="window.location='login.html'">返回
-            </button>
+            <!--<button class="return  material-design" data-color="#ffffff" onclick="window.location='login.html'">返回-->
+            <!--</button>-->
             <script src="{% static '/js/index_animated_button.js' %}"></script>
             <!--        <button class="btn btn-round color-2 material-design" data-color="#ffffff">返回</button>-->
         </div>
