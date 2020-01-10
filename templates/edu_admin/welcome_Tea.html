@@ -2,7 +2,12 @@
 {% load staticfiles %}
 {% block title %}SDNU-Welcome-administrator{% endblock %}
 {% block content %}
-
+  <script>
+    function btn2()
+    {
+        window.location.href="{% url 'edu_admin:Tea_chage_passwd' %}";
+    }
+    </script>
     <div class="body_container">
         <script type="text/javascript">
             window.onload = function () {
@@ -57,7 +62,7 @@
             <div class="meassage_xm">教师工号{{ request.session.username }}</div>
             <div class="meassage_xm"></div>
             <div class="meassage_xm"></div>
-
+ <button class="return  material-design" data-color="#ffffff" name="Adm_change_passwd" onclick="btn2()" style="width: 90%;height: 40px;margin-left: 5%;margin-right: 5%;margin-top: 30px;margin-bottom: 30px;">修改密码</button>
             <!--        <button class="return"><a href="login.html">返回</a></button>-->
             <!--<button class="return  material-design" data-color="#ffffff" onclick="window.location='login.html'">返回-->
             <!--</button>-->

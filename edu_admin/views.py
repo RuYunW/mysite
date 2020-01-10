@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+﻿from django.shortcuts import render, get_object_or_404
 from edu_admin import models
 from django.http import FileResponse, HttpResponse, JsonResponse
 from edu_admin.forms import AddCourseForm
@@ -7,7 +7,7 @@ from account.models import User
 import xlrd
 from account.forms import TeacherForm
 from django.views.decorators.csrf import ensure_csrf_cookie
-from django.contrib.auth.hashers import make_password
+from django.contrib.auth.hashers import make_password, check_password
 from django.db.models import Q
 import os
 import pymysql
@@ -52,6 +52,7 @@ def Adm_mng_cou(request):
                         place_id=Classroom.objects.get(room_id=classroom_id),
                         teacher_id=User.objects.get(username=request.POST.get("teacher_id"))
                     )
+                    print(444)
                 else:  # 没有重复课程
                     SelectCourse.objects.create(
                         select_course_id=
@@ -128,9 +129,8 @@ def Adm_mng_cou(request):
             teacher = User.objects.get(username=request.POST.get('teacher_id'))
             SelectCourse.objects.create(
                 select_course_id=
-                "(" + str(request.POST.get("term")) + ")" + "-"
-                + str(request.POST.get("course_id")) + "-"
-                + str(request.POST.get("teacher_id")) + "-"
+                "(" + request.POST.get("term") + ")" + "-"
+                + request.POST.get("teacher_id") + "-"
                 + str(len(SelectCourse.objects.filter(course_id=request.POST.get("course_id"))) + 1),
                 course_id=Course.objects.get(course_id=request.POST.get("course_id")),
                 course_num=request.POST.get("course_num"),
@@ -166,6 +166,8 @@ def Adm_mng_cou(request):
     elif request.method == "POST" and request.POST.getlist("course_search_button"):
         add_course_form = AddCourseForm(request.POST)
         course_id = request.POST.get('course_id')
+        print(666)
+        print(course_id)
         if Course.objects.filter(course_id=course_id):
 
             course_obj = Course.objects.get(course_id=course_id)
@@ -216,11 +218,11 @@ def Adm_mng_cou(request):
 
             else:  # 不为空
                 for row in range(1, nrows):
-                    if Course.objects.filter(course_id=table.cell_value(row, 0)) \
-                            or not Classroom.objects.filter(room_id=table.cell_value(row, 6)) \
-                            or not User.objects.filter(username=table.cell_value(row, 8)) \
-                            or not User.objects.get(username=table.cell_value(row, 8)).is_teacher:
-                        error_list.append(table.cell_value(row, 0) + ":" + table.cell_value(row, 1) + ",")
+                    if Course.objects.filter(course_id=str(table.cell_value(row, 0))) \
+                            or not Classroom.objects.filter(room_id=str(table.cell_value(row, 6))) \
+                            or not User.objects.filter(username=str(table.cell_value(row, 8))) \
+                            or not User.objects.get(username=str(table.cell_value(row, 8))).is_teacher:
+                        error_list.append(str(table.cell_value(row, 0)) + ":" + str(table.cell_value(row, 1)) + ",")
 
                     else:  # 不产生冲突，记录插入值
                         lines.append({"course_id": table.cell_value(row, 0),
@@ -266,22 +268,21 @@ def Adm_mng_cou(request):
                           "edu_admin/Adm_manage_courses.html",
                           {"form": add_course_form, "upload": False, "error_message": error_message})
 
-    elif request.method == "POST" and request.POST.getlist('delete'):  # 删除课程
+    elif request.method == "POST" and request.POST.getlist('delete'):
+
         StudentSelectCourse.objects.filter(select_course_id=request.POST.get("delete")).delete()
-        conn = pymysql.connect(
-            host='127.0.0.1',
-            user='root',
-            password='password',
-            database='mysite',
-            charset='utf8'
-        )
-        cur = conn.cursor()  # 获取游标
-        cur.callproc('Delete_course', (request.POST.get("delete"),))  # 调用存储过程
-        conn.commit()  # 执行
+        # print(request.POST.get("delete"))
+
+        conn = pymysql.connect(host='localhost', user='root', password='MyNewPass4!', database='mysite', charset='utf8')
+        cur = conn.cursor()
+        cur.callproc('Sdu_delete_course', (request.POST.get("delete"),))
+        conn.commit()
         error_message = '删除成功！'
         return render(request,
                       "edu_admin/Adm_manage_courses.html",
                       {"form": add_course_form, "upload": False, "error_message": error_message})
+
+
 
     else:
         add_course_form = AddCourseForm()
@@ -304,6 +305,74 @@ def Adm_mng_stu(requset):
 def Adm_sel_time(request):
     return render(request, "edu_admin/Adm_select_time.html")
 
+
+def Stu_chage_passwd(request):
+    if request.method == 'POST':
+        sdu_password = request.POST.get("sdu_password")
+        sdu_new_password = request.POST.get("sdu_new_password")
+        sdu_confirm_password = request.POST.get("sdu_confirm_password")
+	# 如果两次新密码匹配
+        if sdu_new_password == sdu_confirm_password:
+            user = User.objects.get(username=request.session.get("username"))
+            # 如果原密码匹配
+            if user.check_password(sdu_password):
+                User.objects.filter(username=request.session.get("username")).update(password=make_password(sdu_new_password))
+                return render(request, "edu_admin/Stu_change_passwd.html", {"state": True})
+            else:
+                error_message = "原密码错误，请重新输入！"
+                print(User.objects.get(username=request.session.get("username")).password)
+                print(666)
+                return render(request, "edu_admin/Stu_change_passwd.html", {"state": False, "error_message": error_message})
+        else:
+            error_message = "两次密码不一致，请重新输入!"
+            return render(request, "edu_admin/Stu_change_passwd.html", {"state": False, "error_message": error_message})
+    else:   
+        return render(request, "edu_admin/Stu_change_passwd.html")
+
+
+def Tea_chage_passwd(request):
+    if request.method == 'POST':
+        tea_password = request.POST.get("tea_password")
+        tea_new_password = request.POST.get("tea_new_password")
+        tea_confirm_password = request.POST.get("tea_confirm_password")
+        # 如果两次新密码匹配
+        if tea_new_password == tea_confirm_password:
+            user = User.objects.get(username=request.session.get("username"))
+            # 如果原密码匹配
+            if user.check_password(tea_password):
+                User.objects.filter(username=request.session.get("username")).update(password=make_password(tea_new_password))
+                return render(request, "edu_admin/Tea_change_passwd.html", {"state":True})
+            else:
+                error_message = "原密码错误，请重新输入！"
+                return render(request, "edu_admin/Tea_change_passwd.html", {"state": False, "error_message": error_message})
+        else:
+            error_message = "两次密码不一致，请重新输入!"
+            return render(request, "edu_admin/Tea_change_passwd.html", {"state": False, "error_message": error_message})
+    else:   
+        return render(request, "edu_admin/Tea_change_passwd.html")
+
+
+def Adm_change_password(request):
+    if request.method == 'POST':
+        adm_password = request.POST.get("adm_password")
+        adm_new_password = request.POST.get("adm_new_password")
+        adm_confirm_password = request.POST.get("adm_confirm_password")
+        # 如果两次新密码匹配
+        if adm_new_password == adm_confirm_password:
+            user = User.objects.get(username=request.session.get("username"))
+            # 如果原密码匹配
+            if user.check_password(adm_password):
+                User.objects.filter(username=request.session.get("username")).update(password=make_password(adm_new_password))
+                return render(request, "edu_admin/Adm_change_passwd.html", {"state": True})
+            else:
+                error_message = "原密码错误，请重新输入！"
+                return render(request, "edu_admin/Adm_change_passwd.html", {"state": False, "error_message": error_message})
+        else:
+            error_message = "两次密码不一致，请重新输入!"
+            return render(request, "edu_admin/Adm_change_passwd.html", {"state": False, "error_message": error_message})
+    else:   
+        return render(request, "edu_admin/Adm_change_passwd.html")
+    
 
 def Adm_inp_time(request):
     return render(request, "edu_admin/Adm_input_time.html")
@@ -496,8 +565,8 @@ def stu_course_detailed(request, course_id):
             # print(request.POST.get("select"))
             if request.POST.get("select"):  # 如果选课valid
                 # 如果已有相同课程, 删除
-                if StudentSelectCourse.objects.filter(select_course_id=request.POST.get("select")):
-                    StudentSelectCourse.objects.filter(course_id=request.POST.get("select").split('-')[3]).delete()
+                if StudentSelectCourse.objects.filter(Q(select_course_id=request.POST.get("select")) & Q(student_id=request.session.get("username"))):
+                    StudentSelectCourse.objects.filter(Q(course_id=request.POST.get("select").split('-')[3]) & Q(student_id=request.session.get("username"))).delete()
                 StudentSelectCourse.objects.create(  # 创建记录
                     select_id=str(request.POST.get("select")) + "-" + str(request.session.get("username")),
                     select_course_id=SelectCourse.objects.get(select_course_id=request.POST.get("select")),
@@ -521,10 +590,7 @@ def stu_course_detailed(request, course_id):
 
         # 退课
         elif request.method == "POST" and request.POST.getlist("delete_button"):
-            StudentSelectCourse.objects.filter(
-                student_id=request.session.get("username"),
-                course_id=course_id
-            ).delete()
+            StudentSelectCourse.objects.filter(student_id=request.session.get("username"), course_id=course_id).delete()
             return_message = "退课成功"
             course_been_select_obj = None
             return render(request, "edu_admin/Stu_course_detailed.html/",
@@ -613,10 +679,9 @@ def tea_student_grade(request):
         print(score)
         print(request.POST.get("course_id"))
         print(request.POST.get("student_id"))
-        StudentSelectCourse.objects.filter(
-            Q(select_course_id_id=request.POST.get("course_id")) &
-            Q(student_id_id=request.POST.get("student_id"))
-        ).update(score=score)
+        print()
+        StudentSelectCourse.objects.filter(Q(select_course_id_id=request.POST.get("course_id")) & Q(
+            student_id_id=request.POST.get("student_id"))).update(score=score)
 
         # StuTeaCouView.objects.filter(select_course_id_id=request.POST.get("score_button"),
         #                              student_id=request.POST.get("student_id")).update(score=score)
@@ -702,7 +767,7 @@ def Adm_cou_alt(request, course_select_id):
 
 def Adm_ba_re(request):
     if request.method == "POST" and request.POST.getlist('backup'):
-        print(os.system('mysqldump -uroot -ppassword mysite > mysite.sql '))
+        print(os.system('mysqldump -uroot -pMyNewPass4! mysite > mysite.sql '))
         return_message = '备份成功'
         return render(
             request,
@@ -710,7 +775,7 @@ def Adm_ba_re(request):
             {"return_message": return_message}
         )
     elif request.method == "POST" and request.POST.getlist('restore'):
-        print(os.system('mysql -uroot -ppassword mysite < mysite.sql'))
+        print(os.system('mysql -uroot -pMyNewPass4! mysite < mysite.sql'))
         return_message = '还原成功'
         return render(
             request,

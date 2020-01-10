@@ -25,7 +25,7 @@ SECRET_KEY = '#_^fx%m00)f(b)paq^8t@1rvuz45#g@5hhf2ks*r_wzog@_ehh'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -87,10 +87,10 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'HOST': '127.0.0.1',  # 数据库主机
+        'HOST': 'localhost',  # 数据库主机
         'PORT': 3306,  # 数据库端口
         'USER': 'root',  # 数据库用户名
-        'PASSWORD': 'password',  # 数据库用户密码
+        'PASSWORD': 'MyNewPass4!',  # 数据库用户密码
         'NAME': 'mysite'  # 数据库名字
     }
 }

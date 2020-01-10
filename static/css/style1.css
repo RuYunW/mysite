@@ -76,11 +76,11 @@
 {
     /*padding-top: 100px;*/
     /*padding-right: 100px;*/
-    margin-top:60px;
+margin-top:60px;
     margin-right: 30px;
     float: right;
     height:650px;
-    width: 250px;
+    width: 18%;
     border-radius: 60px;
     background: rgba(66,57,40,0.5);
 }
@@ -112,7 +112,7 @@
 }
 .meassage_xm
 {
-    width: 200px;
+    width: 90%;
     height: 40px;
     font-size: 15px;
     /*font-weight: 600;*/
@@ -122,18 +122,18 @@
     color: white;
     text-align: center ;
     padding-top: 5px;
-    margin-left: 30px;
-    margin-right: 30px;
+    margin-left: 5%;
+    margin-right: 5%;
     border-radius: 20px;
 }
 
 
 .infrom
 {
-    margin-top: 60px;
-    margin-left: 70px;
-    margin-bottom: 50px;
-    width: 1000px;
+ margin-top: 60px;
+    margin-left: 2%;
+    margin-bottom: 2%;
+    width:70%;
     height: 650px;
     opacity: 0.5;
     background: #c0c0c0;

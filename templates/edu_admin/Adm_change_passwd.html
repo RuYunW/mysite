@@ -1,0 +1,58 @@
+﻿{% extends 'adm_based.html' %}
+{% load staticfiles %}
+{% block title %}DNU-Adm-manage-courses{% endblock %}
+{% block content %}
+    <!--<canvas id="demo-canvas" style="position:absolute"></canvas>-->
+    <!--<div class="body_container">   big head formd-->
+
+{% if state == True %}
+        <script type="text/javascript">
+            alert("密码修改成功，请重新登录！");
+            window.location.href = "/account/login.html";
+        </script>
+{% elif state == False %}
+        <script type="text/javascript">
+            alert("{{ error_message }}");
+            window.location.href = "/edu_admin/Adm_change_passwd.html";
+        </script>
+{% else %}
+{% endif %}
+
+    <div class="body_container1">
+
+        <div class="body_background3">
+            <!--        <div style="font-size: 40px;margin: auto;padding-top: 40px;padding-left: 20px;color: #5a1216">修改录入成绩时间</div>-->
+            <div class="manage—stu">
+
+                <!-- -------------------------------------------------------------->
+                <div class="big" style="padding-top: 100px">
+                    <div class="head" style="margin-bottom: 50px">
+                        &nbsp;管理员—修改密码</span><br>
+                    </div>
+                    <form method="POST"> {% csrf_token %}
+                <div class="sdu_alter">原密码:&nbsp;&nbsp;
+                    <label for="adm_password"><input  class="sdu_alter_input" value="" type="password"
+                                               name="adm_password"></label>
+                </div>
+                    <div class="sdu_alter">新密码:&nbsp;&nbsp;
+                    <label for="adm_new_password"><input  class="sdu_alter_input" value="" type="password"
+                                               name="adm_new_password"></label>
+                </div>
+                                        <div class="sdu_alter">确认密码:&nbsp;&nbsp;
+                    <label for="adm_confirm_password"><input  class="sdu_alter_input" value="" type="password"
+                                               name="adm_confirm_password"></label>
+                </div>
+                    
+                                    <button type="submit" class="select_submit">确认</button>
+</form>
+                    <script src="{% static 'js/index_animated_button.js' %}"></script>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <!--</div>-->
+
+{% endblock %}

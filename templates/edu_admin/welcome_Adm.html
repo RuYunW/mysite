@@ -1,8 +1,13 @@
-{% extends 'adm_based.html' %}
+﻿{% extends 'adm_based.html' %}
 {% load staticfiles %}
 {% block title %}SDNU-Welcome-administrator{% endblock %}
 {% block content %}
-
+  <script>
+    function btn1()
+    {
+        window.location.href="{% url 'edu_admin:Adm_change_password' %}";
+    }
+    </script>
     <div class="body_container">
         <script type="text/javascript">
             window.onload = function () {
@@ -54,6 +59,7 @@
                 </div>
             </div>
             <div class="meassage_xm">管理工号{{ request.session.username }}</div>
+ <button class="return  material-design" data-color="#ffffff" name="Adm_change_passwd" onclick="btn1()" style="width: 90%;height: 40px;margin-left: 5%;margin-right: 5%;margin-top: 30px;margin-bottom: 30px;">修改密码</button>
 
             <!--        <button class="return"><a href="login.html">返回</a></button>-->
 {#            <button class="return  material-design" data-color="#ffffff" onclick="window.location='login.html'">返回#}

@@ -2,6 +2,12 @@
 {% load staticfiles %}
 {% block title %}SDNU-Welcome student{% endblock %}
 {% block content %}
+    <script>
+    function btn()
+    {
+        window.location.href="{% url 'edu_admin:Stu_chage_passwd' %}";
+    }
+    </script>
     <div class="body_container">
         <canvas id="demo-canvas" style="position:absolute"></canvas>
 {#        <div class="return_top">#}
@@ -41,7 +47,8 @@
             <div class="meassage_xm">{{ request.session.school }}</div>
             <div class="meassage_xm">{{ request.session.major }}</div>
             <div class="meassage_xm">{{ request.session.sclass }}</div>
-
+            <button class="return  material-design" data-color="#ffffff" name="Stu_change_passwd" onclick="btn()" style="width: 90%;height: 40px;margin-left: 5%;margin-right: 5%;margin-top: 30px;margin-bottom: 30px;">修改密码</button>
+{#            <a href="{% url 'edu_admin:Stu_chage_passwd' %}" style="color:white">#}
             <!--  js文件和button必须放在一起-->
 {#            <button class="return  material-design" data-color="#ffffff">返回</button>#}
             <script src="{% static 'js/index_animated_button.js' %}"></script>
