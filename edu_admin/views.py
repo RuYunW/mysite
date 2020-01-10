@@ -40,7 +40,7 @@ def Adm_mng_cou(request):
                     SelectCourse.objects.create(
                         select_course_id=
                         "(" + str(request.POST.get("term")) + ")" + "-"
-                        + str(request.POST.get("course_is")) + "-"
+                        + str(request.POST.get("course_id")) + "-"
                         + str(request.POST.get("teacher_id")) + "-"
                         + str(len(SelectCourse.objects.filter(course_id=course_id)) + 1),
                         course_id=Course.objects.get(course_id=course_id),
@@ -52,7 +52,6 @@ def Adm_mng_cou(request):
                         place_id=Classroom.objects.get(room_id=classroom_id),
                         teacher_id=User.objects.get(username=request.POST.get("teacher_id"))
                     )
-                    print(444)
                 else:  # 没有重复课程
                     SelectCourse.objects.create(
                         select_course_id=
@@ -129,8 +128,9 @@ def Adm_mng_cou(request):
             teacher = User.objects.get(username=request.POST.get('teacher_id'))
             SelectCourse.objects.create(
                 select_course_id=
-                "(" + request.POST.get("term") + ")" + "-"
-                + request.POST.get("teacher_id") + "-"
+                "(" + str(request.POST.get("term")) + ")" + "-"
+                + str(request.POST.get("course_id")) + "-"
+                + str(request.POST.get("teacher_id")) + "-"
                 + str(len(SelectCourse.objects.filter(course_id=request.POST.get("course_id"))) + 1),
                 course_id=Course.objects.get(course_id=request.POST.get("course_id")),
                 course_num=request.POST.get("course_num"),
@@ -166,8 +166,6 @@ def Adm_mng_cou(request):
     elif request.method == "POST" and request.POST.getlist("course_search_button"):
         add_course_form = AddCourseForm(request.POST)
         course_id = request.POST.get('course_id')
-        print(666)
-        print(course_id)
         if Course.objects.filter(course_id=course_id):
 
             course_obj = Course.objects.get(course_id=course_id)
@@ -268,21 +266,22 @@ def Adm_mng_cou(request):
                           "edu_admin/Adm_manage_courses.html",
                           {"form": add_course_form, "upload": False, "error_message": error_message})
 
-    elif request.method == "POST" and request.POST.getlist('delete'):
-
+    elif request.method == "POST" and request.POST.getlist('delete'):  # 删除课程
         StudentSelectCourse.objects.filter(select_course_id=request.POST.get("delete")).delete()
-        # print(request.POST.get("delete"))
-
-        conn = pymysql.connect(host='127.0.0.1', user='root', password='password', database='mysite', charset='utf8')
-        cur = conn.cursor()
-        cur.callproc('Delete_course', (request.POST.get("delete"),))
-        conn.commit()
+        conn = pymysql.connect(
+            host='127.0.0.1',
+            user='root',
+            password='password',
+            database='mysite',
+            charset='utf8'
+        )
+        cur = conn.cursor()  # 获取游标
+        cur.callproc('Delete_course', (request.POST.get("delete"),))  # 调用存储过程
+        conn.commit()  # 执行
         error_message = '删除成功！'
         return render(request,
                       "edu_admin/Adm_manage_courses.html",
                       {"form": add_course_form, "upload": False, "error_message": error_message})
-
-
 
     else:
         add_course_form = AddCourseForm()
@@ -522,7 +521,10 @@ def stu_course_detailed(request, course_id):
 
         # 退课
         elif request.method == "POST" and request.POST.getlist("delete_button"):
-            StudentSelectCourse.objects.filter(student_id=request.session.get("username"), course_id=course_id).delete()
+            StudentSelectCourse.objects.filter(
+                student_id=request.session.get("username"),
+                course_id=course_id
+            ).delete()
             return_message = "退课成功"
             course_been_select_obj = None
             return render(request, "edu_admin/Stu_course_detailed.html/",
@@ -611,9 +613,10 @@ def tea_student_grade(request):
         print(score)
         print(request.POST.get("course_id"))
         print(request.POST.get("student_id"))
-        print()
-        StudentSelectCourse.objects.filter(Q(select_course_id_id=request.POST.get("course_id")) & Q(
-            student_id_id=request.POST.get("student_id"))).update(score=score)
+        StudentSelectCourse.objects.filter(
+            Q(select_course_id_id=request.POST.get("course_id")) &
+            Q(student_id_id=request.POST.get("student_id"))
+        ).update(score=score)
 
         # StuTeaCouView.objects.filter(select_course_id_id=request.POST.get("score_button"),
         #                              student_id=request.POST.get("student_id")).update(score=score)
@@ -656,7 +659,7 @@ def Adm_tea_alt(request, teacher_id):
         User.objects.filter(username=teacher_id).update(
             name=request.POST.get("tea_name"),
             major=request.POST.get("tea_major"),
-            sclass=request.POST.get("tea_class"),
+            school=request.POST.get("tea_school"),
         )
         return_message = "信息修改成功！"
         return render(
